@@ -1,11 +1,14 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mounted, setMounted] = useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const navLinks = [
     { href: '/', label: 'Home' },

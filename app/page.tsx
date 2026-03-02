@@ -1,13 +1,11 @@
-'use client'
-
 import { useState } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import SocietyCard from '@/components/SocietyCard'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
 
 export default function Home() {
-  const [testimonialIndex, setTestimonialIndex] = useState(0)
 
   const testimonials = [
     {
@@ -31,32 +29,32 @@ export default function Home() {
     {
       name: "Women in Engineering (WIE)",
       description: "Empowering women in science, technology, engineering, and mathematics through networking, mentorship, and professional development.",
-      color: "bg-gradient-to-br from-pink-500 to-rose-600",
+      color: "bg-blue-100",
     },
     {
       name: "Young Professionals (YP)",
       description: "Connecting early-career professionals with industry experts, career development workshops, and networking events.",
-      color: "bg-gradient-to-br from-blue-500 to-cyan-600",
+      color: "bg-purple-100",
     },
     {
       name: "Power & Energy Society (PES)",
       description: "Advancing innovation in power systems, renewable energy, and sustainable technologies for a better future.",
-      color: "bg-gradient-to-br from-yellow-500 to-orange-600",
+      color: "bg-amber-100",
     },
     {
       name: "Computer Society (CS)",
       description: "Promoting computing education, research, and professional development in computer science and IT.",
-      color: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      color: "bg-emerald-100",
     },
     {
       name: "Communications Society (ComSoc)",
       description: "Fostering innovation in communication systems, signal processing, and information theory.",
-      color: "bg-gradient-to-br from-green-500 to-emerald-600",
+      color: "bg-rose-100",
     },
     {
       name: "Robotics & Automation Society (RAS)",
       description: "Exploring robotics, automation, and intelligent systems to advance technology and innovation.",
-      color: "bg-gradient-to-br from-red-500 to-pink-600",
+      color: "bg-cyan-100",
     },
   ]
 
@@ -168,33 +166,7 @@ export default function Home() {
             <h2 className="section-title text-center">Member Testimonials</h2>
             <p className="section-subtitle text-center mb-12">What our members are saying</p>
 
-            <div className="max-w-3xl mx-auto">
-              <div className="card-ieee">
-                <blockquote className="mb-6">
-                  <p className="text-xl md:text-2xl text-foreground italic leading-relaxed">
-                    "{testimonials[testimonialIndex].quote}"
-                  </p>
-                </blockquote>
-
-                <div className="border-t border-border pt-6 text-center">
-                  <p className="font-semibold text-foreground mb-1">{testimonials[testimonialIndex].name}</p>
-                  <p className="text-sm text-muted-foreground mb-6">{testimonials[testimonialIndex].role}</p>
-
-                  <div className="flex justify-center gap-2">
-                    {testimonials.map((_, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setTestimonialIndex(idx)}
-                        className={`w-2 h-2 rounded-full transition-all ${
-                          idx === testimonialIndex ? 'bg-primary w-8' : 'bg-border'
-                        }`}
-                        aria-label={`View testimonial ${idx + 1}`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TestimonialCarousel testimonials={testimonials} />
           </div>
         </section>
 
