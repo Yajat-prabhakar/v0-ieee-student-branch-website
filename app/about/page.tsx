@@ -43,7 +43,7 @@ export default function About() {
         </section>
 
         {/* Branch Overview */}
-        <section className="py-20">
+        <section className="section-padding">
           <div className="container-ieee">
             <h2 className="section-title">Our Story</h2>
             <p className="section-subtitle">Founded in 2026, Part of IEEE Region 10</p>
@@ -90,7 +90,7 @@ export default function About() {
         </section>
 
         {/* Leadership Section */}
-        <section className="py-20 bg-secondary">
+        <section className="section-padding bg-secondary">
           <div className="container-ieee">
             <h2 className="section-title">Branch Leadership</h2>
             <p className="section-subtitle">Meet the team leading our branch</p>
@@ -104,7 +104,7 @@ export default function About() {
         </section>
 
         {/* Key Achievements */}
-        <section className="py-20">
+        <section className="section-padding">
           <div className="container-ieee">
             <h2 className="section-title">Key Achievements</h2>
             <p className="section-subtitle">Milestones and highlights</p>
@@ -139,7 +139,7 @@ export default function About() {
         </section>
 
         {/* Statistics Section */}
-        <section className="py-20 bg-secondary">
+        <section className="section-padding bg-secondary">
           <div className="container-ieee">
             <h2 className="section-title text-center">By The Numbers</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
