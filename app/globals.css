@@ -4,78 +4,84 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* IEEE Brand Colors */
+  --ieee-blue: #006699;
+  --ieee-navy: #003366;
+  --ieee-gold: #FFB800;
+  
+  /* Semantic Colors */
+  --background: #FFFFFF;
+  --foreground: #1a1a1a;
+  --card: #FFFFFF;
+  --card-foreground: #1a1a1a;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
+  --primary: #006699;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F5F5;
+  --secondary-foreground: #1a1a1a;
+  --muted: #F5F5F5;
+  --muted-foreground: #666666;
+  --accent: #FFB800;
+  --accent-foreground: #003366;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5E5;
+  --input: #FFFFFF;
+  --ring: #006699;
+  --chart-1: #006699;
+  --chart-2: #003366;
+  --chart-3: #FFB800;
+  --chart-4: #00A0D0;
+  --chart-5: #2E5F8A;
+  --radius: 0.5rem;
+  --sidebar: #F5F5F5;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #006699;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFB800;
+  --sidebar-accent-foreground: #003366;
+  --sidebar-border: #E5E5E5;
+  --sidebar-ring: #006699;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: #1a1a1a;
+  --foreground: #FFFFFF;
+  --card: #262626;
+  --card-foreground: #FFFFFF;
+  --popover: #262626;
+  --popover-foreground: #FFFFFF;
+  --primary: #00A0D0;
+  --primary-foreground: #003366;
+  --secondary: #404040;
+  --secondary-foreground: #FFFFFF;
+  --muted: #404040;
+  --muted-foreground: #AAAAAA;
+  --accent: #FFB800;
+  --accent-foreground: #003366;
+  --destructive: #EF4444;
+  --destructive-foreground: #000000;
+  --border: #404040;
+  --input: #262626;
+  --ring: #00A0D0;
+  --chart-1: #00A0D0;
+  --chart-2: #006699;
+  --chart-3: #FFB800;
+  --chart-4: #2E5F8A;
+  --chart-5: #4B8BC5;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #00A0D0;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #FFB800;
+  --sidebar-accent-foreground: #003366;
+  --sidebar-border: #404040;
+  --sidebar-ring: #00A0D0;
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: 'Source Sans Pro', 'Open Sans', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -122,4 +128,81 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Typography - Professional sans-serif */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl tracking-tight;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl tracking-tight;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  p {
+    @apply leading-relaxed text-base md:text-lg;
+  }
+  
+  /* Grid System - 8px spacing */
+  .grid-8 {
+    @apply p-8 gap-8;
+  }
+  
+  /* IEEE Brand Utilities */
+  .ieee-blue {
+    @apply bg-[#006699];
+  }
+  
+  .ieee-navy {
+    @apply bg-[#003366];
+  }
+  
+  .ieee-gold {
+    @apply bg-[#FFB800];
+  }
+  
+  /* Subtle hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
 }
+
+@layer components {
+  /* IEEE Primary Button */
+  .btn-ieee-primary {
+    @apply px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md transition-all duration-200 hover:bg-[#004d6d] active:scale-95;
+  }
+  
+  /* IEEE Secondary Button */
+  .btn-ieee-secondary {
+    @apply px-6 py-3 bg-secondary text-secondary-foreground font-semibold rounded-md border border-border transition-all duration-200 hover:bg-muted;
+  }
+  
+  /* IEEE Card */
+  .card-ieee {
+    @apply bg-card text-card-foreground rounded-lg border border-border p-6 shadow-sm transition-all duration-300 hover:shadow-md;
+  }
+  
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-2;
+  }
+  
+  /* Section Subtitle */
+  .section-subtitle {
+    @apply text-muted-foreground text-lg md:text-xl mb-8;
+  }
+  
+  /* Container with max-width */
+  .container-ieee {
+    @apply w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+  }
+}
+

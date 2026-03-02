@@ -7,9 +7,11 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'IEEE BVIMR Student Branch',
+  description: 'IEEE BVIMR Student Branch - Advancing Technology for Humanity. Join 40+ members in Region 10 (Asia Pacific). Explore our societies, events, and leadership.',
   generator: 'v0.app',
+  keywords: 'IEEE, Student Branch, BVIMR, Region 10, Asia Pacific, Technology, Engineering',
+  authors: [{ name: 'IEEE BVIMR Student Branch' }],
   icons: {
     icon: [
       {
@@ -26,6 +28,11 @@ export const metadata: Metadata = {
       },
     ],
     apple: '/apple-icon.png',
+  },
+  openGraph: {
+    title: 'IEEE BVIMR Student Branch',
+    description: 'IEEE BVIMR Student Branch - Advancing Technology for Humanity',
+    type: 'website',
   },
 }
 
