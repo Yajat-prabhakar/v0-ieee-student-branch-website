@@ -209,17 +209,12 @@
   
   /* Container with premium 1280px max-width */
   .container-ieee {
-    @apply w-full max-w-5xl mx-auto px-8 md:px-16 lg:px-8;
+    @apply w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8;
   }
   
   /* Section padding for breathing room */
   .section-padding {
     @apply py-24 md:py-32 lg:py-40;
-  }
-  
-  /* Hero section utilities */
-  .hero-gradient {
-    @apply bg-gradient-to-r from-ieee-blue-dark to-primary;
   }
   
   /* Stats styling */
