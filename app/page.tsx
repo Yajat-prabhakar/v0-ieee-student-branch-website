@@ -151,7 +151,6 @@ export default function Home() {
                   <SocietyCard {...society} />
                 </div>
               ))}
-              ))}
             </div>
 
             <div className="text-center">
