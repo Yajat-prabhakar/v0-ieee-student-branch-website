@@ -4,10 +4,11 @@ import LeadershipCard from '@/components/LeadershipCard'
 
 export default function About() {
   const leadership = [
-    { name: "Aditya Kumar", role: "Branch Chair", linkedin: "#" },
-    { name: "Neha Singh", role: "Vice Chair", linkedin: "#" },
-    { name: "Rohan Gupta", role: "Secretary", linkedin: "#" },
-    { name: "Divya Sharma", role: "Treasurer", linkedin: "#" },
+    { name: "Kanav Gupta", role: "Chairperson", linkedin: "#" },
+    { name: "Harman Kaur", role: "Vice Chairperson", linkedin: "#" },
+    { name: "Ginim", role: "Secretary", linkedin: "#" },
+    { name: "Ipshita Sethi", role: "Treasurer", linkedin: "#" },
+    { name: "Yajat Prabhakar", role: "Webmaster", linkedin: "#" },
   ]
 
   return (
@@ -71,7 +72,7 @@ export default function About() {
           <div className="container-ieee">
             <h2 className="section-title">Branch Leadership</h2>
             <p className="section-subtitle">Meet the team leading our branch</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
               {leadership.map((member) => (
                 <LeadershipCard key={member.name} {...member} />
               ))}
