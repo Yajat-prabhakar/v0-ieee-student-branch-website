@@ -21,15 +21,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white text-foreground shadow-sm border-b-2 border-primary">
       <div className="container-ieee">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
             <Image
               src="/ieee-bvimr-logo.png"
               alt="IEEE BVIMR Student Branch"
-              width={240}
-              height={60}
-              className="h-14 w-auto object-contain"
+              width={380}
+              height={90}
+              className="h-20 w-auto object-contain"
               priority
             />
           </Link>

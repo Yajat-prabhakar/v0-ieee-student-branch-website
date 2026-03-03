@@ -67,20 +67,6 @@ export default function Home() {
           <div className="absolute inset-0 opacity-10" style={{ background: 'radial-gradient(ellipse at center, #00629B 0%, transparent 70%)' }} />
 
           <div className="container-ieee text-center relative z-10">
-            {/* Logo */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-white rounded-xl px-6 py-3 shadow-lg">
-                <Image
-                  src="/ieee-bvimr-logo.png"
-                  alt="IEEE BVIMR Student Branch"
-                  width={320}
-                  height={80}
-                  className="h-16 w-auto object-contain"
-                  priority
-                />
-              </div>
-            </div>
-
             <div className="inline-block mb-6 px-4 py-2 backdrop-blur-md bg-white/20 border border-white/30 rounded-md">
               <span className="text-xs font-bold uppercase tracking-widest text-white">IEEE Region 10 - Asia Pacific</span>
             </div>
