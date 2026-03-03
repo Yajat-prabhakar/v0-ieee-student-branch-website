@@ -1,15 +1,8 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import LeadershipCard from '@/components/LeadershipCard'
+import Link from 'next/link'
 
 export default function About() {
-  const leadership = [
-    { name: "Aditya Kumar", role: "Branch Chair", linkedin: "#" },
-    { name: "Neha Singh", role: "Vice Chair", linkedin: "#" },
-    { name: "Rohan Gupta", role: "Secretary", linkedin: "#" },
-    { name: "Divya Sharma", role: "Treasurer", linkedin: "#" },
-  ]
-
   return (
     <>
       <Header />
@@ -66,16 +59,17 @@ export default function About() {
           </div>
         </section>
 
-        {/* Leadership */}
+        {/* Leadership redirect */}
         <section className="section-padding bg-secondary">
-          <div className="container-ieee">
-            <h2 className="section-title">Branch Leadership</h2>
-            <p className="section-subtitle">Meet the team leading our branch</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {leadership.map((member) => (
-                <LeadershipCard key={member.name} {...member} />
-              ))}
-            </div>
+          <div className="container-ieee text-center">
+            <h2 className="section-title">Meet the Team</h2>
+            <p className="section-subtitle">Get to know the council driving our branch forward</p>
+            <Link
+              href="/council"
+              className="btn-ieee-primary inline-block"
+            >
+              View Full Council
+            </Link>
           </div>
         </section>
 
