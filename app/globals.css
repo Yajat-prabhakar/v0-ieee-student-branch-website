@@ -53,32 +53,32 @@
   --card-foreground: #FFFFFF;
   --popover: #262626;
   --popover-foreground: #FFFFFF;
-  --primary: #00A0D0;
-  --primary-foreground: #003366;
+  --primary: #00B5E2;
+  --primary-foreground: #002147;
   --secondary: #404040;
   --secondary-foreground: #FFFFFF;
   --muted: #404040;
   --muted-foreground: #AAAAAA;
   --accent: #FFB800;
-  --accent-foreground: #003366;
+  --accent-foreground: #002147;
   --destructive: #EF4444;
   --destructive-foreground: #000000;
   --border: #404040;
   --input: #262626;
-  --ring: #00A0D0;
-  --chart-1: #00A0D0;
-  --chart-2: #006699;
+  --ring: #00B5E2;
+  --chart-1: #00B5E2;
+  --chart-2: #00629B;
   --chart-3: #FFB800;
-  --chart-4: #2E5F8A;
+  --chart-4: #002855;
   --chart-5: #4B8BC5;
   --sidebar: #1a1a1a;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #00A0D0;
+  --sidebar-primary: #00B5E2;
   --sidebar-primary-foreground: #1a1a1a;
   --sidebar-accent: #FFB800;
-  --sidebar-accent-foreground: #003366;
+  --sidebar-accent-foreground: #002147;
   --sidebar-border: #404040;
-  --sidebar-ring: #00A0D0;
+  --sidebar-ring: #00B5E2;
 }
 
 @theme inline {
@@ -120,12 +120,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
-  /* Custom Animations */
-  --animation-fade-in: fade-in 0.6s ease-out;
-  --animation-slide-up: slide-up 0.6s ease-out;
-  --animation-scale-in: scale-in 0.5s ease-out;
-  --animation-pulse-glow: pulse-glow 2s ease-in-out infinite;
 }
 
 @keyframes fade-in {
@@ -170,30 +164,12 @@
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
     transform: translateY(-10px);
-  }
-}
-
-@keyframes line-grow {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
   }
 }
 
@@ -205,7 +181,6 @@
     @apply bg-background text-foreground;
   }
   
-  /* Typography - Inter font family */
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-bold;
   }
@@ -225,33 +200,9 @@
   p {
     @apply leading-relaxed text-base md:text-lg;
   }
-  
-  /* Grid System - 8px spacing */
-  .grid-8 {
-    @apply p-8 gap-8;
-  }
-  
-  /* IEEE Brand Utilities */
-  .ieee-blue {
-    @apply bg-[#00629B];
-  }
-  
-  .ieee-navy {
-    @apply bg-[#002147];
-  }
-  
-  .ieee-gold {
-    @apply bg-[#FFB800];
-  }
-  
-  /* Subtle hover effects with lift animation */
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
-  }
 }
 
 @layer components {
-  /* Fade-in animations */
   .animate-fade-in {
     animation: fade-in 0.6s ease-out;
   }
@@ -262,7 +213,6 @@
     animation-fill-mode: both;
   }
   
-  /* Slide-up animations */
   .animate-slide-up {
     animation: slide-up 0.6s ease-out;
   }
@@ -273,79 +223,46 @@
     animation-fill-mode: both;
   }
   
-  /* Scale-in animations */
   .animate-scale-in {
     animation: scale-in 0.5s ease-out;
   }
   
-  /* Pulse glow effect */
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
   
-  /* Float animation */
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
   
-  /* Line grow animation */
-  .animate-line-grow {
-    animation: line-grow 0.6s ease-out;
-  }
-  
-  /* Shimmer effect */
-  .animate-shimmer {
-    animation: shimmer 2s infinite;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-  }
-  
-  /* IEEE Primary Button - White on blue */
   .btn-ieee-primary {
     @apply px-6 py-3 bg-white text-primary font-bold rounded-sm transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
   }
   
-  /* IEEE Secondary Button - Border style */
   .btn-ieee-secondary {
     @apply px-6 py-3 bg-transparent text-white font-bold rounded-sm border-2 border-white transition-all duration-200 hover:bg-white hover:text-primary;
   }
   
-  /* IEEE Card with left border accent */
   .card-ieee {
     @apply bg-card text-card-foreground rounded-sm border border-border p-6 shadow-sm transition-all duration-300 hover:border-primary hover:shadow-md;
   }
   
-  /* Card with left accent border */
-  .card-accent {
-    @apply bg-card text-card-foreground rounded-sm border border-border p-6 border-l-4 border-l-accent shadow-sm transition-all duration-300 hover:shadow-md;
-  }
-  
-  /* Section Title */
   .section-title {
     @apply text-4xl font-bold text-primary mb-3;
   }
   
-  /* Section Subtitle */
   .section-subtitle {
     @apply text-lg text-muted-foreground mb-12;
   }
   
-  /* Container with premium 1280px max-width */
   .container-ieee {
     @apply w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8;
   }
   
-  /* Section padding for breathing room */
   .section-padding {
     @apply py-24 md:py-32 lg:py-40;
   }
   
-  /* Stats styling */
   .stat-value {
     @apply text-5xl font-black text-white mb-2;
   }
@@ -354,4 +271,3 @@
     @apply text-xs font-bold text-gray-200 uppercase tracking-widest;
   }
 }
-
