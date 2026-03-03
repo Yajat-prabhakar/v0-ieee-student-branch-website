@@ -1,176 +1,98 @@
+import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import SocietyCard from '@/components/SocietyCard'
+
+const planned = [
+  { name: 'Women in Engineering (WIE)', desc: 'Empowering women in STEM through networking, mentorship, and professional development.' },
+  { name: 'Young Professionals (YP)', desc: 'Connecting early-career professionals with industry experts and career development programs.' },
+  { name: 'Power & Energy Society (PES)', desc: 'Advancing innovation in power systems, renewable energy, and sustainable technologies.' },
+  { name: 'Computer Society (CS)', desc: 'Promoting computing education, research, and professional development in CS and IT.' },
+  { name: 'Communications Society (ComSoc)', desc: 'Fostering innovation in communication systems, signal processing, and information theory.' },
+  { name: 'Robotics & Automation Society (RAS)', desc: 'Exploring robotics, automation, and intelligent systems to advance technology.' },
+]
 
 export default function Societies() {
-  const societies = [
-    {
-      id: 1,
-      name: "Women in Engineering (WIE)",
-      description: "Empowering women in science, technology, engineering, and mathematics through networking, mentorship, and professional development.",
-      fullDescription: "IEEE Women in Engineering (WIE) is dedicated to promoting women engineers and scientists. Our chapter focuses on professional development, mentorship, and creating inclusive networking opportunities.",
-      color: "bg-rose-100",
-    },
-    {
-      id: 2,
-      name: "Young Professionals (YP)",
-      description: "Connecting early-career professionals with industry experts, career development workshops, and networking events.",
-      fullDescription: "IEEE Young Professionals supports students transitioning into careers and early-career professionals. We provide career guidance, industry connections, and professional growth opportunities.",
-      color: "bg-blue-100",
-    },
-    {
-      id: 3,
-      name: "Power & Energy Society (PES)",
-      description: "Advancing innovation in power systems, renewable energy, and sustainable technologies for a better future.",
-      fullDescription: "IEEE Power & Energy Society focuses on research, education, and innovation in power systems. Our members work on sustainable energy solutions and advanced grid technologies.",
-      color: "bg-amber-100",
-    },
-    {
-      id: 4,
-      name: "Computer Society (CS)",
-      description: "Promoting computing education, research, and professional development in computer science and IT.",
-      fullDescription: "IEEE Computer Society is the world's leading computing organization. We focus on computing education, research, and fostering innovation in computer science and technology.",
-      color: "bg-purple-100",
-    },
-    {
-      id: 5,
-      name: "Communications Society (ComSoc)",
-      description: "Fostering innovation in communication systems, signal processing, and information theory.",
-      fullDescription: "IEEE Communications Society promotes innovation and excellence in communications technology. We focus on emerging technologies, research, and professional development in the communications field.",
-      color: "bg-emerald-100",
-    },
-    {
-      id: 6,
-      name: "Robotics & Automation Society (RAS)",
-      description: "Exploring robotics, automation, and intelligent systems to advance technology and innovation.",
-      fullDescription: "IEEE Robotics and Automation Society is dedicated to advancing robotics and automation. We promote research, innovation, and education in robotics and related technologies.",
-      color: "bg-cyan-100",
-    },
-  ]
-
   return (
     <>
       <Header />
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="bg-[#00629B] text-white py-20 md:py-24">
-          <div className="container-ieee">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">IEEE Societies</h1>
-            <p className="text-xl opacity-90 max-w-2xl">
-              Explore our six specialized societies, each focused on different domains of engineering and technology.
+
+        {/* Hero */}
+        <section className="bg-[#002147] text-white py-20 md:py-28 relative overflow-hidden">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,98,155,0.45) 0%, transparent 70%)' }}
+          />
+          <div className="container-ieee relative z-10">
+            <div className="inline-block mb-4 px-4 py-1.5 bg-white/15 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest text-white/80">
+              IEEE BVIMR
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">IEEE Societies</h1>
+            <p className="text-xl text-white/70 max-w-2xl">
+              Specialized technical communities are coming to our branch. We are setting up dedicated societies to serve different domains of engineering and technology.
             </p>
           </div>
         </section>
 
-        {/* Societies Grid */}
+        {/* Coming Soon Banner */}
         <section className="py-20">
           <div className="container-ieee">
-            <h2 className="section-title text-center">Our Societies</h2>
-            <p className="section-subtitle text-center mb-12">Specialized groups for technical excellence</p>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {societies.map((society) => (
-                <SocietyCard key={society.id} name={society.name} description={society.description} color={society.color} />
-              ))}
+            <div className="relative rounded-2xl overflow-hidden border border-border mb-16">
+              <div className="absolute inset-0 bg-[#002147]" />
+              <div
+                className="absolute inset-0"
+                style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,98,155,0.5) 0%, transparent 70%)' }}
+              />
+              <div className="relative z-10 flex flex-col items-center justify-center py-20 px-6 text-center text-white">
+                <div className="w-20 h-20 rounded-full border-2 border-white/20 flex items-center justify-center mb-6 bg-white/10 backdrop-blur-sm">
+                  <svg className="w-10 h-10 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black mb-4">Coming Soon</h2>
+                <p className="text-lg text-white/70 max-w-2xl mb-8">
+                  We are actively working on establishing IEEE Societies within our branch. Each society will have its own events, workshops, and leadership structure. Stay tuned for updates!
+                </p>
+                <Link href="/contact" className="btn-ieee-primary">Get Notified When We Launch</Link>
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* Detailed Society Information */}
-        <section className="py-20 bg-secondary">
-          <div className="container-ieee">
-            <h2 className="section-title">About Our Societies</h2>
+            {/* Planned Societies Preview */}
+            <h2 className="section-title text-center">Planned Societies</h2>
+            <p className="section-subtitle text-center">Here is a preview of the societies we are setting up</p>
 
-            <div className="space-y-12">
-              {societies.map((society) => (
-                <div key={society.id} className="card-ieee">
-                  <div className={`w-full h-24 rounded-t-lg ${society.color} -mx-6 -mt-6 mb-6`}></div>
-                  <h3 className="font-bold text-2xl text-foreground mb-3">{society.name}</h3>
-                  <p className="text-lg text-foreground leading-relaxed mb-4">
-                    {society.fullDescription}
-                  </p>
-                  <div className="pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground mb-3">
-                      <strong>What We Do:</strong>
-                    </p>
-                    <ul className="space-y-2 text-sm text-foreground">
-                      <li className="flex gap-2">
-                        <span className="text-primary font-bold">✓</span>
-                        <span>Organize technical workshops and seminars</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-primary font-bold">✓</span>
-                        <span>Facilitate networking with industry professionals</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-primary font-bold">✓</span>
-                        <span>Support career development and mentorship</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-primary font-bold">✓</span>
-                        <span>Promote research and innovation in our field</span>
-                      </li>
-                    </ul>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {planned.map((s, i) => (
+                <div
+                  key={s.name}
+                  className="bg-card border border-border rounded-xl p-6 opacity-70 relative overflow-hidden group hover:opacity-90 transition-opacity duration-300"
+                >
+                  {/* "Coming Soon" ribbon */}
+                  <div className="absolute top-3 right-3 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full border border-primary/20">
+                    Coming Soon
                   </div>
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <span className="text-primary font-black text-sm">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <h3 className="font-bold text-foreground mb-2 pr-16">{s.name}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Why Join */}
-        <section className="py-20">
-          <div className="container-ieee">
-            <h2 className="section-title text-center">Why Join a Society?</h2>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="card-ieee text-center">
-                <div className="text-5xl mb-4">🎓</div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Learn</h3>
-                <p className="text-sm text-muted-foreground">
-                  Expand your knowledge through technical sessions and expert-led workshops.
-                </p>
-              </div>
-
-              <div className="card-ieee text-center">
-                <div className="text-5xl mb-4">🤝</div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Network</h3>
-                <p className="text-sm text-muted-foreground">
-                  Connect with peers, professionals, and industry leaders in your field.
-                </p>
-              </div>
-
-              <div className="card-ieee text-center">
-                <div className="text-5xl mb-4">💼</div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Grow</h3>
-                <p className="text-sm text-muted-foreground">
-                  Develop leadership and professional skills through active involvement.
-                </p>
-              </div>
-
-              <div className="card-ieee text-center">
-                <div className="text-5xl mb-4">🚀</div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Innovate</h3>
-                <p className="text-sm text-muted-foreground">
-                  Collaborate on projects and push the boundaries of your field.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-[#00629B] text-white py-20">
+        {/* CTA */}
+        <section className="bg-[#002147] text-white py-20">
           <div className="container-ieee text-center">
-            <h2 className="text-4xl font-bold mb-4">Ready to Get Involved?</h2>
-            <p className="text-xl opacity-90 mb-8">
-              Join any of our societies and start your journey of professional development
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Want to Lead a Society?</h2>
+            <p className="text-lg text-white/70 mb-8 max-w-xl mx-auto">
+              We are looking for passionate students to help establish and lead our upcoming IEEE Societies.
             </p>
-            <button className="btn-ieee-primary bg-white text-primary hover:bg-gray-100">
-              Explore Opportunities
-            </button>
+            <Link href="/contact" className="btn-ieee-primary">Express Your Interest</Link>
           </div>
         </section>
+
       </main>
       <Footer />
     </>
