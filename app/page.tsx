@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
+import HeroSlideshow from '@/components/HeroSlideshow'
 import { useEffect, useRef, useState } from 'react'
 
 /* ---------- Scroll-reveal hook ---------- */
@@ -152,13 +153,10 @@ export default function Home() {
       <main className="min-h-screen">
 
         {/* ── Hero ── */}
-        <section className="bg-[#002147] text-white py-24 md:py-36 relative overflow-hidden">
-          {/* subtle radial glow */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,98,155,0.45) 0%, transparent 70%)' }}
-          />
-          <div className="container-ieee text-center relative z-10">
+        <section className="bg-[#002147] text-white py-24 md:py-36 relative overflow-hidden min-h-[600px]">
+          {/* Background photo slideshow */}
+          <HeroSlideshow />
+          <div className="container-ieee text-center relative z-20">
             <div
               className="inline-block mb-6 px-5 py-2 backdrop-blur-md bg-white/15 border border-white/25 rounded-full"
               style={{ animation: 'fade-in 0.8s ease both' }}
