@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Linkedin, Instagram, Facebook, Twitter, Github } from 'lucide-react'
 
 export default function Footer() {
@@ -38,15 +39,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">IEEE</span>
-              </div>
-              <div>
-                <div className="font-bold text-foreground">IEEE BVIMR</div>
-                <div className="text-xs text-muted-foreground">Student Branch</div>
-              </div>
-            </div>
+            <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
+              <Image
+                src="/ieee-bvimr-logo.png"
+                alt="IEEE BVIMR Student Branch"
+                width={200}
+                height={50}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Advancing Technology for Humanity. Part of IEEE Region 10 (Asia Pacific).
             </p>

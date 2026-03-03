@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
@@ -22,14 +23,15 @@ export default function Header() {
       <div className="container-ieee">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 font-bold text-xl hover:opacity-80 transition-opacity">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded flex items-center justify-center">
-              <span className="text-white font-black text-sm">IEEE</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className="text-lg font-black text-primary">BVIMR</div>
-              <div className="text-xs text-muted-foreground font-semibold">Student Branch</div>
-            </div>
+          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
+            <Image
+              src="/ieee-bvimr-logo.png"
+              alt="IEEE BVIMR Student Branch"
+              width={240}
+              height={60}
+              className="h-14 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
