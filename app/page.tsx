@@ -67,8 +67,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-radial-gradient opacity-10"></div>
           
           <div className="container-ieee text-center relative z-10">
-            <div className="inline-block mb-6 px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-md">
-              <span className="text-xs font-bold uppercase tracking-widest text-opacity-90">IEEE Region 10 - Asia Pacific</span>
+            <div className="inline-block mb-6 px-4 py-2 backdrop-blur-md bg-white/20 border border-white/30 rounded-md hover:bg-white/30 transition-all duration-300">
+              <span className="text-xs font-bold uppercase tracking-widest text-white">IEEE Region 10 - Asia Pacific</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl font-black mb-4 leading-tight">
