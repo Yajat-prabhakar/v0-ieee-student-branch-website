@@ -66,41 +66,41 @@ export default function Home() {
           {/* Radial gradient overlay for depth */}
           <div className="absolute inset-0 bg-radial-gradient opacity-10"></div>
           
-          <div className="container-ieee text-center relative z-10">
-            <div className="inline-block mb-6 px-4 py-2 backdrop-blur-md bg-white/20 border border-white/30 rounded-md hover:bg-white/30 transition-all duration-300">
+          <div className="container-ieee text-center relative z-10 animate-fade-in">
+            <div className="inline-block mb-6 px-4 py-2 backdrop-blur-md bg-white/20 border border-white/30 rounded-md hover:bg-white/30 transition-all duration-300 animate-slide-up">
               <span className="text-xs font-bold uppercase tracking-widest text-white">IEEE Region 10 - Asia Pacific</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-black mb-4 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight text-pretty animate-slide-up-delay">
               IEEE BVIMR Student Branch
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-2xl mx-auto font-light">
+            <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-2xl mx-auto font-light animate-slide-up-delay">
               Advancing Technology for Humanity
             </p>
-            <p className="text-lg opacity-80 mb-10 max-w-3xl mx-auto">
+            <p className="text-lg opacity-80 mb-10 max-w-3xl mx-auto animate-slide-up-delay">
               Join our vibrant community of 40+ passionate students and young professionals dedicated to innovation, leadership, and technical excellence.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <button className="btn-ieee-primary">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-scale-in">
+              <button className="btn-ieee-primary hover:animate-pulse-glow">
                 Join Us Today
               </button>
-              <Link href="/about" className="btn-ieee-secondary">
+              <Link href="/about" className="btn-ieee-secondary hover:scale-105 transition-transform">
                 Learn More →
               </Link>
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-12 border-t border-white border-opacity-20">
-              <div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-12 border-t border-white border-opacity-20 animate-fade-in-delay">
+              <div className="animate-scale-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
                 <div className="stat-value">40+</div>
                 <p className="stat-label">Active Members</p>
               </div>
-              <div>
+              <div className="animate-scale-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
                 <div className="stat-value">10+</div>
                 <p className="stat-label">Events Hosted</p>
               </div>
-              <div>
+              <div className="animate-scale-in" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
                 <div className="stat-value">6</div>
                 <p className="stat-label">Societies</p>
               </div>
@@ -109,12 +109,12 @@ export default function Home() {
         </section>
 
         {/* About Teaser */}
-        <section className="py-20">
+        <section className="py-20 animate-fade-in">
           <div className="container-ieee">
-            <h2 className="section-title">About the Branch</h2>
-            <p className="section-subtitle">Discover who we are and what we stand for</p>
+            <h2 className="section-title animate-slide-up">About the Branch</h2>
+            <p className="section-subtitle animate-slide-up-delay">Discover who we are and what we stand for</p>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-8">
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-8 animate-slide-up-delay">
               <div>
                 <p className="text-lg text-foreground leading-relaxed mb-4">
                   IEEE BVIMR Student Branch is dedicated to advancing technology for humanity. We bring together passionate students, professionals, and leaders to foster innovation, collaboration, and continuous learning.
@@ -122,16 +122,16 @@ export default function Home() {
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Our branch operates across six specialized societies, each focused on different domains of engineering and technology. Through events, workshops, and mentorship programs, we create opportunities for members to grow professionally and personally.
                 </p>
-                <Link href="/about" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+                <Link href="/about" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all hover:text-accent">
                   Read Full Story
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
               </div>
-              <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
+              <div className="bg-muted rounded-lg h-64 flex items-center justify-center animate-scale-in">
                 <span className="text-muted-foreground text-center">
-                  <div className="text-5xl opacity-20 mb-2">📸</div>
+                  <div className="text-5xl opacity-20 mb-2 animate-float">📸</div>
                   Branch Photo
                 </span>
               </div>
@@ -140,14 +140,17 @@ export default function Home() {
         </section>
 
         {/* Societies Section */}
-        <section className="py-20 bg-secondary">
+        <section className="py-20 bg-secondary animate-fade-in">
           <div className="container-ieee">
-            <h2 className="section-title">IEEE Societies</h2>
-            <p className="section-subtitle">Explore our six specialized societies</p>
+            <h2 className="section-title animate-slide-up">IEEE Societies</h2>
+            <p className="section-subtitle animate-slide-up-delay">Explore our six specialized societies</p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-              {societies.map((society) => (
-                <SocietyCard key={society.name} {...society} />
+              {societies.map((society, idx) => (
+                <div key={society.name} className="animate-scale-in" style={{ animationDelay: `${idx * 0.1}s`, animationFillMode: 'both' }}>
+                  <SocietyCard {...society} />
+                </div>
+              ))}
               ))}
             </div>
 
@@ -160,18 +163,20 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20">
+        <section className="py-20 animate-fade-in">
           <div className="container-ieee">
-            <h2 className="section-title text-center">Member Testimonials</h2>
-            <p className="section-subtitle text-center mb-12">What our members are saying</p>
+            <h2 className="section-title text-center animate-slide-up">Member Testimonials</h2>
+            <p className="section-subtitle text-center mb-12 animate-slide-up-delay">What our members are saying</p>
 
-            <TestimonialCarousel testimonials={testimonials} />
+            <div className="animate-scale-in">
+              <TestimonialCarousel testimonials={testimonials} />
+            </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="ieee-blue text-white py-20">
-          <div className="container-ieee text-center">
+        <section className="bg-gradient-to-r from-[#002147] via-[#00629B] to-[#00629B] text-white py-20 animate-fade-in">
+          <div className="container-ieee text-center animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Join the IEEE Community</h2>
             <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
               Become part of a global community of engineers, technologists, and innovators

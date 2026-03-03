@@ -31,8 +31,8 @@ export default function About() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="ieee-blue text-white py-20 md:py-24">
-          <div className="container-ieee">
+        <section className="bg-gradient-to-r from-[#002147] via-[#00629B] to-[#00629B] text-white py-20 md:py-24 animate-fade-in">
+          <div className="container-ieee animate-slide-up">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">About IEEE BVIMR</h1>
             <p className="text-xl opacity-90 max-w-2xl">
               Learn about our mission, values, and the leadership team driving our branch forward.
@@ -41,12 +41,12 @@ export default function About() {
         </section>
 
         {/* Branch Overview */}
-        <section className="section-padding">
+        <section className="section-padding animate-fade-in">
           <div className="container-ieee">
-            <h2 className="section-title">Our Story</h2>
-            <p className="section-subtitle">Founded in 2026, Part of IEEE Region 10</p>
+            <h2 className="section-title animate-slide-up">Our Story</h2>
+            <p className="section-subtitle animate-slide-up-delay">Founded in 2026, Part of IEEE Region 10</p>
 
-            <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
+            <div className="grid md:grid-cols-2 gap-12 items-start mb-12 animate-slide-up-delay">
               <div>
                 <h3 className="text-2xl font-bold text-foreground mb-4">Mission</h3>
                 <p className="text-lg text-foreground leading-relaxed mb-6">
@@ -61,22 +61,22 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-secondary p-8 rounded-lg border border-border">
+            <div className="bg-secondary p-8 rounded-lg border border-border animate-scale-in">
               <h3 className="text-2xl font-bold text-foreground mb-6">Our Values</h3>
               <div className="grid md:grid-cols-3 gap-6">
-                <div>
+                <div className="hover:scale-105 transition-transform duration-300">
                   <h4 className="font-bold text-lg text-primary mb-2">Excellence</h4>
                   <p className="text-muted-foreground">
                     Striving for the highest standards in technical knowledge and professional conduct.
                   </p>
                 </div>
-                <div>
+                <div className="hover:scale-105 transition-transform duration-300">
                   <h4 className="font-bold text-lg text-primary mb-2">Collaboration</h4>
                   <p className="text-muted-foreground">
                     Building a community where diverse perspectives contribute to collective growth.
                   </p>
                 </div>
-                <div>
+                <div className="hover:scale-105 transition-transform duration-300">
                   <h4 className="font-bold text-lg text-primary mb-2">Innovation</h4>
                   <p className="text-muted-foreground">
                     Encouraging creative thinking and pushing the boundaries of technology.
@@ -88,14 +88,17 @@ export default function About() {
         </section>
 
         {/* Leadership Section */}
-        <section className="section-padding bg-secondary">
+        <section className="section-padding bg-secondary animate-fade-in">
           <div className="container-ieee">
-            <h2 className="section-title">Branch Leadership</h2>
-            <p className="section-subtitle">Meet the team leading our branch</p>
+            <h2 className="section-title animate-slide-up">Branch Leadership</h2>
+            <p className="section-subtitle animate-slide-up-delay">Meet the team leading our branch</p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {leadership.map((member) => (
-                <LeadershipCard key={member.name} {...member} />
+              {leadership.map((member, idx) => (
+                <div key={member.name} className="animate-scale-in" style={{ animationDelay: `${idx * 0.1}s`, animationFillMode: 'both' }}>
+                  <LeadershipCard {...member} />
+                </div>
+              ))}
               ))}
             </div>
           </div>
