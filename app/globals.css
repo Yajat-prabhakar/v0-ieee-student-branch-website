@@ -6,6 +6,8 @@
 :root {
   /* IEEE Heritage Brand Colors */
   --ieee-blue: #00629B;
+  --ieee-blue-dark: #002855;
+  --ieee-blue-light: #00B5E2;
   --ieee-navy: #002147;
   --ieee-gold: #FFB800;
   
@@ -18,30 +20,30 @@
   --popover-foreground: #1a1a1a;
   --primary: #00629B;
   --primary-foreground: #FFFFFF;
-  --secondary: #F5F5F5;
+  --secondary: #F8F9FA;
   --secondary-foreground: #1a1a1a;
-  --muted: #F5F5F5;
+  --muted: #F1F3F5;
   --muted-foreground: #666666;
-  --accent: #002147;
+  --accent: #00B5E2;
   --accent-foreground: #FFFFFF;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: #E5E5E5;
+  --border: #E9ECEF;
   --input: #FFFFFF;
   --ring: #00629B;
   --chart-1: #00629B;
   --chart-2: #002147;
   --chart-3: #FFB800;
-  --chart-4: #0088CC;
-  --chart-5: #004D73;
+  --chart-4: #00B5E2;
+  --chart-5: #002855;
   --radius: 0.5rem;
-  --sidebar: #F5F5F5;
+  --sidebar: #F8F9FA;
   --sidebar-foreground: #1a1a1a;
   --sidebar-primary: #00629B;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #002147;
+  --sidebar-accent: #00B5E2;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #E5E5E5;
+  --sidebar-border: #E9ECEF;
   --sidebar-ring: #00629B;
 }
 
@@ -175,39 +177,58 @@
 }
 
 @layer components {
-  /* IEEE Primary Button */
+  /* IEEE Primary Button - White on blue */
   .btn-ieee-primary {
-    @apply px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md transition-all duration-200 hover:bg-[#004B75] hover:shadow-md active:scale-95;
+    @apply px-6 py-3 bg-white text-primary font-bold rounded-sm transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
   }
   
-  /* IEEE Secondary Button */
+  /* IEEE Secondary Button - Border style */
   .btn-ieee-secondary {
-    @apply px-6 py-3 bg-secondary text-secondary-foreground font-semibold rounded-md border border-border transition-all duration-200 hover:bg-muted;
+    @apply px-6 py-3 bg-transparent text-white font-bold rounded-sm border-2 border-white transition-all duration-200 hover:bg-white hover:text-primary;
   }
   
-  /* IEEE Card with enhanced shadow and hover lift */
+  /* IEEE Card with left border accent */
   .card-ieee {
-    @apply bg-card text-card-foreground rounded-lg border border-border p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply bg-card text-card-foreground rounded-sm border border-border p-6 shadow-sm transition-all duration-300 hover:border-primary hover:shadow-md;
+  }
+  
+  /* Card with left accent border */
+  .card-accent {
+    @apply bg-card text-card-foreground rounded-sm border border-border p-6 border-l-4 border-l-accent shadow-sm transition-all duration-300 hover:shadow-md;
   }
   
   /* Section Title */
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-foreground mb-2;
+    @apply text-4xl font-bold text-primary mb-3;
   }
   
   /* Section Subtitle */
   .section-subtitle {
-    @apply text-muted-foreground text-lg md:text-xl mb-8;
+    @apply text-lg text-muted-foreground mb-12;
   }
   
   /* Container with premium 1280px max-width */
   .container-ieee {
-    @apply w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8;
+    @apply w-full max-w-5xl mx-auto px-8 md:px-16 lg:px-8;
   }
   
   /* Section padding for breathing room */
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-24 md:py-32 lg:py-40;
+  }
+  
+  /* Hero section utilities */
+  .hero-gradient {
+    @apply bg-gradient-to-r from-ieee-blue-dark to-primary;
+  }
+  
+  /* Stats styling */
+  .stat-value {
+    @apply text-5xl font-black text-white mb-2;
+  }
+  
+  .stat-label {
+    @apply text-xs font-bold text-gray-200 uppercase tracking-widest;
   }
 }
 

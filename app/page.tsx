@@ -61,48 +61,48 @@ export default function Home() {
     <>
       <Header />
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="ieee-blue text-white py-24 md:py-32">
-          <div className="container-ieee text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+        {/* Hero Section with Gradient */}
+        <section className="bg-gradient-to-r from-[#002147] via-[#00629B] to-[#00629B] text-white py-20 md:py-32 relative overflow-hidden">
+          {/* Radial gradient overlay for depth */}
+          <div className="absolute inset-0 bg-radial-gradient opacity-10"></div>
+          
+          <div className="container-ieee text-center relative z-10">
+            <div className="inline-block mb-6 px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-md">
+              <span className="text-xs font-bold uppercase tracking-widest text-opacity-90">IEEE Region 10 - Asia Pacific</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl font-black mb-4 leading-tight">
               IEEE BVIMR Student Branch
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-2xl mx-auto font-light">
               Advancing Technology for Humanity
             </p>
-            <p className="text-lg opacity-80 mb-8">
-              Join 40+ members in Region 10 (Asia Pacific) to explore innovation, leadership, and professional development
+            <p className="text-lg opacity-80 mb-10 max-w-3xl mx-auto">
+              Join our vibrant community of 40+ passionate students and young professionals dedicated to innovation, leadership, and technical excellence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-ieee-primary bg-white text-primary hover:bg-gray-100">
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <button className="btn-ieee-primary">
                 Join Us Today
               </button>
-              <Link href="/about" className="btn-ieee-secondary border-white text-white hover:bg-white hover:bg-opacity-10">
-                Learn More
+              <Link href="/about" className="btn-ieee-secondary">
+                Learn More →
               </Link>
             </div>
-          </div>
-        </section>
 
-        {/* Stats Section */}
-        <section className="py-16 bg-secondary border-b border-border">
-          <div className="container-ieee">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">40+</div>
-                <p className="text-muted-foreground font-medium">Active Members</p>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-12 border-t border-white border-opacity-20">
+              <div>
+                <div className="stat-value">40+</div>
+                <p className="stat-label">Active Members</p>
               </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">10+</div>
-                <p className="text-muted-foreground font-medium">Events Held</p>
+              <div>
+                <div className="stat-value">10+</div>
+                <p className="stat-label">Events Hosted</p>
               </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">2026</div>
-                <p className="text-muted-foreground font-medium">Founded</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">6</div>
-                <p className="text-muted-foreground font-medium">Societies</p>
+              <div>
+                <div className="stat-value">6</div>
+                <p className="stat-label">Societies</p>
               </div>
             </div>
           </div>

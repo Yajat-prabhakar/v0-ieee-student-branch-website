@@ -18,17 +18,17 @@ export default function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
+    <header className="sticky top-0 z-50 bg-white text-foreground shadow-sm border-b-2 border-primary">
       <div className="container-ieee">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-              <span className="text-primary font-bold text-lg">IEEE</span>
+          <Link href="/" className="flex items-center gap-3 font-bold text-xl hover:opacity-80 transition-opacity">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded flex items-center justify-center">
+              <span className="text-white font-black text-sm">IEEE</span>
             </div>
             <div className="hidden sm:block">
-              <div className="text-lg font-bold">BVIMR</div>
-              <div className="text-xs opacity-90">Student Branch</div>
+              <div className="text-lg font-black text-primary">BVIMR</div>
+              <div className="text-xs text-muted-foreground font-semibold">Student Branch</div>
             </div>
           </Link>
 
@@ -38,7 +38,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium hover:opacity-80 transition-opacity duration-200 relative group"
+                className="text-sm font-semibold text-foreground hover:text-primary transition-colors duration-200 relative group"
               >
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
@@ -49,22 +49,22 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-primary-foreground hover:bg-opacity-10 rounded-lg transition-all"
+            className="md:hidden p-2 hover:bg-secondary rounded-lg transition-all"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={24} className="text-primary" /> : <Menu size={24} className="text-primary" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden pb-4 border-t border-primary-foreground border-opacity-20 pt-4">
+          <nav className="md:hidden pb-4 border-t border-border pt-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="block py-2 px-4 hover:bg-primary-foreground hover:bg-opacity-10 rounded-lg transition-all text-sm font-medium"
+                className="block py-3 px-4 hover:bg-secondary rounded-lg transition-all text-sm font-medium text-foreground hover:text-primary"
               >
                 {link.label}
               </Link>
