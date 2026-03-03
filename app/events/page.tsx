@@ -103,7 +103,7 @@ export default function Events() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="ieee-blue text-white py-20 md:py-24">
+        <section className="bg-[#00629B] text-white py-20 md:py-24">
           <div className="container-ieee">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Events</h1>
             <p className="text-xl opacity-90 max-w-2xl">

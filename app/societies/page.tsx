@@ -9,42 +9,42 @@ export default function Societies() {
       name: "Women in Engineering (WIE)",
       description: "Empowering women in science, technology, engineering, and mathematics through networking, mentorship, and professional development.",
       fullDescription: "IEEE Women in Engineering (WIE) is dedicated to promoting women engineers and scientists. Our chapter focuses on professional development, mentorship, and creating inclusive networking opportunities.",
-      color: "bg-gradient-to-br from-pink-500 to-rose-600",
+      color: "bg-rose-100",
     },
     {
       id: 2,
       name: "Young Professionals (YP)",
       description: "Connecting early-career professionals with industry experts, career development workshops, and networking events.",
       fullDescription: "IEEE Young Professionals supports students transitioning into careers and early-career professionals. We provide career guidance, industry connections, and professional growth opportunities.",
-      color: "bg-gradient-to-br from-blue-500 to-cyan-600",
+      color: "bg-blue-100",
     },
     {
       id: 3,
       name: "Power & Energy Society (PES)",
       description: "Advancing innovation in power systems, renewable energy, and sustainable technologies for a better future.",
       fullDescription: "IEEE Power & Energy Society focuses on research, education, and innovation in power systems. Our members work on sustainable energy solutions and advanced grid technologies.",
-      color: "bg-gradient-to-br from-yellow-500 to-orange-600",
+      color: "bg-amber-100",
     },
     {
       id: 4,
       name: "Computer Society (CS)",
       description: "Promoting computing education, research, and professional development in computer science and IT.",
       fullDescription: "IEEE Computer Society is the world's leading computing organization. We focus on computing education, research, and fostering innovation in computer science and technology.",
-      color: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      color: "bg-purple-100",
     },
     {
       id: 5,
       name: "Communications Society (ComSoc)",
       description: "Fostering innovation in communication systems, signal processing, and information theory.",
       fullDescription: "IEEE Communications Society promotes innovation and excellence in communications technology. We focus on emerging technologies, research, and professional development in the communications field.",
-      color: "bg-gradient-to-br from-green-500 to-emerald-600",
+      color: "bg-emerald-100",
     },
     {
       id: 6,
       name: "Robotics & Automation Society (RAS)",
       description: "Exploring robotics, automation, and intelligent systems to advance technology and innovation.",
       fullDescription: "IEEE Robotics and Automation Society is dedicated to advancing robotics and automation. We promote research, innovation, and education in robotics and related technologies.",
-      color: "bg-gradient-to-br from-red-500 to-pink-600",
+      color: "bg-cyan-100",
     },
   ]
 
@@ -53,7 +53,7 @@ export default function Societies() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="ieee-blue text-white py-20 md:py-24">
+        <section className="bg-[#00629B] text-white py-20 md:py-24">
           <div className="container-ieee">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">IEEE Societies</h1>
             <p className="text-xl opacity-90 max-w-2xl">
@@ -160,7 +160,7 @@ export default function Societies() {
         </section>
 
         {/* CTA Section */}
-        <section className="ieee-blue text-white py-20">
+        <section className="bg-[#00629B] text-white py-20">
           <div className="container-ieee text-center">
             <h2 className="text-4xl font-bold mb-4">Ready to Get Involved?</h2>
             <p className="text-xl opacity-90 mb-8">

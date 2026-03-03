@@ -34,7 +34,7 @@ export default function Contact() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="ieee-blue text-white py-20 md:py-24">
+        <section className="bg-[#00629B] text-white py-20 md:py-24">
           <div className="container-ieee">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
             <p className="text-xl opacity-90 max-w-2xl">
@@ -215,7 +215,7 @@ export default function Contact() {
         </section>
 
         {/* CTA Section */}
-        <section className="ieee-blue text-white py-20">
+        <section className="bg-[#00629B] text-white py-20">
           <div className="container-ieee text-center">
             <h2 className="text-4xl font-bold mb-4">Connect With Us</h2>
             <p className="text-xl opacity-90 mb-8">

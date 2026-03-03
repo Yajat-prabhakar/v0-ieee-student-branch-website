@@ -3,12 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* IEEE Heritage Brand Colors */
-  --ieee-blue: #00629B;
-  --ieee-blue-dark: #002855;
-  --ieee-blue-light: #00B5E2;
-  --ieee-navy: #002147;
-  --ieee-gold: #FFB800;
+  /* IEEE Heritage Brand Color values (not exposed as Tailwind utilities - use hex directly) */
   
   /* Semantic Colors */
   --background: #FFFFFF;
@@ -270,4 +265,5 @@
   .stat-label {
     @apply text-xs font-bold text-gray-200 uppercase tracking-widest;
   }
+  
 }
