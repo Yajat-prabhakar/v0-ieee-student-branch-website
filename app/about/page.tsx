@@ -72,9 +72,18 @@ export default function About() {
           <div className="container-ieee">
             <h2 className="section-title">Branch Leadership</h2>
             <p className="section-subtitle">Meet the team leading our branch</p>
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {leadership.map((member) => (
+            {/* Row 1: first 3 members */}
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              {leadership.slice(0, 3).map((member) => (
                 <LeadershipCard key={member.name} {...member} />
+              ))}
+            </div>
+            {/* Row 2: last 2 members centered */}
+            <div className="flex justify-center gap-8">
+              {leadership.slice(3).map((member) => (
+                <div key={member.name} className="w-full max-w-[calc(33.333%-1rem)]">
+                  <LeadershipCard {...member} />
+                </div>
               ))}
             </div>
           </div>
