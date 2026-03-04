@@ -4,11 +4,11 @@ import LeadershipCard from '@/components/LeadershipCard'
 
 export default function About() {
   const leadership = [
-    { name: "Kanav Gupta", role: "Chairperson", linkedin: "#" },
-    { name: "Harman Kaur", role: "Vice Chairperson", linkedin: "#" },
-    { name: "Ginim", role: "Secretary", linkedin: "#" },
-    { name: "Ipshita Sethi", role: "Treasurer", linkedin: "#" },
-    { name: "Yajat Prabhakar", role: "Webmaster", linkedin: "#" },
+    { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#" },
+    { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#" },
+    { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#" },
+    { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#" },
+    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "#" },
   ]
 
   return (

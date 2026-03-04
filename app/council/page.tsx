@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { X, Linkedin, Mail, Github, Users } from 'lucide-react'
@@ -15,6 +16,7 @@ interface Member {
   email?: string
   github?: string
   avatarColor: string
+  image?: string
 }
 
 const coreTeam: Member[] = [
@@ -28,20 +30,22 @@ const coreTeam: Member[] = [
     email: 'kanav@ieeebvimr.org',
     github: '#',
     avatarColor: 'from-[#00629B] to-[#002147]',
+    image: '/members/kanav-gupta.jpg',
   },
   {
-    name: 'Harman Kaur',
+    name: 'Herman Kaur',
     role: 'Vice Chairperson',
     team: 'Core Team',
     initials: 'HK',
     about: 'Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.',
     linkedin: '#',
-    email: 'harman@ieeebvimr.org',
+    email: 'herman@ieeebvimr.org',
     github: '#',
     avatarColor: 'from-[#002147] to-[#004080]',
+    image: '/members/herman-kaur.jpg',
   },
   {
-    name: 'Ginim',
+    name: 'Ginim Narang',
     role: 'Secretary',
     team: 'Core Team',
     initials: 'GN',
@@ -50,6 +54,7 @@ const coreTeam: Member[] = [
     email: 'ginim@ieeebvimr.org',
     github: '#',
     avatarColor: 'from-[#00629B] to-[#00B5E2]',
+    image: '/members/ginim-narang.jpg',
   },
   {
     name: 'Ipshita Sethi',
@@ -61,12 +66,14 @@ const coreTeam: Member[] = [
     email: 'ipshita@ieeebvimr.org',
     github: '#',
     avatarColor: 'from-[#004080] to-[#00629B]',
+    image: '/members/ipshita-sethi.jpg',
   },
   {
     name: 'Yajat Prabhakar',
     role: 'Webmaster',
     team: 'Core Team',
     initials: 'YP',
+    image: '/members/yajat-prabhakar.jpg',
     about: 'Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.',
     linkedin: '#',
     email: 'yajat@ieeebvimr.org',
@@ -163,8 +170,14 @@ function MemberCard({ member, onClick }: { member: Member; onClick: (m: Member) 
     >
       <div className="bg-white border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center cursor-pointer h-full">
         {/* Avatar */}
-        <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.avatarColor} flex items-center justify-center mb-4 shadow-md group-hover:scale-105 transition-transform duration-300`}>
-          <span className="text-2xl font-black text-white tracking-wide">{member.initials}</span>
+        <div className="w-20 h-20 rounded-full mb-4 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex-shrink-0">
+          {member.image ? (
+            <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover object-top" />
+          ) : (
+            <div className={`w-full h-full bg-gradient-to-br ${member.avatarColor} flex items-center justify-center`}>
+              <span className="text-2xl font-black text-white tracking-wide">{member.initials}</span>
+            </div>
+          )}
         </div>
         {/* Info */}
         <h3 className="font-bold text-base text-foreground mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
@@ -204,8 +217,14 @@ function MemberModal({ member, onClose }: { member: Member; onClose: () => void 
       >
         {/* Header strip */}
         <div className={`bg-gradient-to-r ${member.avatarColor} p-8 flex flex-col items-center`}>
-          <div className="w-24 h-24 rounded-full bg-white/20 border-4 border-white flex items-center justify-center mb-3 shadow-lg">
-            <span className="text-3xl font-black text-white">{member.initials}</span>
+          <div className="w-24 h-24 rounded-full border-4 border-white mb-3 shadow-lg overflow-hidden flex-shrink-0">
+            {member.image ? (
+              <Image src={member.image} alt={member.name} width={96} height={96} className="w-full h-full object-cover object-top" />
+            ) : (
+              <div className="w-full h-full bg-white/20 flex items-center justify-center">
+                <span className="text-3xl font-black text-white">{member.initials}</span>
+              </div>
+            )}
           </div>
           <h2 className="text-xl font-black text-white">{member.name}</h2>
           <span className="text-sm text-white/80 font-medium mt-1">{member.role}</span>
