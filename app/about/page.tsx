@@ -1,6 +1,58 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadershipCard from '@/components/LeadershipCard'
+
+function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.animationDelay = `${delay}ms`
+          el.classList.add('visible')
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [delay])
+  return (
+    <div
+      ref={ref}
+      className="opacity-0 translate-y-6 transition-none [&.visible]:opacity-100 [&.visible]:translate-y-0 [&.visible]:transition-all [&.visible]:duration-700 [&.visible]:ease-out"
+    >
+      {children}
+    </div>
+  )
+}
+
+const milestones = [
+  {
+    date: 'January 2026',
+    title: 'Foundation',
+    description: 'IEEE BVIMR Student Branch was officially established at Bharati Vidyapeeth Institute of Management and Research, New Delhi, under IEEE Region 10 (Asia Pacific). The branch was inaugurated with a ceremony attended by faculty, IEEE Delhi Section members, and founding student council.',
+    icon: '01',
+  },
+  {
+    date: 'February 2026',
+    title: 'First Event',
+    description: 'The branch hosted its first event — DSSYWLC\'25 (Delhi Section Student, Young Professionals, WIE & Life Members Congress) — where our members represented BVIMR alongside students and professionals from across the Delhi Section, marking our debut on the IEEE stage.',
+    icon: '02',
+  },
+  {
+    date: 'Future Forward',
+    title: 'Building Tomorrow',
+    description: 'With a growing council, planned technical workshops, and upcoming society chapters in WIE, Computer Society, and more, IEEE BVIMR is charting an ambitious roadmap to become a leading student branch in the Delhi Section — empowering students to innovate, lead, and connect globally.',
+    icon: '03',
+  },
+]
 
 export default function About() {
   const leadership = [
@@ -85,6 +137,51 @@ export default function About() {
                   <LeadershipCard {...member} />
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Journey */}
+        <section className="section-padding bg-[#002147] text-white overflow-hidden">
+          <div className="container-ieee">
+            <RevealOnScroll>
+              <h2 className="section-title text-white">Our Journey</h2>
+              <p className="section-subtitle text-white/70 mb-16">Milestones that shaped our growth and community impact.</p>
+            </RevealOnScroll>
+
+            {/* Timeline */}
+            <div className="relative">
+              {/* Vertical spine */}
+              <div className="absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-white/20 hidden md:block" />
+
+              <div className="space-y-12 md:space-y-0">
+                {milestones.map((m, i) => {
+                  const isLeft = i % 2 === 0
+                  return (
+                    <RevealOnScroll key={m.title} delay={i * 150}>
+                      <div className={`relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0 md:mb-16 ${isLeft ? '' : 'md:flex-row-reverse'}`}>
+
+                        {/* Card */}
+                        <div className={`w-full md:w-[45%] ${isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
+                          <div className="bg-white/10 border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:border-white/40 hover:-translate-y-1 transition-all duration-300 group">
+                            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#00B5E2] mb-2">{m.date}</span>
+                            <h3 className="text-xl font-black text-white mb-3">{m.title}</h3>
+                            <p className="text-white/70 text-sm leading-relaxed">{m.description}</p>
+                          </div>
+                        </div>
+
+                        {/* Centre dot */}
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#00629B] border-4 border-[#002147] items-center justify-center shadow-lg z-10 font-black text-white text-sm">
+                          {m.icon}
+                        </div>
+
+                        {/* Spacer */}
+                        <div className="hidden md:block w-[45%]" />
+                      </div>
+                    </RevealOnScroll>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </section>
