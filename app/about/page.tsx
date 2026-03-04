@@ -225,22 +225,19 @@ export default function About() {
 
             {/* Left-aligned vertical timeline */}
             <div className="relative mt-10">
+              {/* Single continuous spine — runs from centre of first node to centre of last */}
+              <div className="absolute left-4 top-4 bottom-4 w-px bg-white/20" style={{ transform: 'translateX(-50%)' }} />
+
               <div className="space-y-6">
                 {milestones.map((m, i) => (
                   <RevealOnScroll key={m.title} delay={i * 140}>
                     <div className="flex gap-4 items-start">
-                      {/* Node + spine column */}
-                      <div className="flex flex-col items-center flex-shrink-0">
-                        <div className="w-8 h-8 rounded-full bg-[#00629B] border-2 border-[#00B5E2] flex items-center justify-center shadow-[0_0_8px_rgba(0,181,226,0.5)] z-10 flex-shrink-0">
-                          <span className="text-[9px] font-black text-white">{m.icon}</span>
-                        </div>
-                        {/* Connector line — hidden on last item */}
-                        {i < milestones.length - 1 && (
-                          <div className="w-px flex-1 min-h-[3rem] bg-white/20 mt-1" />
-                        )}
+                      {/* Node */}
+                      <div className="w-8 h-8 rounded-full bg-[#00629B] border-2 border-[#00B5E2] flex items-center justify-center shadow-[0_0_8px_rgba(0,181,226,0.5)] z-10 flex-shrink-0">
+                        <span className="text-[9px] font-black text-white">{m.icon}</span>
                       </div>
                       {/* Card */}
-                      <div className="flex-1 pb-6 last:pb-0">
+                      <div className="flex-1">
                         <div className="bg-white/5 border border-white/15 rounded-xl p-5 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                           <span className="text-xs font-bold uppercase tracking-widest text-[#00B5E2] block mb-1">{m.date}</span>
                           <h3 className="text-lg font-black text-white mb-2">{m.title}</h3>
