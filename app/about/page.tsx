@@ -224,23 +224,28 @@ export default function About() {
             </RevealOnScroll>
 
             {/* Left-aligned vertical timeline */}
-            <div className="relative mt-10 pl-8 md:pl-16">
-              {/* Spine */}
-              <div className="absolute left-3 md:left-6 top-0 bottom-0 w-px bg-white/20" />
-
+            <div className="relative mt-10">
               <div className="space-y-6">
                 {milestones.map((m, i) => (
                   <RevealOnScroll key={m.title} delay={i * 140}>
-                    <div className="relative flex gap-6 items-start">
-                      {/* Node */}
-                      <div className="absolute -left-8 md:-left-[2.75rem] top-1 w-6 h-6 rounded-full bg-[#00629B] border-2 border-[#00B5E2] flex items-center justify-center shadow-[0_0_8px_rgba(0,181,226,0.5)] flex-shrink-0 z-10">
-                        <span className="text-[9px] font-black text-white">{m.icon}</span>
+                    <div className="flex gap-4 items-start">
+                      {/* Node + spine column */}
+                      <div className="flex flex-col items-center flex-shrink-0">
+                        <div className="w-8 h-8 rounded-full bg-[#00629B] border-2 border-[#00B5E2] flex items-center justify-center shadow-[0_0_8px_rgba(0,181,226,0.5)] z-10 flex-shrink-0">
+                          <span className="text-[9px] font-black text-white">{m.icon}</span>
+                        </div>
+                        {/* Connector line — hidden on last item */}
+                        {i < milestones.length - 1 && (
+                          <div className="w-px flex-1 min-h-[3rem] bg-white/20 mt-1" />
+                        )}
                       </div>
                       {/* Card */}
-                      <div className="flex-1 bg-white/5 border border-white/15 rounded-xl p-5 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-                        <span className="text-xs font-bold uppercase tracking-widest text-[#00B5E2] block mb-1">{m.date}</span>
-                        <h3 className="text-lg font-black text-white mb-2">{m.title}</h3>
-                        <p className="text-white/65 text-sm leading-relaxed">{m.description}</p>
+                      <div className="flex-1 pb-6 last:pb-0">
+                        <div className="bg-white/5 border border-white/15 rounded-xl p-5 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
+                          <span className="text-xs font-bold uppercase tracking-widest text-[#00B5E2] block mb-1">{m.date}</span>
+                          <h3 className="text-lg font-black text-white mb-2">{m.title}</h3>
+                          <p className="text-white/65 text-sm leading-relaxed">{m.description}</p>
+                        </div>
                       </div>
                     </div>
                   </RevealOnScroll>
