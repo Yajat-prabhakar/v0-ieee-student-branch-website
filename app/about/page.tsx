@@ -65,8 +65,12 @@ function ProgressTrack() {
         {steps.map((_, i) => (
           <div
             key={i}
-            className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#00B5E2] border-2 border-[#002147] shadow-[0_0_6px_rgba(0,181,226,0.7)]"
-            style={{ left: `${(i / (steps.length - 1)) * 100}%`, transform: 'translate(-50%, -50%)' }}
+            className="absolute w-3 h-3 rounded-full bg-[#00B5E2] border-2 border-[#002147] shadow-[0_0_6px_rgba(0,181,226,0.7)]"
+            style={{
+              left: `${(i / (steps.length - 1)) * 100}%`,
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+            }}
           />
         ))}
       </div>
