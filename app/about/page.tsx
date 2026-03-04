@@ -33,6 +33,57 @@ function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; de
   )
 }
 
+function ProgressBar() {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.width = '100%'
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+  return (
+    <div
+      ref={ref}
+      className="absolute top-0 left-0 h-1 bg-gradient-to-r from-[#00629B] to-[#00B5E2] rounded-full transition-all duration-[2000ms] ease-out"
+      style={{ width: '0%' }}
+    />
+  )
+}
+
+function MilestoneNode({ index, total }: { index: number; total: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => el.classList.add('active'), index * 500 + 300)
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [index])
+  return (
+    <div
+      ref={ref}
+      className="w-4 h-4 rounded-full border-2 border-white/30 bg-[#002147] scale-100 transition-all duration-500 [&.active]:border-[#00B5E2] [&.active]:bg-[#00629B] [&.active]:scale-125 [&.active]:shadow-[0_0_12px_rgba(0,181,226,0.6)]"
+    />
+  )
+}
+
 const milestones = [
   {
     date: 'January 2026',
@@ -146,42 +197,54 @@ export default function About() {
           <div className="container-ieee">
             <RevealOnScroll>
               <h2 className="section-title text-white">Our Journey</h2>
-              <p className="section-subtitle text-white/70 mb-16">Milestones that shaped our growth and community impact.</p>
+              <p className="section-subtitle text-white/70">Milestones that shaped our growth and community impact.</p>
             </RevealOnScroll>
 
-            {/* Timeline */}
-            <div className="relative">
-              {/* Vertical spine */}
-              <div className="absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-white/20 hidden md:block" />
-
-              <div className="space-y-12 md:space-y-0">
-                {milestones.map((m, i) => {
-                  const isLeft = i % 2 === 0
-                  return (
-                    <RevealOnScroll key={m.title} delay={i * 150}>
-                      <div className={`relative flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0 md:mb-16 ${isLeft ? '' : 'md:flex-row-reverse'}`}>
-
-                        {/* Card */}
-                        <div className={`w-full md:w-[45%] ${isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
-                          <div className="bg-white/10 border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:border-white/40 hover:-translate-y-1 transition-all duration-300 group">
-                            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#00B5E2] mb-2">{m.date}</span>
-                            <h3 className="text-xl font-black text-white mb-3">{m.title}</h3>
-                            <p className="text-white/70 text-sm leading-relaxed">{m.description}</p>
-                          </div>
-                        </div>
-
-                        {/* Centre dot */}
-                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#00629B] border-4 border-[#002147] items-center justify-center shadow-lg z-10 font-black text-white text-sm">
-                          {m.icon}
-                        </div>
-
-                        {/* Spacer */}
-                        <div className="hidden md:block w-[45%]" />
-                      </div>
-                    </RevealOnScroll>
-                  )
-                })}
+            {/* Progress bar track */}
+            <RevealOnScroll delay={100}>
+              <div className="relative mt-10 mb-2">
+                {/* Track */}
+                <div className="h-1 bg-white/15 rounded-full w-full" />
+                {/* Animated fill */}
+                <ProgressBar />
+                {/* Nodes */}
+                <div className="absolute inset-0 flex items-center justify-between px-0">
+                  {milestones.map((m, i) => (
+                    <div
+                      key={m.title}
+                      className="flex flex-col items-center"
+                      style={{ width: `${100 / milestones.length}%`, transform: i === 0 ? 'translateX(0)' : i === milestones.length - 1 ? 'translateX(0)' : undefined }}
+                    >
+                      <MilestoneNode index={i} total={milestones.length} />
+                    </div>
+                  ))}
+                </div>
               </div>
+              {/* Date labels */}
+              <div className="flex justify-between mt-3 mb-8">
+                {milestones.map((m) => (
+                  <span key={m.title} className="text-xs font-bold text-[#00B5E2] uppercase tracking-widest text-center" style={{ width: `${100 / milestones.length}%` }}>
+                    {m.date}
+                  </span>
+                ))}
+              </div>
+            </RevealOnScroll>
+
+            {/* Milestone cards */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {milestones.map((m, i) => (
+                <RevealOnScroll key={m.title} delay={200 + i * 120}>
+                  <div className="bg-white/8 border border-white/15 rounded-xl p-6 h-full hover:bg-white/12 hover:border-[#00B5E2]/50 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="w-8 h-8 rounded-full bg-[#00629B] flex items-center justify-center text-xs font-black text-white flex-shrink-0">
+                        {m.icon}
+                      </span>
+                      <h3 className="text-lg font-black text-white">{m.title}</h3>
+                    </div>
+                    <p className="text-white/65 text-sm leading-relaxed">{m.description}</p>
+                  </div>
+                </RevealOnScroll>
+              ))}
             </div>
           </div>
         </section>
