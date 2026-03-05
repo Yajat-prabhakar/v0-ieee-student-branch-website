@@ -1,9 +1,113 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import { X, Mail, Linkedin, Github } from 'lucide-react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadershipCard from '@/components/LeadershipCard'
+
+interface LeadershipMember {
+  name: string
+  role: string
+  image?: string
+  linkedin?: string
+  email?: string
+  github?: string
+  about?: string
+  team?: string
+}
+
+function LeadershipModal({ member, onClose }: { member: LeadershipMember | null; onClose: () => void }) {
+  useEffect(() => {
+    if (!member) return
+    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handleKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = ''
+    }
+  }, [member, onClose])
+
+  if (!member) return null
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ animation: 'fade-in 0.2s ease' }}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      {/* Modal */}
+      <div
+        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md z-10 overflow-hidden"
+        style={{ animation: 'scale-in 0.25s ease' }}
+      >
+        {/* Header strip */}
+        <div className="bg-gradient-to-r from-primary to-primary-foreground p-8 flex flex-col items-center">
+          <div className="w-24 h-24 rounded-full border-4 border-white mb-3 shadow-lg overflow-hidden flex-shrink-0">
+            {member.image ? (
+              <Image src={member.image} alt={member.name} width={96} height={96} className="w-full h-full object-cover object-top" />
+            ) : (
+              <div className="w-full h-full bg-white/20 flex items-center justify-center">
+                <span className="text-3xl font-black text-white">{member.name.charAt(0)}</span>
+              </div>
+            )}
+          </div>
+          <h2 className="text-xl font-black text-white">{member.name}</h2>
+          <span className="text-sm text-white/80 font-medium mt-1">{member.role}</span>
+          {member.team && <span className="text-xs text-white/60 mt-0.5">{member.team}</span>}
+        </div>
+
+        {/* Body */}
+        <div className="p-6">
+          {member.about && <p className="text-sm text-muted-foreground leading-relaxed mb-6">{member.about}</p>}
+
+          {/* Links */}
+          <div className="flex flex-col gap-3">
+            {member.email && (
+              <a href={`mailto:${member.email}`} className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Mail size={16} className="text-muted-foreground group-hover:text-primary" />
+                </div>
+                <span>{member.email}</span>
+              </a>
+            )}
+            {member.linkedin && member.linkedin !== '#' && (
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Linkedin size={16} className="text-muted-foreground group-hover:text-primary" />
+                </div>
+                <span>LinkedIn Profile</span>
+              </a>
+            )}
+            {member.github && member.github !== '#' && (
+              <a href={member.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Github size={16} className="text-muted-foreground group-hover:text-primary" />
+                </div>
+                <span>GitHub Profile</span>
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+          aria-label="Close modal"
+        >
+          <X size={16} />
+        </button>
+      </div>
+    </div>
+  )
+}
 
 function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -106,12 +210,13 @@ const milestones = [
 ]
 
 export default function About() {
-  const leadership = [
-    { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#" },
-    { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#" },
-    { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#" },
-    { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#" },
-    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "#" },
+  const [selectedMember, setSelectedMember] = useState<LeadershipMember | null>(null)
+  const leadership: LeadershipMember[] = [
+    { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#", email: "kanav@ieeebvimr.org", github: "#", about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.", team: "Core Team" },
+    { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
+    { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#", email: "ginim@ieeebvimr.org", github: "#", about: "Managing communications, maintaining records, and ensuring smooth coordination across all branch activities.", team: "Core Team" },
+    { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#", email: "ipshita@ieeebvimr.org", github: "#", about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.", team: "Core Team" },
+    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "#", email: "yajat@ieeebvimr.org", github: "#", about: "Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.", team: "Core Team" },
   ]
 
   return (
@@ -178,13 +283,21 @@ export default function About() {
             {/* Row 1: first 3 members */}
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {leadership.slice(0, 3).map((member) => (
-                <LeadershipCard key={member.name} {...member} />
+                <LeadershipCard 
+                  key={member.name} 
+                  {...member} 
+                  onViewProfile={() => setSelectedMember(member)}
+                />
               ))}
             </div>
             {/* Row 2: last 2 members centered */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
               {leadership.slice(3).map((member) => (
-                <LeadershipCard key={member.name} {...member} />
+                <LeadershipCard 
+                  key={member.name} 
+                  {...member} 
+                  onViewProfile={() => setSelectedMember(member)}
+                />
               ))}
             </div>
           </div>
@@ -303,6 +416,10 @@ export default function About() {
         </section>
 
       </main>
+
+      {/* Leadership Modal */}
+      <LeadershipModal member={selectedMember} onClose={() => setSelectedMember(null)} />
+
       <Footer />
     </>
   )
