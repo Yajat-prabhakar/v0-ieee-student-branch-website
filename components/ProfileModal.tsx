@@ -49,7 +49,7 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
         style={{ animation: 'scale-in 0.3s ease', scrollbarWidth: 'thin', scrollbarColor: 'hsl(var(--primary) / 0.6) hsl(var(--secondary))' }}
       >
         {/* Banner with Image Background */}
-        <div className="h-36 relative overflow-hidden flex-shrink-0">
+        <div className="h-32 relative overflow-hidden flex-shrink-0">
           <Image
             src="/images/profile-banner.png"
             alt="Profile banner"
@@ -57,51 +57,52 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
             className="object-cover object-top"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center text-white transition-colors z-10"
+            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/60 hover:bg-white/90 flex items-center justify-center text-foreground transition-colors z-10"
             aria-label="Close"
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
         {/* Profile Header */}
-        <div className="px-6 md:px-8 pb-6 relative z-10">
-          <div className="flex gap-5 items-end -mt-16 mb-6">
-            {/* Avatar */}
-            <div className="w-24 h-24 rounded-full border-4 border-primary overflow-hidden flex-shrink-0 shadow-lg bg-muted">
-              {profile.image ? (
-                <Image
-                  src={profile.image}
-                  alt={profile.name}
-                  width={96}
-                  height={96}
-                  className="w-full h-full object-cover object-top"
-                />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
-                  <span className="text-3xl font-bold text-white">{profile.name.charAt(0)}</span>
-                </div>
-              )}
-            </div>
-            {/* Name and Role */}
-            <div className="pb-2 flex-1 min-w-0">
-              <h2 className="text-2xl font-bold text-foreground leading-tight">{profile.name}</h2>
-              <p className="text-sm text-muted-foreground mt-1">{profile.role}</p>
-              {profile.team && <p className="text-xs text-primary font-semibold mt-0.5">{profile.team}</p>}
-            </div>
+        <div className="px-6 md:px-8 pt-5 pb-5 flex items-center gap-4 border-b border-border">
+          {/* Avatar */}
+          <div className="w-16 h-16 rounded-full border-2 border-primary overflow-hidden flex-shrink-0 shadow-sm bg-muted">
+            {profile.image ? (
+              <Image
+                src={profile.image}
+                alt={profile.name}
+                width={64}
+                height={64}
+                className="w-full h-full object-cover object-top"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
+                <span className="text-xl font-bold text-white">{profile.name.charAt(0)}</span>
+              </div>
+            )}
           </div>
+          {/* Name and Role */}
+          <div className="flex-1 min-w-0">
+            <h2 className="text-xl font-bold text-foreground leading-tight">{profile.name}</h2>
+            <p className="text-sm text-muted-foreground mt-0.5">{profile.role}</p>
+            {profile.team && <p className="text-xs text-primary font-semibold mt-0.5">{profile.team}</p>}
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="px-6 md:px-8 pt-5 pb-6">
 
           {/* Tags */}
           {profile.tags && profile.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-5">
               {profile.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-medium px-3 py-1 bg-primary/10 border border-primary/30 text-primary rounded-full"
+                  className="text-xs font-medium px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full"
                 >
                   {tag}
                 </span>
@@ -109,31 +110,25 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
             </div>
           )}
 
-          {/* Divider */}
-          <div className="h-px bg-border mb-6" />
-
           {/* About Section */}
           {profile.about && (
-            <>
-              <div className="mb-6">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
-                  <span className="w-1 h-3 bg-gradient-to-b from-primary to-accent rounded" />
-                  About
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{profile.about}</p>
-              </div>
-              <div className="h-px bg-border mb-6" />
-            </>
+            <div className="mb-5">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2 flex items-center gap-2">
+                <span className="w-1 h-3 bg-primary rounded" />
+                About
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{profile.about}</p>
+            </div>
           )}
 
           {/* Projects & Research */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4 flex items-center gap-2">
-              <span className="w-1 h-3 bg-gradient-to-b from-primary to-accent rounded" />
+          <div className={profile.about ? 'mt-5 pt-5 border-t border-border' : ''}>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
+              <span className="w-1 h-3 bg-primary rounded" />
               Projects &amp; Research
             </h3>
-            <div className="bg-secondary/50 border border-border rounded-lg p-6 text-center">
-              <p className="text-muted-foreground font-medium">Coming Soon</p>
+            <div className="bg-secondary/40 border border-border rounded-lg p-5 text-center">
+              <p className="text-sm text-muted-foreground">Coming Soon</p>
             </div>
           </div>
         </div>
