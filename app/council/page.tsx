@@ -76,9 +76,9 @@ const coreTeam: Member[] = [
     initials: 'YP',
     image: '/members/yajat-prabhakar.jpg',
     about: 'Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/yajat-prabhakar-6a3aa6321/',
     email: 'yajat@ieeebvimr.org',
-    github: '#',
+    github: 'https://github.com/Yajat-prabhakar',
     avatarColor: 'from-[#002147] to-[#00629B]',
   },
 ]

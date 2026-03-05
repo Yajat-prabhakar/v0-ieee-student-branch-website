@@ -114,7 +114,7 @@ export default function About() {
     { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
     { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#", email: "ginim@ieeebvimr.org", github: "#", about: "Managing communications, maintaining records, and ensuring smooth coordination across all branch activities.", team: "Core Team" },
     { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#", email: "ipshita@ieeebvimr.org", github: "#", about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.", team: "Core Team" },
-    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "#", email: "yajat@ieeebvimr.org", github: "#", about: "Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.", team: "Core Team" },
+    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "https://www.linkedin.com/in/yajat-prabhakar-6a3aa6321/", email: "yajat@ieeebvimr.org", github: "https://github.com/Yajat-prabhakar", about: "Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.", team: "Core Team" },
   ]
 
   return (

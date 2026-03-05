@@ -48,16 +48,20 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
         onClick={(e) => e.stopPropagation()}
         style={{ animation: 'scale-in 0.3s ease', scrollbarWidth: 'thin', scrollbarColor: 'hsl(var(--primary) / 0.6) hsl(var(--secondary))' }}
       >
-        {/* Banner */}
-        <div className="h-32 bg-gradient-to-r from-primary via-primary/80 to-primary/60 relative overflow-hidden flex-shrink-0">
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '32px 32px'
-          }} />
+        {/* Banner with Image Background */}
+        <div className="h-36 relative overflow-hidden flex-shrink-0">
+          <Image
+            src="/images/profile-banner.png"
+            alt="Profile banner"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-10"
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center text-white transition-colors z-10"
             aria-label="Close"
           >
             <X size={18} />
