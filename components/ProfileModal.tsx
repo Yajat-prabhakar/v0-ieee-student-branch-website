@@ -4,6 +4,13 @@ import { useEffect } from 'react'
 import Image from 'next/image'
 import { X, Mail, Linkedin, Github } from 'lucide-react'
 
+interface Project {
+  title: string
+  description: string
+  tech?: string
+  link?: string
+}
+
 interface ProfileModalProps {
   isOpen: boolean
   onClose: () => void
@@ -17,6 +24,7 @@ interface ProfileModalProps {
     linkedin?: string
     github?: string
     tags?: string[]
+    projects?: Project[]
   }
 }
 
@@ -127,9 +135,38 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
               <span className="w-1 h-3 bg-primary rounded" />
               Projects &amp; Research
             </h3>
-            <div className="bg-secondary/40 border border-border rounded-lg p-5 text-center">
-              <p className="text-sm text-muted-foreground">Coming Soon</p>
-            </div>
+            {profile.projects && profile.projects.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {profile.projects.map((proj, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-secondary/40 border border-border rounded-lg p-4 hover:border-primary/30 hover:bg-primary/5 transition-all"
+                  >
+                    <h4 className="text-sm font-semibold text-foreground mb-1 leading-snug">{proj.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-2">{proj.description}</p>
+                    {proj.tech && (
+                      <span className="text-[10px] font-medium px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded-full">
+                        {proj.tech}
+                      </span>
+                    )}
+                    {proj.link && (
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-xs text-primary hover:underline mt-2"
+                      >
+                        View Project
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-secondary/40 border border-border rounded-lg p-5 text-center">
+                <p className="text-sm text-muted-foreground">Coming Soon</p>
+              </div>
+            )}
           </div>
         </div>
 

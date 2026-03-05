@@ -7,6 +7,13 @@ import Footer from '@/components/Footer'
 import ProfileModal from '@/components/ProfileModal'
 import { Linkedin, Mail, Github, Users } from 'lucide-react'
 
+interface Project {
+  title: string
+  description: string
+  tech?: string
+  link?: string
+}
+
 interface Member {
   name: string
   role: string
@@ -18,6 +25,7 @@ interface Member {
   github?: string
   avatarColor: string
   image?: string
+  projects?: Project[]
 }
 
 const coreTeam: Member[] = [
@@ -75,11 +83,17 @@ const coreTeam: Member[] = [
     team: 'Core Team',
     initials: 'YP',
     image: '/members/yajat-prabhakar.jpg',
-    about: 'Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.',
+    about: 'Second-year BCA student passionate about programming, problem-solving, and building real-world technology solutions. Serving as Webmaster of BVIMR IEEE Student Branch and Technical Head at QuantaLoop. Interested in AI, DevOps, and Site Reliability Engineering (SRE).',
     linkedin: 'https://www.linkedin.com/in/yajat-prabhakar-6a3aa6321/',
     email: 'yajat@ieeebvimr.org',
     github: 'https://github.com/Yajat-prabhakar',
     avatarColor: 'from-[#002147] to-[#00629B]',
+    projects: [
+      { title: 'Aetherion', description: 'AI Space Guardian for Astronauts — intelligent monitoring and safety system built in Python.', tech: 'Python', link: 'https://github.com/Yajat-prabhakar/Aetherion' },
+      { title: 'CertBot2', description: 'Automated certificate generation and distribution tool built with JavaScript.', tech: 'JavaScript', link: 'https://github.com/Yajat-prabhakar/CertBot2' },
+      { title: 'CODE-RUNNER', description: 'A TypeScript-based code execution environment for running and testing code snippets.', tech: 'TypeScript', link: 'https://github.com/Yajat-prabhakar/CODE-RUNNER' },
+      { title: 'IEEE Student Branch Website', description: 'Official website for the BVIMR IEEE Student Branch — managing digital presence and member resources.', tech: 'Next.js', link: 'https://github.com/Yajat-prabhakar/Ieee-Student-branch' },
+    ],
   },
 ]
 
@@ -345,14 +359,15 @@ export default function Council() {
           isOpen={!!selected}
           onClose={() => setSelected(null)}
           profile={{
-            name: selected.name,
-            role: selected.role,
-            team: selected.team,
-            about: selected.about,
-            image: selected.image,
-            email: selected.email,
-            linkedin: selected.linkedin,
-            github: selected.github,
+          name: selected.name,
+          role: selected.role,
+          team: selected.team,
+          about: selected.about,
+          image: selected.image,
+          email: selected.email,
+          linkedin: selected.linkedin,
+          github: selected.github,
+          projects: selected.projects,
           }}
         />
       )}

@@ -107,14 +107,27 @@ const milestones = [
 ]
 
 export default function About() {
-  const [selectedMember, setSelectedMember] = useState<typeof leadership[number] | null>(null)
-
-  const leadership = [
+  type LeaderMember = { name: string; role: string; image?: string; linkedin?: string; email?: string; github?: string; about?: string; team?: string; projects?: { title: string; description: string; tech?: string; link?: string }[] }
+  const [selectedMember, setSelectedMember] = useState<LeaderMember | null>(null)
+  const leadership: LeaderMember[] = [
     { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#", email: "kanav@ieeebvimr.org", github: "#", about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.", team: "Core Team" },
     { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
     { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#", email: "ginim@ieeebvimr.org", github: "#", about: "Managing communications, maintaining records, and ensuring smooth coordination across all branch activities.", team: "Core Team" },
     { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#", email: "ipshita@ieeebvimr.org", github: "#", about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.", team: "Core Team" },
-    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "https://www.linkedin.com/in/yajat-prabhakar-6a3aa6321/", email: "yajat@ieeebvimr.org", github: "https://github.com/Yajat-prabhakar", about: "Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.", team: "Core Team" },
+    {
+      name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg",
+      linkedin: "https://www.linkedin.com/in/yajat-prabhakar-6a3aa6321/",
+      email: "yajat@ieeebvimr.org",
+      github: "https://github.com/Yajat-prabhakar",
+      about: "Second-year BCA student passionate about programming, problem-solving, and building real-world technology solutions. Serving as Webmaster of BVIMR IEEE Student Branch and Technical Head at QuantaLoop. Interested in AI, DevOps, and Site Reliability Engineering (SRE).",
+      team: "Core Team",
+      projects: [
+        { title: "Aetherion", description: "AI Space Guardian for Astronauts — intelligent monitoring and safety system.", tech: "Python", link: "https://github.com/Yajat-prabhakar/Aetherion" },
+        { title: "CertBot2", description: "Automated certificate generation and distribution tool.", tech: "JavaScript", link: "https://github.com/Yajat-prabhakar/CertBot2" },
+        { title: "CODE-RUNNER", description: "A TypeScript-based code execution environment for running and testing code snippets.", tech: "TypeScript", link: "https://github.com/Yajat-prabhakar/CODE-RUNNER" },
+        { title: "IEEE Student Branch Website", description: "Official website for the BVIMR IEEE Student Branch.", tech: "Next.js", link: "https://github.com/Yajat-prabhakar/Ieee-Student-branch" },
+      ],
+    },
   ]
 
   return (
@@ -318,10 +331,20 @@ export default function About() {
 
       {/* Profile Modal */}
       {selectedMember && (
-        <ProfileModal 
+        <ProfileModal
           isOpen={!!selectedMember}
           onClose={() => setSelectedMember(null)}
-          profile={selectedMember}
+          profile={{
+            name: selectedMember.name,
+            role: selectedMember.role,
+            team: selectedMember.team,
+            about: selectedMember.about,
+            image: selectedMember.image,
+            email: selectedMember.email,
+            linkedin: selectedMember.linkedin,
+            github: selectedMember.github,
+            projects: selectedMember.projects,
+          }}
         />
       )}
     </>
