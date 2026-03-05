@@ -17,8 +17,6 @@ interface Member {
   github?: string
   avatarColor: string
   image?: string
-  tags?: string[]
-  projects?: { title: string; description: string; type: 'project' | 'research' | 'paper' }[]
 }
 
 const coreTeam: Member[] = [
@@ -76,16 +74,11 @@ const coreTeam: Member[] = [
     team: 'Core Team',
     initials: 'YP',
     image: '/members/yajat-prabhakar.jpg',
-    about: 'Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR. Passionate about full-stack development and DevOps.',
+    about: 'Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.',
     linkedin: '#',
     email: 'yajat@ieeebvimr.org',
     github: '#',
     avatarColor: 'from-[#002147] to-[#00629B]',
-    tags: ['Web Dev', 'DevOps', 'Full-Stack', 'India'],
-    projects: [
-      { title: 'Upcoming Project 1', description: 'Details coming soon as we develop new initiatives.', type: 'project' },
-      { title: 'Upcoming Research 1', description: 'Research work in progress—stay tuned for announcements.', type: 'research' },
-    ],
   },
 ]
 
@@ -210,121 +203,75 @@ function MemberModal({ member, onClose }: { member: Member; onClose: () => void 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: 'rgba(4, 7, 18, 0.85)', backdropFilter: 'blur(12px)', animation: 'fade-in 0.2s ease' }}
-      onClick={onClose}
+      style={{ animation: 'fade-in 0.2s ease' }}
     >
-      {/* Modal card */}
+      {/* Backdrop */}
       <div
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0f1525] rounded-2xl border border-white/10 shadow-2xl z-10 scrollbar-thin scrollbar-thumb-[#1a2338] scrollbar-track-transparent"
-        style={{ animation: 'scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)' }}
-        onClick={(e) => e.stopPropagation()}
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      {/* Modal */}
+      <div
+        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md z-10 overflow-hidden"
+        style={{ animation: 'scale-in 0.25s ease' }}
       >
-        {/* Banner */}
-        <div className="h-32 bg-gradient-to-r from-[#0d1836] via-[#0e1f45] to-[#0a1628] relative overflow-hidden flex-shrink-0">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(79,142,247,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(79,142,247,0.08)_1px,transparent_1px)] bg-[length:32px_32px]" />
-          <div className="absolute top-4 right-4 z-10">
-            <button
-              onClick={onClose}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all"
-              aria-label="Close modal"
-            >
-              <X size={18} />
-            </button>
-          </div>
-        </div>
-
-        {/* Profile header — overlaps banner */}
-        <div className="px-7 pb-6 relative z-10">
-          <div className="flex gap-5 items-end -mt-12 mb-6">
-            <div className="w-24 h-24 rounded-full border-4 border-[#00629B] overflow-hidden flex-shrink-0 shadow-lg bg-[#151d30]">
-              {member.image ? (
-                <Image src={member.image} alt={member.name} width={96} height={96} className="w-full h-full object-cover object-top" />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-[#00629B] to-[#002147] flex items-center justify-center">
-                  <span className="text-2xl font-black text-white">{member.initials}</span>
-                </div>
-              )}
-            </div>
-            <div className="flex-1 min-w-0 pb-2">
-              <h2 className="text-2xl font-bold text-white leading-tight">{member.name}</h2>
-              <p className="text-sm text-white/70 mt-1">{member.role}</p>
-              <p className="text-xs text-[#00B5E2] font-medium mt-0.5">{member.team}</p>
-            </div>
-          </div>
-
-          {/* Tags */}
-          {member.tags && member.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-5">
-              {member.tags.map((tag) => (
-                <span key={tag} className="text-xs font-medium px-3 py-1 bg-[#00629B]/20 border border-[#00B5E2]/40 text-[#00B5E2] rounded-full">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Divider */}
-          <div className="h-px bg-white/10 my-5" />
-
-          {/* About section */}
-          <div className="mb-5">
-            <h3 className="text-xs font-bold uppercase tracking-wide text-white/60 mb-2 flex items-center gap-2">
-              <span className="w-1 h-3 bg-gradient-to-b from-[#00629B] to-[#00B5E2] rounded" />
-              About
-            </h3>
-            <p className="text-sm text-white/70 leading-relaxed">{member.about}</p>
-          </div>
-
-          {/* Projects & Research */}
-          {member.projects && member.projects.length > 0 && (
-            <>
-              <div className="h-px bg-white/10 my-5" />
-              <div className="mb-5">
-                <h3 className="text-xs font-bold uppercase tracking-wide text-white/60 mb-3 flex items-center gap-2">
-                  <span className="w-1 h-3 bg-gradient-to-b from-[#00629B] to-[#00B5E2] rounded" />
-                  Projects &amp; Research
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {member.projects.map((proj, idx) => (
-                    <div key={idx} className="bg-[#151d30] border border-white/10 rounded-xl p-4 hover:border-[#00B5E2]/30 hover:bg-[#1a2338] transition-all">
-                      <h4 className="text-sm font-semibold text-white mb-2 line-clamp-2">{proj.title}</h4>
-                      <p className="text-xs text-white/60 mb-3 line-clamp-2">{proj.description}</p>
-                      <span className={`text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-md inline-block ${
-                        proj.type === 'project' ? 'bg-[#00629B]/20 text-[#00B5E2] border border-[#00629B]/40' :
-                        proj.type === 'research' ? 'bg-[#7c6af7]/20 text-[#a78bfa] border border-[#7c6af7]/40' :
-                        'bg-[#3ecf8e]/20 text-[#3ecf8e] border border-[#3ecf8e]/40'
-                      }`}>
-                        {proj.type === 'research' ? 'Research' : proj.type === 'paper' ? 'Paper' : 'Project'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+        {/* Header strip */}
+        <div className={`bg-gradient-to-r ${member.avatarColor} p-8 flex flex-col items-center`}>
+          <div className="w-24 h-24 rounded-full border-4 border-white mb-3 shadow-lg overflow-hidden flex-shrink-0">
+            {member.image ? (
+              <Image src={member.image} alt={member.name} width={96} height={96} className="w-full h-full object-cover object-top" />
+            ) : (
+              <div className="w-full h-full bg-white/20 flex items-center justify-center">
+                <span className="text-3xl font-black text-white">{member.initials}</span>
               </div>
-            </>
-          )}
+            )}
+          </div>
+          <h2 className="text-xl font-black text-white">{member.name}</h2>
+          <span className="text-sm text-white/80 font-medium mt-1">{member.role}</span>
+          <span className="text-xs text-white/60 mt-0.5">{member.team}</span>
         </div>
 
-        {/* Footer with socials */}
-        <div className="border-t border-white/10 bg-black/20 px-7 py-4 flex items-center justify-between">
-          <span className="text-xs text-white/50">Connect with <span className="text-white/70 font-medium">{member.name.split(' ')[0]}</span></span>
-          <div className="flex gap-2">
-            {member.linkedin && member.linkedin !== '#' && (
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn" className="w-9 h-9 rounded-lg bg-[#151d30] border border-white/10 hover:border-[#00B5E2]/30 hover:bg-[#1a2338] flex items-center justify-center text-white/60 hover:text-[#00B5E2] transition-all">
-                <Linkedin size={16} />
+        {/* Body */}
+        <div className="p-6">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-6">{member.about}</p>
+
+          {/* Links */}
+          <div className="flex flex-col gap-3">
+            {member.email && (
+              <a href={`mailto:${member.email}`} className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Mail size={16} className="text-muted-foreground group-hover:text-primary" />
+                </div>
+                <span>{member.email}</span>
               </a>
             )}
-            {member.email && (
-              <a href={`mailto:${member.email}`} title="Email" className="w-9 h-9 rounded-lg bg-[#151d30] border border-white/10 hover:border-[#00B5E2]/30 hover:bg-[#1a2338] flex items-center justify-center text-white/60 hover:text-[#00B5E2] transition-all">
-                <Mail size={16} />
+            {member.linkedin && member.linkedin !== '#' && (
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Linkedin size={16} className="text-muted-foreground group-hover:text-primary" />
+                </div>
+                <span>LinkedIn Profile</span>
               </a>
             )}
             {member.github && member.github !== '#' && (
-              <a href={member.github} target="_blank" rel="noopener noreferrer" title="GitHub" className="w-9 h-9 rounded-lg bg-[#151d30] border border-white/10 hover:border-[#00B5E2]/30 hover:bg-[#1a2338] flex items-center justify-center text-white/60 hover:text-[#00B5E2] transition-all">
-                <Github size={16} />
+              <a href={member.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Github size={16} className="text-muted-foreground group-hover:text-primary" />
+                </div>
+                <span>GitHub Profile</span>
               </a>
             )}
           </div>
         </div>
+
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+          aria-label="Close modal"
+        >
+          <X size={16} />
+        </button>
       </div>
     </div>
   )
