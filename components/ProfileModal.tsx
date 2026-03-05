@@ -44,9 +44,9 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
     >
       {/* Modal Card */}
       <div
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card rounded-lg border border-border shadow-lg"
+        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card rounded-lg border border-border shadow-lg [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-secondary [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/60 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-primary"
         onClick={(e) => e.stopPropagation()}
-        style={{ animation: 'scale-in 0.3s ease' }}
+        style={{ animation: 'scale-in 0.3s ease', scrollbarWidth: 'thin', scrollbarColor: 'hsl(var(--primary) / 0.6) hsl(var(--secondary))' }}
       >
         {/* Banner */}
         <div className="h-32 bg-gradient-to-r from-primary via-primary/80 to-primary/60 relative overflow-hidden flex-shrink-0">
