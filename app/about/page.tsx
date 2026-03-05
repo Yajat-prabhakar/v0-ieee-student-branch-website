@@ -182,11 +182,9 @@ export default function About() {
               ))}
             </div>
             {/* Row 2: last 2 members centered */}
-            <div className="flex justify-center gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
               {leadership.slice(3).map((member) => (
-                <div key={member.name} className="w-full max-w-[calc(33.333%-1rem)]">
-                  <LeadershipCard {...member} />
-                </div>
+                <LeadershipCard key={member.name} {...member} />
               ))}
             </div>
           </div>
