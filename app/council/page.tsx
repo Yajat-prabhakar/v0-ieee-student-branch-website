@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { X, Linkedin, Mail, Github, Users } from 'lucide-react'
+import ProfileModal from '@/components/ProfileModal'
+import { Linkedin, Mail, Github, Users } from 'lucide-react'
 
 interface Member {
   name: string
@@ -189,94 +190,6 @@ function MemberCard({ member, onClick }: { member: Member; onClick: (m: Member) 
   )
 }
 
-function MemberModal({ member, onClose }: { member: Member; onClose: () => void }) {
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
-    document.addEventListener('keydown', handleKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', handleKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
-
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ animation: 'fade-in 0.2s ease' }}
-    >
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
-      />
-      {/* Modal */}
-      <div
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md z-10 overflow-hidden"
-        style={{ animation: 'scale-in 0.25s ease' }}
-      >
-        {/* Header strip */}
-        <div className={`bg-gradient-to-r ${member.avatarColor} p-8 flex flex-col items-center`}>
-          <div className="w-24 h-24 rounded-full border-4 border-white mb-3 shadow-lg overflow-hidden flex-shrink-0">
-            {member.image ? (
-              <Image src={member.image} alt={member.name} width={96} height={96} className="w-full h-full object-cover object-top" />
-            ) : (
-              <div className="w-full h-full bg-white/20 flex items-center justify-center">
-                <span className="text-3xl font-black text-white">{member.initials}</span>
-              </div>
-            )}
-          </div>
-          <h2 className="text-xl font-black text-white">{member.name}</h2>
-          <span className="text-sm text-white/80 font-medium mt-1">{member.role}</span>
-          <span className="text-xs text-white/60 mt-0.5">{member.team}</span>
-        </div>
-
-        {/* Body */}
-        <div className="p-6">
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6">{member.about}</p>
-
-          {/* Links */}
-          <div className="flex flex-col gap-3">
-            {member.email && (
-              <a href={`mailto:${member.email}`} className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
-                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                  <Mail size={16} className="text-muted-foreground group-hover:text-primary" />
-                </div>
-                <span>{member.email}</span>
-              </a>
-            )}
-            {member.linkedin && member.linkedin !== '#' && (
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
-                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                  <Linkedin size={16} className="text-muted-foreground group-hover:text-primary" />
-                </div>
-                <span>LinkedIn Profile</span>
-              </a>
-            )}
-            {member.github && member.github !== '#' && (
-              <a href={member.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
-                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                  <Github size={16} className="text-muted-foreground group-hover:text-primary" />
-                </div>
-                <span>GitHub Profile</span>
-              </a>
-            )}
-          </div>
-        </div>
-
-        {/* Close */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
-          aria-label="Close modal"
-        >
-          <X size={16} />
-        </button>
-      </div>
-    </div>
-  )
-}
-
 function TeamSection({ title, subtitle, members, onSelect, delay = 0 }: {
   title: string
   subtitle: string
@@ -426,8 +339,23 @@ export default function Council() {
         </section>
       </main>
 
-      {/* Modal */}
-      {selected && <MemberModal member={selected} onClose={() => setSelected(null)} />}
+      {/* Profile Modal */}
+      {selected && (
+        <ProfileModal 
+          isOpen={!!selected}
+          onClose={() => setSelected(null)}
+          profile={{
+            name: selected.name,
+            role: selected.role,
+            team: selected.team,
+            about: selected.about,
+            image: selected.image,
+            email: selected.email,
+            linkedin: selected.linkedin,
+            github: selected.github,
+          }}
+        />
+      )}
 
       <Footer />
     </>

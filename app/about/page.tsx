@@ -1,9 +1,10 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadershipCard from '@/components/LeadershipCard'
+import ProfileModal from '@/components/ProfileModal'
 
 function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -106,12 +107,14 @@ const milestones = [
 ]
 
 export default function About() {
+  const [selectedMember, setSelectedMember] = useState<typeof leadership[number] | null>(null)
+
   const leadership = [
-    { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#" },
-    { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#" },
-    { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#" },
-    { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#" },
-    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "#" },
+    { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#", email: "kanav@ieeebvimr.org", github: "#", about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.", team: "Core Team" },
+    { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
+    { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#", email: "ginim@ieeebvimr.org", github: "#", about: "Managing communications, maintaining records, and ensuring smooth coordination across all branch activities.", team: "Core Team" },
+    { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#", email: "ipshita@ieeebvimr.org", github: "#", about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.", team: "Core Team" },
+    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "#", email: "yajat@ieeebvimr.org", github: "#", about: "Building and maintaining the branch website, digital infrastructure, and online presence for IEEE BVIMR.", team: "Core Team" },
   ]
 
   return (
@@ -178,13 +181,21 @@ export default function About() {
             {/* Row 1: first 3 members */}
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {leadership.slice(0, 3).map((member) => (
-                <LeadershipCard key={member.name} {...member} />
+                <LeadershipCard 
+                  key={member.name} 
+                  {...member} 
+                  onViewProfile={() => setSelectedMember(member)}
+                />
               ))}
             </div>
             {/* Row 2: last 2 members centered */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
               {leadership.slice(3).map((member) => (
-                <LeadershipCard key={member.name} {...member} />
+                <LeadershipCard 
+                  key={member.name} 
+                  {...member} 
+                  onViewProfile={() => setSelectedMember(member)}
+                />
               ))}
             </div>
           </div>
@@ -304,6 +315,15 @@ export default function About() {
 
       </main>
       <Footer />
+
+      {/* Profile Modal */}
+      {selectedMember && (
+        <ProfileModal 
+          isOpen={!!selectedMember}
+          onClose={() => setSelectedMember(null)}
+          profile={selectedMember}
+        />
+      )}
     </>
   )
 }
