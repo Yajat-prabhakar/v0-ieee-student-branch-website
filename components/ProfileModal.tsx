@@ -63,7 +63,7 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
             src={profile.banner ?? '/images/profile-banner.png'}
             alt="Profile banner"
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             priority
           />
           {/* Close button */}
@@ -86,7 +86,7 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
                 alt={profile.name}
                 width={64}
                 height={64}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
