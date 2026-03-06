@@ -209,14 +209,17 @@ const eventTeam: Member[] = [
 
 const operationsTeam: Member[] = [
   {
-    name: 'Parth',
+    name: 'Parth Sethi',
     role: 'Operations Lead',
     team: 'Operations Team',
-    initials: 'PT',
-    about: 'Overseeing day-to-day branch operations, logistics, and ensuring efficient execution across all departments.',
+    initials: 'PS',
+    image: '/members/parth-sethi.jpg',
+    banner: '/members/parth-banner.png',
+    objectPosition: 'center 15%',
+    about: 'Motivated student with a strong interest in technology and software development. Skilled in HTML, CSS, Java, C, SQL, and Python with a focus on data structures and problem-solving. Currently serving as Operations Lead at IEEE BVIMR, ensuring smooth execution across all branch departments.',
     linkedin: '#',
-    email: '#',
-    github: '#',
+    email: 'parthsethi1511@gmail.com',
+    github: 'https://github.com/Gojodatebayo',
     avatarColor: 'from-[#00629B] to-[#002147]',
   },
   {
