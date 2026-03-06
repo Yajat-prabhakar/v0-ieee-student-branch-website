@@ -20,6 +20,7 @@ interface ProfileModalProps {
     team?: string
     about?: string
     image?: string
+    banner?: string
     email?: string
     linkedin?: string
     github?: string
@@ -59,7 +60,7 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
         {/* Banner with Image Background */}
         <div className="h-32 relative overflow-hidden flex-shrink-0">
           <Image
-            src="/images/profile-banner.png"
+            src={profile.banner ?? '/images/profile-banner.png'}
             alt="Profile banner"
             fill
             className="object-cover object-top"

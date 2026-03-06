@@ -25,6 +25,7 @@ interface Member {
   github?: string
   avatarColor: string
   image?: string
+  banner?: string
   projects?: Project[]
 }
 
@@ -125,10 +126,12 @@ const techTeam: Member[] = [
     role: 'Tech Advisor',
     team: 'Tech Team',
     initials: 'MS',
-    about: 'Guiding the technical direction of branch projects and fostering a culture of continuous learning.',
-    linkedin: '#',
-    email: 'mandeep@ieeebvimr.org',
-    github: '#',
+    image: '/members/mandeep-singh.jpg',
+    banner: '/members/mandeep-banner.png',
+    about: 'BCA student at Bharati Vidyapeeth (CGPA: 9) with 2 years of experience in technology. Currently serving as Technical Advisor at QuantaLoop — the Technical Society of BVIMR. Passionate about engineering, digital platforms, and supporting technical initiatives that drive community growth.',
+    linkedin: 'https://www.linkedin.com/in/mandeep-singh-11768821a',
+    email: 'mandeep.sembhi69@gmail.com',
+    github: 'https://github.com/Mandeep-Singh-Sembhi',
     avatarColor: 'from-[#002147] to-[#00B5E2]',
   },
 ]
@@ -364,6 +367,7 @@ export default function Council() {
           team: selected.team,
           about: selected.about,
           image: selected.image,
+          banner: selected.banner,
           email: selected.email,
           linkedin: selected.linkedin,
           github: selected.github,
