@@ -26,6 +26,7 @@ interface Member {
   avatarColor: string
   image?: string
   banner?: string
+  objectPosition?: string
   projects?: Project[]
 }
 
@@ -139,6 +140,7 @@ const techTeam: Member[] = [
     initials: 'MS',
     image: '/members/mandeep-singh.jpg',
     banner: '/members/mandeep-banner.png',
+    objectPosition: 'center 20%',
     about: 'BCA student at Bharati Vidyapeeth (CGPA: 9) with 2 years of experience in technology. Currently serving as Technical Advisor at QuantaLoop — the Technical Society of BVIMR. Passionate about engineering, digital platforms, and supporting technical initiatives that drive community growth.',
     linkedin: 'https://www.linkedin.com/in/mandeep-singh-11768821a',
     email: 'mandeep.sembhi69@gmail.com',
@@ -525,7 +527,7 @@ function MemberCard({ member, onClick }: { member: Member; onClick: (m: Member) 
         {/* Avatar */}
         <div className="w-20 h-20 rounded-full mb-4 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex-shrink-0">
           {member.image ? (
-            <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover object-top" />
+            <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover" style={{ objectPosition: member.objectPosition ?? 'top' }} />
           ) : (
             <div className={`w-full h-full bg-gradient-to-br ${member.avatarColor} flex items-center justify-center`}>
               <span className="text-2xl font-black text-white tracking-wide">{member.initials}</span>
