@@ -140,7 +140,7 @@ const techTeam: Member[] = [
     initials: 'MS',
     image: '/members/mandeep-singh.jpg',
     banner: '/members/mandeep-banner.png',
-    objectPosition: 'center 20%',
+    objectPosition: 'center 40%',
     about: 'BCA student at Bharati Vidyapeeth (CGPA: 9) with 2 years of experience in technology. Currently serving as Technical Advisor at QuantaLoop — the Technical Society of BVIMR. Passionate about engineering, digital platforms, and supporting technical initiatives that drive community growth.',
     linkedin: 'https://www.linkedin.com/in/mandeep-singh-11768821a',
     email: 'mandeep.sembhi69@gmail.com',
@@ -715,20 +715,20 @@ export default function Council() {
 
       {/* Profile Modal */}
       {selected && (
-        <ProfileModal 
+        <ProfileModal
           isOpen={!!selected}
           onClose={() => setSelected(null)}
           profile={{
-          name: selected.name,
-          role: selected.role,
-          team: selected.team,
-          about: selected.about,
-          image: selected.image,
-          banner: selected.banner,
-          email: selected.email,
-          linkedin: selected.linkedin,
-          github: selected.github,
-          projects: selected.projects,
+            name: selected.name,
+            role: selected.role,
+            team: selected.team,
+            about: selected.about,
+            image: selected.image,
+            banner: selected.banner,
+            email: selected.email,
+            linkedin: selected.linkedin,
+            github: selected.github,
+            projects: selected.projects,
           }}
         />
       )}
