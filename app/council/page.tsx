@@ -527,7 +527,7 @@ function MemberCard({ member, onClick }: { member: Member; onClick: (m: Member) 
         {/* Avatar */}
         <div className="w-20 h-20 rounded-full mb-4 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex-shrink-0">
           {member.image ? (
-            <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover" style={{ objectPosition: member.objectPosition ?? 'top' }} />
+            <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover" style={{ objectPosition: member.objectPosition ?? 'center 40%' }} />
           ) : (
             <div className={`w-full h-full bg-gradient-to-br ${member.avatarColor} flex items-center justify-center`}>
               <span className="text-2xl font-black text-white tracking-wide">{member.initials}</span>
