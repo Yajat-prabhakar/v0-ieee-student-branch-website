@@ -58,12 +58,12 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
         style={{ animation: 'scale-in 0.3s ease', scrollbarWidth: 'thin', scrollbarColor: 'hsl(var(--primary) / 0.6) hsl(var(--secondary))' }}
       >
         {/* Banner with Image Background */}
-        <div className="h-32 relative overflow-hidden flex-shrink-0">
+        <div className="relative overflow-hidden flex-shrink-0" style={{ height: '180px' }}>
           <Image
             src={profile.banner ?? '/images/profile-banner.png'}
             alt="Profile banner"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top"
             priority
           />
           {/* Close button */}
