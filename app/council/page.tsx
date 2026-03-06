@@ -100,26 +100,37 @@ const coreTeam: Member[] = [
 
 const techTeam: Member[] = [
   {
-    name: 'Avani Tiwari',
-    role: 'Tech Advisor',
-    team: 'Tech Team',
-    initials: 'AT',
-    about: 'Providing technical guidance and mentorship to members pursuing projects in engineering and technology.',
-    linkedin: '#',
-    email: 'avani@ieeebvimr.org',
-    github: '#',
-    avatarColor: 'from-[#00629B] to-[#004080]',
-  },
-  {
-    name: 'Yash',
+    name: 'Yash Sehgal',
     role: 'Tech Advisor',
     team: 'Tech Team',
     initials: 'YS',
     about: 'Supporting technical initiatives and helping members develop practical engineering skills through hands-on projects.',
     linkedin: '#',
-    email: 'yash@ieeebvimr.org',
+    email: '#',
     github: '#',
     avatarColor: 'from-[#004080] to-[#002147]',
+  },
+  {
+    name: 'Avani',
+    role: 'Tech Advisor',
+    team: 'Tech Team',
+    initials: 'AV',
+    about: 'Providing technical guidance and mentorship to members pursuing projects in engineering and technology.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#004080]',
+  },
+  {
+    name: 'Raunag',
+    role: 'Tech Advisor',
+    team: 'Tech Team',
+    initials: 'RN',
+    about: 'Bridging technical knowledge with practical application to support branch members in their engineering journey.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00B5E2] to-[#00629B]',
   },
   {
     name: 'Mandeep Singh',
@@ -134,14 +145,338 @@ const techTeam: Member[] = [
     github: 'https://github.com/Mandeep-Singh-Sembhi',
     avatarColor: 'from-[#002147] to-[#00B5E2]',
   },
+  {
+    name: 'Aarav',
+    role: 'Tech Advisor',
+    team: 'Tech Team',
+    initials: 'AR',
+    about: 'Contributing technical expertise and mentoring junior members across engineering and development initiatives.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#00629B]',
+  },
 ]
 
-const upcomingTeams = [
-  { name: 'Social Media Team', icon: '📢', desc: 'Managing online presence and community engagement.' },
-  { name: 'Publicity Team', icon: '📣', desc: 'Promoting events and increasing branch visibility.' },
-  { name: 'Membership Drive Team', icon: '🤝', desc: 'Recruiting new members and growing the community.' },
-  { name: 'Event Management Team', icon: '🗓', desc: 'Planning and executing all branch events.' },
-  { name: 'Operational Team', icon: '⚙️', desc: 'Handling day-to-day operations and logistics.' },
+const eventTeam: Member[] = [
+  {
+    name: 'Aanjanay',
+    role: 'Event Lead',
+    team: 'Event Team',
+    initials: 'AJ',
+    about: 'Leading event planning and execution for IEEE BVIMR, ensuring every event delivers value and engagement to members.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#002147]',
+  },
+  {
+    name: 'Manika',
+    role: 'Event Lead',
+    team: 'Event Team',
+    initials: 'MN',
+    about: 'Co-leading the event team with a focus on seamless coordination and high-impact technical and cultural events.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#00B5E2]',
+  },
+  {
+    name: 'Dagma',
+    role: 'Event Co-Lead',
+    team: 'Event Team',
+    initials: 'DG',
+    about: 'Supporting event management operations and ensuring smooth logistics for all branch activities.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#004080] to-[#00629B]',
+  },
+  {
+    name: 'Kashvi',
+    role: 'Event Co-Lead',
+    team: 'Event Team',
+    initials: 'KV',
+    about: 'Assisting in organising and managing events, coordinating teams to deliver memorable member experiences.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00B5E2] to-[#004080]',
+  },
+]
+
+const operationsTeam: Member[] = [
+  {
+    name: 'Parth',
+    role: 'Operations Lead',
+    team: 'Operations Team',
+    initials: 'PT',
+    about: 'Overseeing day-to-day branch operations, logistics, and ensuring efficient execution across all departments.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#002147]',
+  },
+  {
+    name: 'Aarav',
+    role: 'Operations Lead',
+    team: 'Operations Team',
+    initials: 'AR',
+    about: 'Driving operational excellence and coordinating cross-team collaboration for seamless branch functioning.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#00629B]',
+  },
+  {
+    name: 'Prabjyot',
+    role: 'Operations Co-Lead',
+    team: 'Operations Team',
+    initials: 'PJ',
+    about: 'Supporting operational workflows and helping streamline processes to keep branch activities running smoothly.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#004080] to-[#00B5E2]',
+  },
+  {
+    name: 'Dabel',
+    role: 'Operations Co-Lead',
+    team: 'Operations Team',
+    initials: 'DB',
+    about: 'Assisting in managing operational tasks and ensuring resources are available for every branch initiative.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00B5E2] to-[#00629B]',
+  },
+]
+
+const creativeTeam: Member[] = [
+  {
+    name: 'Gargi',
+    role: 'Creative Lead',
+    team: 'Creative Team',
+    initials: 'GR',
+    about: 'Leading creative design and visual identity for IEEE BVIMR, crafting engaging content that represents the branch.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#00B5E2]',
+  },
+  {
+    name: 'Teena',
+    role: 'Creative Lead',
+    team: 'Creative Team',
+    initials: 'TN',
+    about: 'Shaping the visual and creative direction of branch communications, posters, and digital content.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#004080]',
+  },
+  {
+    name: 'Sabeshi',
+    role: 'Creative Co-Lead',
+    team: 'Creative Team',
+    initials: 'SB',
+    about: 'Supporting creative production and collaborating with the design team to maintain a consistent visual identity.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#004080] to-[#00629B]',
+  },
+]
+
+const publicityTeam: Member[] = [
+  {
+    name: 'Rishabh',
+    role: 'Publicity Lead',
+    team: 'Publicity Team',
+    initials: 'RS',
+    about: 'Driving awareness and visibility for IEEE BVIMR through strategic outreach, campaigns, and promotional efforts.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#002147]',
+  },
+]
+
+const mediaTeam: Member[] = [
+  {
+    name: 'Pushpinder',
+    role: 'Media Lead',
+    team: 'Media Team',
+    initials: 'PP',
+    about: 'Managing media coverage, photography, and videography to document and showcase all branch events and activities.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#00629B]',
+  },
+  {
+    name: 'Hemant',
+    role: 'Media Lead',
+    team: 'Media Team',
+    initials: 'HM',
+    about: 'Capturing and producing high-quality media content that tells the story of IEEE BVIMR events and milestones.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#00B5E2]',
+  },
+  {
+    name: 'Yash',
+    role: 'Media Lead',
+    team: 'Media Team',
+    initials: 'YS',
+    about: 'Contributing to the media team through content creation, editing, and digital storytelling for branch activities.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#004080] to-[#002147]',
+  },
+]
+
+const reportingTeam: Member[] = [
+  {
+    name: 'Anjali',
+    role: 'Event Reporting Lead',
+    team: 'Event Reporting Team',
+    initials: 'AL',
+    about: 'Documenting and reporting on branch events, ensuring accurate and timely records of all IEEE BVIMR activities.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#004080]',
+  },
+  {
+    name: 'Ishita',
+    role: 'Event Reporting Lead',
+    team: 'Event Reporting Team',
+    initials: 'IS',
+    about: 'Producing detailed event reports and write-ups that highlight key takeaways and outcomes from branch activities.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#00B5E2]',
+  },
+  {
+    name: 'Gargi',
+    role: 'Event Reporting Lead',
+    team: 'Event Reporting Team',
+    initials: 'GR',
+    about: 'Supporting event documentation and reporting to maintain a strong record of IEEE BVIMR activities.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00B5E2] to-[#00629B]',
+  },
+]
+
+const outreachTeam: Member[] = [
+  {
+    name: 'Aniket',
+    role: 'Outreach Lead',
+    team: 'Outreach Team',
+    initials: 'AK',
+    about: 'Leading outreach efforts to connect IEEE BVIMR with students, industry professionals, and partner institutions.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#002147]',
+  },
+  {
+    name: 'Hitesh',
+    role: 'Outreach Lead',
+    team: 'Outreach Team',
+    initials: 'HT',
+    about: 'Expanding the branch network and building relationships that create opportunities for members.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#004080]',
+  },
+  {
+    name: 'Raunag',
+    role: 'Outreach Co-Lead',
+    team: 'Outreach Team',
+    initials: 'RN',
+    about: 'Supporting outreach strategies and helping forge new partnerships and collaborations for the branch.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#004080] to-[#00629B]',
+  },
+  {
+    name: 'Sahil',
+    role: 'Outreach Co-Lead',
+    team: 'Outreach Team',
+    initials: 'SL',
+    about: 'Third-year student helping drive outreach and community engagement across the institution and beyond.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00B5E2] to-[#002147]',
+  },
+]
+
+const membershipTeam: Member[] = [
+  {
+    name: 'Dharana',
+    role: 'Membership Dev. Lead',
+    team: 'Membership Dev. Team',
+    initials: 'DH',
+    about: 'Leading membership development initiatives to grow the IEEE BVIMR community and enhance member experience.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00629B] to-[#002147]',
+  },
+  {
+    name: 'Lavanya',
+    role: 'Membership Dev. Team',
+    team: 'Membership Dev. Team',
+    initials: 'LV',
+    about: 'Contributing to membership drives and helping new students discover the value of IEEE BVIMR.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#00629B]',
+  },
+  {
+    name: 'Dagma',
+    role: 'Membership Dev. Team',
+    team: 'Membership Dev. Team',
+    initials: 'DG',
+    about: 'Supporting membership growth activities and fostering an inclusive and welcoming branch environment.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#004080] to-[#00B5E2]',
+  },
+  {
+    name: 'Sharvi',
+    role: 'Membership Dev. Team',
+    team: 'Membership Dev. Team',
+    initials: 'SV',
+    about: 'Engaging prospective members and supporting onboarding processes to strengthen the IEEE community.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#00B5E2] to-[#004080]',
+  },
+  {
+    name: 'Hitesh',
+    role: 'Membership Dev. Team',
+    team: 'Membership Dev. Team',
+    initials: 'HT',
+    about: 'Working to expand the branch membership base and connect students with engineering opportunities.',
+    linkedin: '#',
+    email: '#',
+    github: '#',
+    avatarColor: 'from-[#002147] to-[#00B5E2]',
+  },
 ]
 
 // Scroll reveal hook
@@ -270,9 +605,8 @@ export default function Council() {
             <RevealSection>
               <div className="flex flex-wrap gap-8 justify-center md:justify-start">
                 {[
-                  { value: '8', label: 'Council Members' },
-                  { value: '2', label: 'Teams Active' },
-                  { value: '5', label: 'Teams Coming Soon' },
+                  { value: '40+', label: 'Council Members' },
+                  { value: '10', label: 'Teams Active' },
                   { value: '2026', label: 'Founded' },
                 ].map(stat => (
                   <div key={stat.label} className="text-center md:text-left">
@@ -302,41 +636,62 @@ export default function Council() {
               onSelect={setSelected}
               delay={100}
             />
-          </div>
-        </section>
-
-        {/* Upcoming Teams */}
-        <section className="py-20 bg-secondary border-t border-border">
-          <div className="container-ieee">
-            <RevealSection>
-              <div className="flex items-center gap-4 mb-2">
-                <div className="w-1 h-8 bg-accent rounded-full" />
-                <h2 className="text-2xl font-bold text-foreground">Upcoming Teams</h2>
-              </div>
-              <p className="text-muted-foreground text-sm mb-10 pl-5">
-                We are actively building these teams. Interested in joining? Reach out to us.
-              </p>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {upcomingTeams.map((team, idx) => (
-                  <div
-                    key={team.name}
-                    style={{ animation: `scale-in 0.4s ease ${idx * 80}ms both` }}
-                    className="bg-white border border-dashed border-primary/30 rounded-xl p-6 flex gap-4 items-start hover:border-primary hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 text-lg">
-                      {team.icon}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-bold text-sm text-foreground">{team.name}</h3>
-                        <span className="text-[10px] font-bold uppercase tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded-full">Soon</span>
-                      </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{team.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </RevealSection>
+            <TeamSection
+              title="Event Team"
+              subtitle="Planning and executing impactful technical and cultural events for the branch."
+              members={eventTeam}
+              onSelect={setSelected}
+              delay={200}
+            />
+            <TeamSection
+              title="Operations Team"
+              subtitle="Ensuring smooth day-to-day functioning and logistics across all branch activities."
+              members={operationsTeam}
+              onSelect={setSelected}
+              delay={300}
+            />
+            <TeamSection
+              title="Creative Team"
+              subtitle="Crafting the visual identity and creative content that represents IEEE BVIMR."
+              members={creativeTeam}
+              onSelect={setSelected}
+              delay={400}
+            />
+            <TeamSection
+              title="Publicity Team"
+              subtitle="Driving awareness and promoting the branch through strategic outreach campaigns."
+              members={publicityTeam}
+              onSelect={setSelected}
+              delay={500}
+            />
+            <TeamSection
+              title="Media Team"
+              subtitle="Documenting events through photography, videography, and digital storytelling."
+              members={mediaTeam}
+              onSelect={setSelected}
+              delay={600}
+            />
+            <TeamSection
+              title="Event Reporting Team"
+              subtitle="Producing accurate records and detailed write-ups of all branch events."
+              members={reportingTeam}
+              onSelect={setSelected}
+              delay={700}
+            />
+            <TeamSection
+              title="Outreach Team"
+              subtitle="Connecting the branch with students, industry professionals, and partner institutions."
+              members={outreachTeam}
+              onSelect={setSelected}
+              delay={800}
+            />
+            <TeamSection
+              title="Membership Development Team"
+              subtitle="Growing the IEEE BVIMR community and enhancing the member experience."
+              members={membershipTeam}
+              onSelect={setSelected}
+              delay={900}
+            />
           </div>
         </section>
 
