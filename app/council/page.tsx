@@ -62,6 +62,7 @@ const coreTeam: Member[] = [
     initials: 'GN',
     image: '/members/ginim-narang.jpg',
     banner: '/members/ginim.png',
+    objectPosition: 'center 25%',
     about: 'Technology enthusiast and aspiring developer passionate about software development, web technologies, and problem-solving. Skilled in HTML, CSS, Java, Python, C, C++, and modern development tools. Actively engaged in technical communities and leadership initiatives, fostering collaborative and innovative environments.',
     linkedin: '#',
     email: 'ginim654@gmail.com',
