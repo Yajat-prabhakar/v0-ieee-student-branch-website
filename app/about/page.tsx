@@ -112,7 +112,20 @@ export default function About() {
   const leadership: LeaderMember[] = [
     { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#", email: "kanav@ieeebvimr.org", github: "#", about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.", team: "Core Team" },
     { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
-    { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#", email: "ginim@ieeebvimr.org", github: "#", about: "Managing communications, maintaining records, and ensuring smooth coordination across all branch activities.", team: "Core Team" },
+    {
+      name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg",
+      linkedin: "#",
+      email: "ginim654@gmail.com",
+      github: "https://github.com/Ginim654",
+      about: "Technology enthusiast and aspiring developer passionate about software development, web technologies, and problem-solving. Skilled in HTML, CSS, Java, Python, C, C++, and modern development tools. Actively engaged in technical communities and leadership initiatives, fostering collaborative and innovative environments.",
+      team: "Core Team",
+      projects: [
+        { title: "SmartCity AI Platform", description: "An intelligent urban management platform leveraging AI to optimize city services and analyze real-time data across traffic, utilities, and public safety.", tech: "AI / Python", link: "https://github.com/Ginim654" },
+        { title: "Chat App", description: "A real-time messaging application with a clean, responsive interface enabling seamless one-on-one and group conversations across devices.", tech: "TypeScript", link: "https://github.com/Ginim654" },
+        { title: "Attendance Module", description: "A student attendance management system for tracking, recording, and generating reports — reducing administrative overhead and improving record accuracy.", tech: "TypeScript", link: "https://github.com/Ginim654" },
+        { title: "Portfolio", description: "A personal developer portfolio showcasing skills, projects, and experience in a clean and modern layout.", tech: "TypeScript", link: "https://github.com/Ginim654" },
+      ],
+    },
     { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#", email: "ipshita@ieeebvimr.org", github: "#", about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.", team: "Core Team" },
     {
       name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg",
