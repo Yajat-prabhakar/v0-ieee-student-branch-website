@@ -21,6 +21,7 @@ interface ProfileModalProps {
     about?: string
     image?: string
     banner?: string
+    objectPosition?: string
     email?: string
     linkedin?: string
     github?: string
@@ -86,7 +87,8 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
                 alt={profile.name}
                 width={64}
                 height={64}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: profile.objectPosition ?? 'top' }}
               />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
