@@ -115,7 +115,7 @@ export default function About() {
     {
       name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg",
       banner: '/members/ginim.png',
-      objectPosition: 'center 50%',
+      objectPosition: 'center 5%',
       linkedin: "#",
       email: "ginim654@gmail.com",
       github: "https://github.com/Ginim654",
