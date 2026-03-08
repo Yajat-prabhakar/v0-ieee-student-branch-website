@@ -60,7 +60,7 @@ const coreTeam: Member[] = [
     role: 'Secretary',
     team: 'Core Team',
     initials: 'GN',
-    image: '/members/ginim-narang.jpg',
+    image: '/members/ginim-narang.png',
     banner: '/members/ginim.png',
     objectPosition: 'center 20%',
     about: 'Technology enthusiast and aspiring developer passionate about software development, web technologies, and problem-solving. Skilled in HTML, CSS, Java, Python, C, C++, and modern development tools. Actively engaged in technical communities and leadership initiatives, fostering collaborative and innovative environments.',
