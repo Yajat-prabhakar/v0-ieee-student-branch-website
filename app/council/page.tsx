@@ -130,17 +130,7 @@ const techTeam: Member[] = [
     github: '#',
     avatarColor: 'from-[#00629B] to-[#004080]',
   },
-  {
-    name: 'Raunag',
-    role: 'Tech Advisor',
-    team: 'Tech Team',
-    initials: 'RN',
-    about: 'Bridging technical knowledge with practical application to support branch members in their engineering journey.',
-    linkedin: '#',
-    email: '#',
-    github: '#',
-    avatarColor: 'from-[#00B5E2] to-[#00629B]',
-  },
+
   {
     name: 'Mandeep Singh',
     role: 'Tech Advisor',
@@ -410,17 +400,7 @@ const outreachTeam: Member[] = [
     github: '#',
     avatarColor: 'from-[#002147] to-[#004080]',
   },
-  {
-    name: 'Raunag',
-    role: 'Outreach Co-Lead',
-    team: 'Outreach Team',
-    initials: 'RN',
-    about: 'Supporting outreach strategies and helping forge new partnerships and collaborations for the branch.',
-    linkedin: '#',
-    email: '#',
-    github: '#',
-    avatarColor: 'from-[#004080] to-[#00629B]',
-  },
+
   {
     name: 'Sahil',
     role: 'Outreach Co-Lead',
