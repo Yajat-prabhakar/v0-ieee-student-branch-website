@@ -114,6 +114,8 @@ export default function About() {
     { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
     {
       name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg",
+      banner: '/members/ginim.png',
+      objectPosition: 'center 25%',
       linkedin: "#",
       email: "ginim654@gmail.com",
       github: "https://github.com/Ginim654",
