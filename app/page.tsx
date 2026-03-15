@@ -68,50 +68,6 @@ function Reveal({ children, delay = 0, className = '' }: { children: React.React
   )
 }
 
-/* ---------- Typewriter ---------- */
-function TypeWriter({ words, speed = 90 }: { words: string[]; speed?: number }) {
-  const [text, setText] = useState('')
-  const [wordIdx, setWordIdx] = useState(0)
-  const [charIdx, setCharIdx] = useState(0)
-  const [deleting, setDeleting] = useState(false)
-
-  useEffect(() => {
-    const current = words[wordIdx]
-    const delay = deleting ? speed / 2 : speed
-
-    const t = setTimeout(() => {
-      if (!deleting) {
-        if (charIdx < current.length) {
-          setText(current.slice(0, charIdx + 1))
-          setCharIdx(c => c + 1)
-        } else {
-          setTimeout(() => setDeleting(true), 1800)
-        }
-      } else {
-        if (charIdx > 0) {
-          setText(current.slice(0, charIdx - 1))
-          setCharIdx(c => c - 1)
-        } else {
-          setDeleting(false)
-          setWordIdx(w => (w + 1) % words.length)
-        }
-      }
-    }, delay)
-
-    return () => clearTimeout(t)
-  }, [charIdx, deleting, wordIdx, words, speed])
-
-  return (
-    <span>
-      {text}
-      <span
-        className="inline-block w-0.5 h-[0.85em] ml-[2px] bg-[#00B5E2] align-middle"
-        style={{ animation: 'blink-cursor 1s step-end infinite' }}
-      />
-    </span>
-  )
-}
-
 /* ---------- Marquee ticker ---------- */
 const TICKER_ITEMS = [
   'IEEE BVIMR Student Branch',
@@ -197,77 +153,22 @@ export default function Home() {
       <main className="min-h-screen">
 
         {/* ── Hero ── */}
-        <section className="bg-[#001830] text-white py-24 md:py-36 relative overflow-hidden min-h-[600px]">
+        <section className="bg-[#002147] text-white py-24 md:py-36 relative overflow-hidden min-h-[600px]">
           {/* Background photo slideshow */}
           <HeroSlideshow />
-
-          {/* Dot-grid circuit overlay (sits between photos and dark overlay) */}
-          <div
-            className="absolute inset-0 bg-dots pointer-events-none"
-            style={{ zIndex: 11, opacity: 0.25 }}
-          />
-
-          {/* Floating glow orbs */}
-          <div
-            className="absolute top-1/4 left-1/5 w-[420px] h-[420px] rounded-full pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle, rgba(0,98,155,0.45) 0%, transparent 70%)',
-              filter: 'blur(55px)',
-              zIndex: 12,
-              animation: 'float-orb-1 9s ease-in-out infinite',
-            }}
-          />
-          <div
-            className="absolute bottom-1/4 right-1/5 w-[360px] h-[360px] rounded-full pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle, rgba(0,181,226,0.3) 0%, transparent 70%)',
-              filter: 'blur(60px)',
-              zIndex: 12,
-              animation: 'float-orb-2 11s ease-in-out infinite',
-            }}
-          />
-          <div
-            className="absolute top-3/4 left-3/5 w-[280px] h-[280px] rounded-full pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle, rgba(0,55,90,0.5) 0%, transparent 70%)',
-              filter: 'blur(45px)',
-              zIndex: 12,
-              animation: 'float-orb-3 7s ease-in-out infinite',
-            }}
-          />
-
-          {/* Content */}
           <div className="container-ieee text-center relative z-20">
-            {/* Badge with pulsing ring */}
             <div
-              className="inline-block mb-6 relative"
+              className="inline-block mb-6 px-5 py-2 backdrop-blur-md bg-white/15 border border-white/25 rounded-full"
               style={{ animation: 'fade-in 0.8s ease both' }}
             >
-              {/* Pulsing outer ring */}
-              <div
-                className="absolute inset-0 rounded-full border border-[#00B5E2]/40 pointer-events-none"
-                style={{ animation: 'glow-ring 2.5s ease-out infinite' }}
-              />
-              <div className="px-5 py-2 backdrop-blur-md bg-white/15 border border-white/25 rounded-full">
-                <span className="text-xs font-bold uppercase tracking-widest text-white">IEEE Region 10 — Asia Pacific</span>
-              </div>
+              <span className="text-xs font-bold uppercase tracking-widest text-white">IEEE Region 10 — Asia Pacific</span>
             </div>
-
-            {/* Typewriter accent line */}
-            <p
-              className="text-sm md:text-base font-bold uppercase tracking-widest mb-4 min-h-[1.6em]"
-              style={{ color: '#00B5E2', animation: 'slide-up 0.8s ease 0.08s both' }}
-            >
-              <TypeWriter words={['Innovate', 'Lead', 'Connect', 'Advance', 'Inspire']} />
-            </p>
 
             <h1
               className="text-5xl sm:text-6xl md:text-7xl font-black mb-5 leading-tight text-pretty"
               style={{ animation: 'slide-up 0.8s ease 0.15s both' }}
             >
-              <span className="text-gradient-white">IEEE BVIMR</span>
-              <br />
-              Student Branch
+              IEEE BVIMR<br />Student Branch
             </h1>
 
             <p
@@ -287,16 +188,7 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
               style={{ animation: 'slide-up 0.8s ease 0.45s both' }}
             >
-              <Link
-                href="/contact"
-                className="btn-ieee-primary relative overflow-hidden group"
-              >
-                <span className="relative z-10">Join Us Today</span>
-                <span
-                  className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"
-                  aria-hidden="true"
-                />
-              </Link>
+              <Link href="/contact" className="btn-ieee-primary">Join Us Today</Link>
               <Link href="/about" className="btn-ieee-secondary">Learn More →</Link>
             </div>
 
@@ -349,20 +241,15 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={200}>
-                <div className="bg-[#002147] rounded-2xl p-8 text-white grid grid-cols-2 gap-6 border border-white/10 relative overflow-hidden">
-                  {/* subtle glow accent */}
-                  <div
-                    className="absolute -top-10 -right-10 w-40 h-40 rounded-full pointer-events-none"
-                    style={{ background: 'radial-gradient(circle, rgba(0,181,226,0.2) 0%, transparent 70%)', filter: 'blur(20px)' }}
-                  />
+                <div className="bg-[#002147] rounded-2xl p-8 text-white grid grid-cols-2 gap-6">
                   {[
                     { val: '40+', label: 'Active Members' },
                     { val: '10+', label: 'Events Hosted' },
-                    { val: '2026', label: 'Founded' },
+                    { val: '2024', label: 'Founded' },
                     { val: 'R10', label: 'IEEE Region' },
                   ].map(({ val, label }) => (
-                    <div key={label} className="text-center group relative z-10">
-                      <div className="text-3xl font-black text-[#00B5E2] mb-1 group-hover:drop-shadow-[0_0_12px_rgba(0,181,226,0.8)] transition-all duration-300">{val}</div>
+                    <div key={label} className="text-center">
+                      <div className="text-3xl font-black text-white mb-1">{val}</div>
                       <div className="text-xs uppercase tracking-widest text-white/60">{label}</div>
                     </div>
                   ))}
@@ -372,41 +259,24 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Why IEEE — dark KIIT-style glowing numbered cards ── */}
-        <section className="py-24 bg-[#002147] relative overflow-hidden">
-          {/* Background glow accent */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,98,155,0.35) 0%, transparent 70%)' }}
-          />
-          <div
-            className="absolute inset-0 bg-dots pointer-events-none"
-            style={{ opacity: 0.15 }}
-          />
-
-          <div className="container-ieee relative z-10">
+        {/* ── Why IEEE — numbered benefit cards (KIIT-style) ── */}
+        <section className="py-24 bg-secondary">
+          <div className="container-ieee">
             <Reveal>
-              <h2 className="section-title text-center text-white">Why Join IEEE?</h2>
-              <p className="section-subtitle text-center text-white/60">Unlock opportunities, build your network, and shape the future of technology</p>
+              <h2 className="section-title text-center">Why Join IEEE?</h2>
+              <p className="section-subtitle text-center">Unlock opportunities, build your network, and shape the future of technology</p>
             </Reveal>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
               {benefits.map((b, i) => (
                 <Reveal key={b.num} delay={i * 100}>
-                  <div className="card-dark-glow group p-6 h-full flex flex-col rounded-xl">
-                    {/* Scan-line on hover */}
-                    <div className="relative overflow-hidden mb-3">
-                      <div className="text-5xl font-black text-white/10 group-hover:text-[#00B5E2]/40 transition-colors duration-300 leading-none">{b.num}</div>
-                      <div
-                        className="absolute inset-y-0 w-8 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 -skew-x-12"
-                        style={{ animation: 'none', left: '-2rem', transition: 'none' }}
-                      />
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-2">{b.title}</h3>
-                    <p className="text-sm text-white/60 leading-relaxed mb-4 flex-1">{b.desc}</p>
-                    <div className="pt-4 border-t border-white/15">
-                      <div className="text-2xl font-black text-[#00B5E2]">{b.stat}</div>
-                      <div className="text-xs uppercase tracking-widest text-white/40">{b.statLabel}</div>
+                  <div className="group bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                    <div className="text-5xl font-black text-primary/15 group-hover:text-primary/30 transition-colors duration-300 mb-3 leading-none">{b.num}</div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{b.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{b.desc}</p>
+                    <div className="pt-4 border-t border-border">
+                      <div className="text-2xl font-black text-primary">{b.stat}</div>
+                      <div className="text-xs uppercase tracking-widest text-muted-foreground">{b.statLabel}</div>
                     </div>
                   </div>
                 </Reveal>
@@ -431,26 +301,11 @@ export default function Home() {
                   className="absolute inset-0"
                   style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,98,155,0.5) 0%, transparent 70%)' }}
                 />
-                <div
-                  className="absolute inset-0 bg-dots pointer-events-none"
-                  style={{ opacity: 0.12 }}
-                />
                 <div className="relative z-10 flex flex-col items-center justify-center py-24 px-6 text-center text-white">
-                  {/* Animated ring icon */}
-                  <div className="w-16 h-16 relative flex items-center justify-center mb-6">
-                    <div
-                      className="absolute inset-0 rounded-full border border-[#00B5E2]/30"
-                      style={{ animation: 'slow-spin 8s linear infinite' }}
-                    />
-                    <div
-                      className="absolute inset-2 rounded-full border border-dashed border-[#00B5E2]/20"
-                      style={{ animation: 'slow-spin-rev 6s linear infinite' }}
-                    />
-                    <div className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center backdrop-blur-sm bg-white/10">
-                      <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                      </svg>
-                    </div>
+                  <div className="w-16 h-16 rounded-full border-2 border-white/30 flex items-center justify-center mb-6 backdrop-blur-sm bg-white/10">
+                    <svg className="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-black mb-3">Coming Soon</h3>
                   <p className="text-lg text-white/70 max-w-xl mb-8">
@@ -479,23 +334,10 @@ export default function Home() {
         </section>
 
         {/* ── CTA ── */}
-        <section className="bg-animated-gradient text-white py-24 relative overflow-hidden">
+        <section className="bg-[#002147] text-white py-24 relative overflow-hidden">
           <div
             className="absolute inset-0 pointer-events-none"
             style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,98,155,0.4) 0%, transparent 70%)' }}
-          />
-          <div
-            className="absolute inset-0 bg-dots pointer-events-none"
-            style={{ opacity: 0.1 }}
-          />
-          {/* Decorative floating orb */}
-          <div
-            className="absolute -top-20 -right-20 w-80 h-80 rounded-full pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle, rgba(0,181,226,0.25) 0%, transparent 70%)',
-              filter: 'blur(50px)',
-              animation: 'float-orb-2 10s ease-in-out infinite',
-            }}
           />
           <div className="container-ieee text-center relative z-10">
             <Reveal>
@@ -503,16 +345,7 @@ export default function Home() {
               <p className="text-xl opacity-80 mb-8 max-w-2xl mx-auto font-light">
                 Become part of a global community of engineers, technologists, and innovators
               </p>
-              <Link
-                href="/contact"
-                className="btn-ieee-primary relative overflow-hidden group inline-block"
-              >
-                <span className="relative z-10">Get Started</span>
-                <span
-                  className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"
-                  aria-hidden="true"
-                />
-              </Link>
+              <Link href="/contact" className="btn-ieee-primary">Get Started</Link>
             </Reveal>
           </div>
         </section>
