@@ -8,7 +8,7 @@ const _inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'IEEE BVIMR Student Branch',
-  description: 'IEEE BVIMR Student Branch - Advancing Technology for Humanity. Join 40+ members in Region 10 (Asia Pacific). Explore our events, council, and upcoming societies.',
+  description: 'IEEE BVIMR Student Branch - Advancing Technology for Humanity. Join 40+ members in Region 10 (Asia Pacific). Explore our events, council, and affinity groups.',
   generator: 'v0.app',
   keywords: 'IEEE, Student Branch, BVIMR, Region 10, Asia Pacific, Technology, Engineering',
   authors: [{ name: 'IEEE BVIMR Student Branch' }],

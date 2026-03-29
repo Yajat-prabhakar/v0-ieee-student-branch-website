@@ -177,8 +177,8 @@ export default function About() {
                 <p className="text-muted-foreground">Diverse range of workshops, seminars, and networking events throughout the academic year.</p>
               </div>
               <div className="card-ieee">
-                <h3 className="font-bold text-lg text-primary mb-2">6 Upcoming Societies</h3>
-                <p className="text-muted-foreground">Specialized groups covering WIE, YP, PES, CS, ComSoc, and RAS — currently being established to serve diverse interests.</p>
+                <h3 className="font-bold text-lg text-primary mb-2">Affinity Groups</h3>
+                <p className="text-muted-foreground">WIE is our first officially recognized affinity group, with more communities being established to serve diverse interests.</p>
               </div>
               <div className="card-ieee">
                 <h3 className="font-bold text-lg text-primary mb-2">Industry Partnerships</h3>
@@ -202,8 +202,8 @@ export default function About() {
                 <p className="text-foreground font-semibold">Events</p>
               </div>
               <div>
-                <div className="text-5xl font-bold text-primary mb-2">6</div>
-                <p className="text-foreground font-semibold">Upcoming Societies</p>
+                <div className="text-5xl font-bold text-primary mb-2">1</div>
+                <p className="text-foreground font-semibold">Affinity Group</p>
               </div>
               <div>
                 <div className="text-5xl font-bold text-primary mb-2">2026</div>

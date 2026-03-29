@@ -58,7 +58,7 @@ const EVENTS = [
     ],
   },
   {
-    id: '05', date: 'March 2026', title: 'WIE Sub-Society Officialized',
+    id: '05', date: 'March 2026', title: 'WIE Affinity Group Officialized',
     description: 'A landmark moment — the IEEE Women in Engineering Affinity Group was officially recognized under our branch, providing a dedicated platform for women to lead, connect, and inspire the next generation of engineers in tech.',
     images: [
       'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1280&h=720&fit=crop&auto=format&q=75',

@@ -14,7 +14,7 @@ export default function Footer() {
       { label: 'Council', href: '/council' },
     ],
     'Explore': [
-      { label: 'Societies', href: '/societies' },
+      { label: 'Affinity Groups', href: '/affinity-groups' },
       { label: 'Events', href: '/events' },
       { label: 'Alumni', href: '/alumni' },
     ],

@@ -2,16 +2,19 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
+const activeGroups = [
+  { name: 'Women in Engineering (WIE)', desc: 'Empowering women in STEM through networking, mentorship, and professional development. Our first officially recognized affinity group.', active: true },
+]
+
 const planned = [
-  { name: 'Women in Engineering (WIE)', desc: 'Empowering women in STEM through networking, mentorship, and professional development.' },
   { name: 'Young Professionals (YP)', desc: 'Connecting early-career professionals with industry experts and career development programs.' },
-  { name: 'Power & Energy Society (PES)', desc: 'Advancing innovation in power systems, renewable energy, and sustainable technologies.' },
   { name: 'Computer Society (CS)', desc: 'Promoting computing education, research, and professional development in CS and IT.' },
+  { name: 'Power & Energy Society (PES)', desc: 'Advancing innovation in power systems, renewable energy, and sustainable technologies.' },
   { name: 'Communications Society (ComSoc)', desc: 'Fostering innovation in communication systems, signal processing, and information theory.' },
   { name: 'Robotics & Automation Society (RAS)', desc: 'Exploring robotics, automation, and intelligent systems to advance technology.' },
 ]
 
-export default function Societies() {
+export default function AffinityGroups() {
   return (
     <>
       <Header />
@@ -27,39 +30,42 @@ export default function Societies() {
             <div className="inline-block mb-4 px-4 py-1.5 bg-white/15 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest text-white/80">
               IEEE BVIMR
             </div>
-            <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">IEEE Societies</h1>
+            <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">Affinity Groups</h1>
             <p className="text-xl text-white/70 max-w-2xl">
-              Specialized technical communities are coming to our branch. We are setting up dedicated societies to serve different domains of engineering and technology.
+              Specialized communities within our branch. WIE is our first officially recognized affinity group, with more coming soon to serve different domains of engineering and technology.
             </p>
           </div>
         </section>
 
-        {/* Coming Soon Banner */}
+        {/* Active Affinity Groups */}
         <section className="py-20">
           <div className="container-ieee">
-            <div className="relative rounded-2xl overflow-hidden border border-border mb-16">
-              <div className="absolute inset-0 bg-[#002147]" />
-              <div
-                className="absolute inset-0"
-                style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,98,155,0.5) 0%, transparent 70%)' }}
-              />
-              <div className="relative z-10 flex flex-col items-center justify-center py-20 px-6 text-center text-white">
-                <div className="w-20 h-20 rounded-full border-2 border-white/20 flex items-center justify-center mb-6 bg-white/10 backdrop-blur-sm">
-                  <svg className="w-10 h-10 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+            <h2 className="section-title text-center">Our Affinity Group</h2>
+            <p className="section-subtitle text-center">WIE is our first officially recognized affinity group</p>
+
+            <div className="max-w-2xl mx-auto mb-16">
+              {activeGroups.map((g) => (
+                <div
+                  key={g.name}
+                  className="bg-card border-2 border-primary rounded-xl p-8 relative overflow-hidden group hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                    Active
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold text-xl text-foreground mb-2">{g.name}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{g.desc}</p>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black mb-4">Coming Soon</h2>
-                <p className="text-lg text-white/70 max-w-2xl mb-8">
-                  We are actively working on establishing IEEE Societies within our branch. Each society will have its own events, workshops, and leadership structure. Stay tuned for updates!
-                </p>
-                <Link href="/contact" className="btn-ieee-primary">Get Notified When We Launch</Link>
-              </div>
+              ))}
             </div>
 
-            {/* Planned Societies Preview */}
-            <h2 className="section-title text-center">Planned Societies</h2>
-            <p className="section-subtitle text-center">Here is a preview of the societies we are setting up</p>
+            {/* Planned Affinity Groups */}
+            <h2 className="section-title text-center">Upcoming Affinity Groups</h2>
+            <p className="section-subtitle text-center">More communities coming soon to our branch</p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {planned.map((s, i) => (
@@ -85,9 +91,9 @@ export default function Societies() {
         {/* CTA */}
         <section className="bg-[#002147] text-white py-20">
           <div className="container-ieee text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Want to Lead a Society?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Want to Lead an Affinity Group?</h2>
             <p className="text-lg text-white/70 mb-8 max-w-xl mx-auto">
-              We are looking for passionate students to help establish and lead our upcoming IEEE Societies.
+              We are looking for passionate students to help establish and lead our upcoming IEEE Affinity Groups.
             </p>
             <Link href="/contact" className="btn-ieee-primary">Express Your Interest</Link>
           </div>

@@ -12,7 +12,7 @@ export default function Header() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/council', label: 'Council' },
-    { href: '/societies', label: 'Societies' },
+    { href: '/affinity-groups', label: 'Affinity Groups' },
     { href: '/events', label: 'Events' },
     { href: '/alumni', label: 'Alumni' },
     { href: '/contact', label: 'Contact' },

@@ -171,7 +171,7 @@ export default function Home() {
               style={{ animation: 'slide-up 0.8s ease 0.45s both' }}
             >
               <Link href="/contact" className="btn-ieee-primary">Join Us Today</Link>
-              <Link href="/about" className="btn-ieee-secondary">Learn More →</Link>
+              <Link href="/about" className="btn-ieee-secondary">Learn More ��</Link>
             </div>
 
             {/* Stats */}
@@ -267,12 +267,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Societies — Coming Soon ── */}
+        {/* ── Affinity Groups ── */}
         <section className="py-24">
           <div className="container-ieee">
             <Reveal>
-              <h2 className="section-title">IEEE Societies</h2>
-              <p className="section-subtitle">Specialized technical communities within our branch</p>
+              <h2 className="section-title">Affinity Groups</h2>
+              <p className="section-subtitle">Specialized communities within our branch</p>
             </Reveal>
 
             <Reveal delay={150}>
@@ -286,15 +286,15 @@ export default function Home() {
                 <div className="relative z-10 flex flex-col items-center justify-center py-24 px-6 text-center text-white">
                   <div className="w-16 h-16 rounded-full border-2 border-white/30 flex items-center justify-center mb-6 backdrop-blur-sm bg-white/10">
                     <svg className="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black mb-3">Coming Soon</h3>
+                  <h3 className="text-3xl md:text-4xl font-black mb-3">WIE is Live!</h3>
                   <p className="text-lg text-white/70 max-w-xl mb-8">
-                    We are currently setting up our IEEE Societies. Stay tuned — exciting technical communities dedicated to different domains of engineering are on the way.
+                    Women in Engineering (WIE) is our first officially recognized affinity group. More communities dedicated to different domains of engineering are coming soon.
                   </p>
-                  <Link href="/contact" className="btn-ieee-primary">
-                    Get Notified
+                  <Link href="/affinity-groups" className="btn-ieee-primary">
+                    Explore Affinity Groups
                   </Link>
                 </div>
               </div>

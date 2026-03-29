@@ -2,14 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
-interface SocietyCardProps {
+interface AffinityGroupCardProps {
   name: string
   description: string
   icon?: string
   color: string
 }
 
-export default function SocietyCard({ name, description, icon, color }: SocietyCardProps) {
+export default function AffinityGroupCard({ name, description, icon, color }: AffinityGroupCardProps) {
   return (
     <div className="card-ieee hover:shadow-lg transition-all duration-300 flex flex-col h-full">
       {/* Icon/Color Header */}
