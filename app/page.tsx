@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import TestimonialCarousel from '@/components/TestimonialCarousel'
+import { StaggerTestimonials } from '@/components/ui/stagger-testimonials'
 import HeroSlideshow from '@/components/HeroSlideshow'
 import { useEffect, useRef, useState } from 'react'
 
@@ -98,24 +98,6 @@ function Marquee() {
 
 /* ========== PAGE ========== */
 export default function Home() {
-  const testimonials = [
-    {
-      quote: "Being part of IEEE BVIMR has been transformative. The events and networking opportunities have shaped my career path.",
-      name: "Rahul Kumar",
-      role: "Final Year, Computer Science",
-    },
-    {
-      quote: "The workshops organized by the branch are incredibly valuable. I've learned so much about emerging technologies.",
-      name: "Priya Sharma",
-      role: "Second Year, Electronics Engineering",
-    },
-    {
-      quote: "The leadership program and mentor network have been invaluable for my personal and professional growth.",
-      name: "Arjun Patel",
-      role: "Alumni, 2022",
-    },
-  ]
-
   const benefits = [
     {
       num: '01',
@@ -328,7 +310,7 @@ export default function Home() {
               <p className="section-subtitle text-center">What our members are saying</p>
             </Reveal>
             <Reveal delay={150}>
-              <TestimonialCarousel testimonials={testimonials} />
+              <StaggerTestimonials />
             </Reveal>
           </div>
         </section>
