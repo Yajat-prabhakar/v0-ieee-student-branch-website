@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadershipCard from '@/components/LeadershipCard'
@@ -236,6 +237,17 @@ export default function About() {
             <RevealOnScroll>
               <h2 className="section-title text-white">Our Journey</h2>
               <p className="section-subtitle text-white/70">Milestones that shaped our growth and community impact.</p>
+              <div className="mt-4 flex justify-center">
+                <Link
+                  href="/journey"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#00B5E2] text-white font-semibold hover:bg-[#00B5E2]/80 transition-colors duration-300"
+                >
+                  Explore Full Journey
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+              </div>
             </RevealOnScroll>
 
             {/* Pillars — KIIT-style animated numbered cards */}
