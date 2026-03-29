@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadershipCard from '@/components/LeadershipCard'
 import ProfileModal from '@/components/ProfileModal'
+import { OurJourney } from '@/components/OurJourney'
 
 function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -34,78 +35,6 @@ function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; de
     </div>
   )
 }
-
-function ProgressTrack() {
-  const barRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const el = barRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.width = '100%'
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.4 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const steps = ['Jan 2026', 'Feb 2026', 'Future']
-  return (
-    <div className="w-full">
-      {/* Bar */}
-      <div className="relative h-1.5 bg-white/15 rounded-full">
-        <div
-          ref={barRef}
-          className="absolute left-0 top-0 h-full bg-gradient-to-r from-[#00629B] to-[#00B5E2] rounded-full transition-[width] duration-[1800ms] ease-out"
-          style={{ width: '0%' }}
-        />
-        {/* Step markers */}
-        {steps.map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-3 h-3 rounded-full bg-[#00B5E2] border-2 border-[#002147] shadow-[0_0_6px_rgba(0,181,226,0.7)]"
-            style={{
-              left: `${(i / (steps.length - 1)) * 100}%`,
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-        ))}
-      </div>
-      {/* Labels */}
-      <div className="flex justify-between mt-2">
-        {steps.map((s) => (
-          <span key={s} className="text-[11px] font-bold text-[#00B5E2] uppercase tracking-wider">{s}</span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const milestones = [
-  {
-    date: 'January 2026',
-    title: 'Foundation',
-    description: 'IEEE BVIMR Student Branch was officially established at Bharati Vidyapeeth Institute of Management and Research, New Delhi, under IEEE Region 10 (Asia Pacific). The branch was inaugurated with a ceremony attended by faculty, IEEE Delhi Section members, and founding student council.',
-    icon: '01',
-  },
-  {
-    date: 'February 2026',
-    title: 'First Event',
-    description: 'The branch hosted its first event — DSSYWLC\'25 (Delhi Section Student, Young Professionals, WIE & Life Members Congress) — where our members represented BVIMR alongside students and professionals from across the Delhi Section, marking our debut on the IEEE stage.',
-    icon: '02',
-  },
-  {
-    date: 'Future Forward',
-    title: 'Building Tomorrow',
-    description: 'With a growing council, planned technical workshops, and upcoming society chapters in WIE, Computer Society, and more, IEEE BVIMR is charting an ambitious roadmap to become a leading student branch in the Delhi Section — empowering students to innovate, lead, and connect globally.',
-    icon: '03',
-  },
-]
 
 export default function About() {
   type LeaderMember = { name: string; role: string; image?: string; linkedin?: string; email?: string; github?: string; about?: string; team?: string; projects?: { title: string; description: string; tech?: string; link?: string }[] }
@@ -231,76 +160,7 @@ export default function About() {
         </section>
 
         {/* Our Journey */}
-        <section className="py-16 bg-[#002147] text-white overflow-hidden">
-          <div className="container-ieee">
-
-            <RevealOnScroll>
-              <h2 className="section-title text-white">Our Journey</h2>
-              <p className="section-subtitle text-white/70">Milestones that shaped our growth and community impact.</p>
-              <div className="mt-4 flex justify-center">
-                <Link
-                  href="/journey"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#00B5E2] text-white font-semibold hover:bg-[#00B5E2]/80 transition-colors duration-300"
-                >
-                  Explore Full Journey
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-              </div>
-            </RevealOnScroll>
-
-            {/* Pillars — KIIT-style animated numbered cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 mb-12">
-              {[
-                { num: '01', label: 'Student Branch', sub: 'A student-led community focused on engineering excellence and professional growth.' },
-                { num: '02', label: 'Programs & Events', sub: 'Workshops and events that translate classroom learning into meaningful outcomes.' },
-                { num: '03', label: 'Student Growth', sub: 'Leadership programs and peer learning that build confidence and impact.' },
-              ].map((p, i) => (
-                <RevealOnScroll key={p.num} delay={i * 120}>
-                  <div className="border border-white/20 rounded-xl p-5 hover:border-[#00B5E2]/60 hover:bg-white/5 transition-all duration-300 group">
-                    <span className="text-4xl font-black text-white/15 group-hover:text-[#00B5E2]/40 transition-colors duration-300 leading-none block mb-3">{p.num}</span>
-                    <h4 className="font-bold text-white text-base mb-1">{p.label}</h4>
-                    <p className="text-white/55 text-sm leading-relaxed">{p.sub}</p>
-                  </div>
-                </RevealOnScroll>
-              ))}
-            </div>
-
-            {/* Animated progress bar */}
-            <RevealOnScroll delay={100}>
-              <ProgressTrack />
-            </RevealOnScroll>
-
-            {/* Left-aligned vertical timeline */}
-            <div className="relative mt-10">
-              {/* Single continuous spine — runs from centre of first node to centre of last */}
-              <div className="absolute left-4 top-4 bottom-4 w-px bg-white/20" style={{ transform: 'translateX(-50%)' }} />
-
-              <div className="space-y-6">
-                {milestones.map((m, i) => (
-                  <RevealOnScroll key={m.title} delay={i * 140}>
-                    <div className="flex gap-4 items-start">
-                      {/* Node */}
-                      <div className="w-8 h-8 rounded-full bg-[#00629B] border-2 border-[#00B5E2] flex items-center justify-center shadow-[0_0_8px_rgba(0,181,226,0.5)] z-10 flex-shrink-0">
-                        <span className="text-[9px] font-black text-white">{m.icon}</span>
-                      </div>
-                      {/* Card */}
-                      <div className="flex-1">
-                        <div className="bg-white/5 border border-white/15 rounded-xl p-5 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-                          <span className="text-xs font-bold uppercase tracking-widest text-[#00B5E2] block mb-1">{m.date}</span>
-                          <h3 className="text-lg font-black text-white mb-2">{m.title}</h3>
-                          <p className="text-white/65 text-sm leading-relaxed">{m.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </RevealOnScroll>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </section>
+        <OurJourney />
 
         {/* Key Achievements */}
         <section className="section-padding">

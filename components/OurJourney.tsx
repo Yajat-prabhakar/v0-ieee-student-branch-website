@@ -92,7 +92,6 @@ function EventSection({ event }: { event: typeof EVENTS[0] }) {
   });
 
   const scales = SCALES_MAX.map(max =>
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     useTransform(scrollYProgress, [0, 1], [1, max])
   );
 
@@ -108,7 +107,7 @@ function EventSection({ event }: { event: typeof EVENTS[0] }) {
         {/* Chapter number watermark */}
         <motion.div
           style={{ opacity: chapterOpacity }}
-          className="pointer-events-none absolute inset-0 flex items-center justify-center z-[2] select-none"
+          className="pointer-events-none absolute inset-0 flex items-center justify-content z-[2] select-none"
         >
           <span className="w-full text-center text-[32vw] font-black leading-none text-[rgba(0,180,216,0.05)]">
             {event.id}
@@ -146,6 +145,7 @@ function EventSection({ event }: { event: typeof EVENTS[0] }) {
 
         {/* Dark gradient overlay */}
         <motion.div
+          style={{ opacity: overlayOpacity }}
           className="pointer-events-none absolute inset-0 z-50"
           style={{
             opacity: overlayOpacity,
@@ -216,7 +216,7 @@ export function OurJourney() {
           With a growing council, planned technical workshops, and upcoming chapters in WIE and Computer Society, IEEE BVIMR is charting an ambitious roadmap to become a leading student branch in the Delhi Section.
         </p>
         <div className="flex flex-wrap justify-center gap-2">
-          {['Technical Workshops', 'WIE Affinity Group', 'Computer Society', 'Global Connections', 'Hackathons'].map(c => (
+          {['⚡ Technical Workshops', '◈ WIE Affinity Group', '◉ Computer Society', '⊕ Global Connections', '▲ Hackathons'].map(c => (
             <span key={c} className="rounded-md border border-[rgba(0,180,216,0.16)] bg-[rgba(0,180,216,0.05)] px-3 py-1.5 text-xs text-white/55">
               {c}
             </span>
