@@ -174,16 +174,16 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
         </div>
 
         {/* Footer */}
-        <div className="border-t border-border bg-secondary/30 px-6 md:px-8 py-4 flex items-center justify-between">
-          <p className="text-xs text-muted-foreground">Connect with <span className="font-semibold text-foreground">{profile.name.split(' ')[0]}</span></p>
-          <div className="flex gap-2">
+        <div className="border-t border-border bg-secondary/30 px-6 md:px-8 py-5 flex items-center justify-between">
+          <p className="text-sm text-foreground">Connect with <span className="font-bold">{profile.name.split(' ')[0]}</span></p>
+          <div className="flex items-center gap-3">
             {profile.email && (
               <a
                 href={`mailto:${profile.email}`}
                 title="Email"
-                className="w-9 h-9 rounded-md border border-border bg-card hover:bg-primary/10 hover:border-primary text-muted-foreground hover:text-primary flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-lg border border-border bg-card hover:bg-primary hover:border-primary text-muted-foreground hover:text-white flex items-center justify-center transition-all duration-200 hover:shadow-md"
               >
-                <Mail size={16} />
+                <Mail size={18} />
               </a>
             )}
             {profile.linkedin && profile.linkedin !== '#' && (
@@ -192,9 +192,9 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
-                className="w-9 h-9 rounded-md border border-border bg-card hover:bg-primary/10 hover:border-primary text-muted-foreground hover:text-primary flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-lg border border-border bg-card hover:bg-primary hover:border-primary text-muted-foreground hover:text-white flex items-center justify-center transition-all duration-200 hover:shadow-md"
               >
-                <Linkedin size={16} />
+                <Linkedin size={18} />
               </a>
             )}
             {profile.github && profile.github !== '#' && (
@@ -203,9 +203,9 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub"
-                className="w-9 h-9 rounded-md border border-border bg-card hover:bg-primary/10 hover:border-primary text-muted-foreground hover:text-primary flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-lg border border-border bg-card hover:bg-primary hover:border-primary text-muted-foreground hover:text-white flex items-center justify-center transition-all duration-200 hover:shadow-md"
               >
-                <Github size={16} />
+                <Github size={18} />
               </a>
             )}
           </div>
