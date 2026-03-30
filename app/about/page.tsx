@@ -40,7 +40,17 @@ export default function About() {
   type LeaderMember = { name: string; role: string; image?: string; linkedin?: string; email?: string; github?: string; about?: string; team?: string; projects?: { title: string; description: string; tech?: string; link?: string }[] }
   const [selectedMember, setSelectedMember] = useState<LeaderMember | null>(null)
   const leadership: LeaderMember[] = [
-    { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#", email: "kanav@ieeebvimr.org", github: "#", about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.", team: "Core Team" },
+    {
+      name: "Kanav Gupta",
+      role: "Chairperson",
+      image: "/members/kanav-gupta.jpg",
+      banner: '/members/kanav-banner.png',
+      linkedin: "#",
+      email: "kanav@ieeebvimr.org",
+      github: "#",
+      about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.",
+      team: "Core Team"
+    },
     { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
     {
       name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg",
@@ -139,9 +149,9 @@ export default function About() {
             {/* Row 1: first 3 members */}
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {leadership.slice(0, 3).map((member) => (
-                <LeadershipCard 
-                  key={member.name} 
-                  {...member} 
+                <LeadershipCard
+                  key={member.name}
+                  {...member}
                   onViewProfile={() => setSelectedMember(member)}
                 />
               ))}
@@ -149,9 +159,9 @@ export default function About() {
             {/* Row 2: last 2 members centered */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
               {leadership.slice(3).map((member) => (
-                <LeadershipCard 
-                  key={member.name} 
-                  {...member} 
+                <LeadershipCard
+                  key={member.name}
+                  {...member}
                   onViewProfile={() => setSelectedMember(member)}
                 />
               ))}
