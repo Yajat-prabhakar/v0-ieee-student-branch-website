@@ -44,7 +44,7 @@ export default function About() {
       name: "Kanav Gupta",
       role: "Chairperson",
       image: "/members/kanav-gupta.jpg",
-      banner: '/members/kanav-banner.png',
+      banner: 'public/members/kanav-banner.png',
       linkedin: "#",
       email: "kanav@ieeebvimr.org",
       github: "#",
