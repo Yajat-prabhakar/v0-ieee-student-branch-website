@@ -37,23 +37,37 @@ function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; de
 }
 
 export default function About() {
-  type LeaderMember = { name: string; role: string; image?: string; linkedin?: string; email?: string; github?: string; about?: string; team?: string; projects?: { title: string; description: string; tech?: string; link?: string }[] }
+  type LeaderMember = { name: string; role: string; image?: string; banner?: string; objectPosition?: string; linkedin?: string; email?: string; github?: string; about?: string; team?: string; projects?: { title: string; description: string; tech?: string; link?: string }[] }
   const [selectedMember, setSelectedMember] = useState<LeaderMember | null>(null)
   const leadership: LeaderMember[] = [
     {
       name: "Kanav Gupta",
       role: "Chairperson",
       image: "/members/kanav-gupta.jpg",
-      banner: 'public/members/kanav-banner.png',
+      banner: '/members/kanav-banner.png',
+      objectPosition: 'center 30%',
       linkedin: "#",
       email: "kanav@ieeebvimr.org",
       github: "#",
       about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.",
       team: "Core Team"
     },
-    { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#", email: "herman@ieeebvimr.org", github: "#", about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.", team: "Core Team" },
     {
-      name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg",
+      name: "Herman Kaur",
+      role: "Vice Chairperson",
+      image: "/members/herman-kaur.jpg",
+      banner: '/members/herman-banner.png',
+      objectPosition: 'center 35%',
+      linkedin: "#",
+      email: "herman@ieeebvimr.org",
+      github: "#",
+      about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.",
+      team: "Core Team"
+    },
+    {
+      name: "Ginim Narang",
+      role: "Secretary",
+      image: "/members/ginim-narang.jpg",
       banner: '/members/ginim.png',
       objectPosition: 'center 5%',
       linkedin: "#",
@@ -68,9 +82,24 @@ export default function About() {
         { title: "Portfolio", description: "A personal developer portfolio showcasing skills, projects, and experience in a clean and modern layout.", tech: "TypeScript", link: "https://github.com/Ginim654" },
       ],
     },
-    { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#", email: "ipshita@ieeebvimr.org", github: "#", about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.", team: "Core Team" },
     {
-      name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg",
+      name: "Ipshita Sethi",
+      role: "Treasurer",
+      image: "/members/ipshita-sethi.jpg",
+      banner: '/members/ipshita-banner.png',
+      objectPosition: 'center 40%',
+      linkedin: "#",
+      email: "ipshita@ieeebvimr.org",
+      github: "#",
+      about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.",
+      team: "Core Team"
+    },
+    {
+      name: "Yajat Prabhakar",
+      role: "Webmaster",
+      image: "/members/yajat-prabhakar.jpg",
+      banner: '/members/yajat-banner.png',
+      objectPosition: 'center 25%',
       linkedin: "https://www.linkedin.com/in/yajat-prabhakar-6a3aa6321/",
       email: "yajat@ieeebvimr.org",
       github: "https://github.com/Yajat-prabhakar",

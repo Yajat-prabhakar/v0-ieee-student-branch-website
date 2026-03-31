@@ -64,7 +64,8 @@ export default function ProfileModal({ isOpen, onClose, profile }: ProfileModalP
             src={profile.banner ?? '/images/profile-banner.png'}
             alt="Profile banner"
             fill
-            className="object-cover object-top"
+            className="object-cover"
+            style={{ objectPosition: 'center top' }}
             priority
           />
           {/* Close button */}
