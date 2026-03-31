@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProfileModal from '@/components/ProfileModal'
 import { Linkedin, Mail, Github, Users } from 'lucide-react'
+import { GlassmorphismProfileCard } from '@/components/ui/profile-card-1'
 
 interface Project {
   title: string
@@ -65,7 +66,7 @@ const coreTeam: Member[] = [
     team: 'Core Team',
     initials: 'GN',
     image: '/members/ginim-narang.jpg',
-    banner: '/members/ginim.png',
+    banner: '/members/ginim-banner.png',
     objectPosition: 'center 5%',
     about: 'Technology enthusiast and aspiring developer passionate about software development, web technologies, and problem-solving. Skilled in HTML, CSS, Java, Python, C, C++, and modern development tools. Actively engaged in technical communities and leadership initiatives, fostering collaborative and innovative environments.',
     linkedin: '#',
@@ -121,6 +122,7 @@ const techTeam: Member[] = [
     role: 'Tech Advisor',
     team: 'Tech Team',
     initials: 'AT',
+    banner: '/members/avani-banner.png',
     about: 'Providing technical guidance and mentorship to members pursuing projects in engineering and technology.',
     linkedin: '#',
     email: '#',
@@ -146,6 +148,7 @@ const techTeam: Member[] = [
     role: 'Tech Advisor',
     team: 'Tech Team',
     initials: 'YS',
+    banner: '/members/yash-banner.png',
     about: 'Supporting technical initiatives and helping members develop practical engineering skills through hands-on projects.',
     linkedin: '#',
     email: '#',
@@ -157,6 +160,7 @@ const techTeam: Member[] = [
     role: 'Tech Advisor',
     team: 'Tech Team',
     initials: 'AG',
+    banner: '/members/aarav-banner.png',
     about: 'Contributing technical expertise and mentoring junior members across engineering and development initiatives.',
     linkedin: '#',
     email: '#',
@@ -168,6 +172,7 @@ const techTeam: Member[] = [
     role: 'Tech Advisor',
     team: 'Tech Team',
     initials: 'RA',
+    banner: '/members/raunaq-banner.png',
     about: 'Bridging technical knowledge with practical application to support branch members in their engineering journey.',
     linkedin: '#',
     email: '#',
@@ -182,6 +187,7 @@ const eventTeam: Member[] = [
     role: 'Event Lead',
     team: 'Event Team',
     initials: 'AJ',
+    banner: '/members/aanjanay-banner.png',
     about: 'Leading event planning and execution for IEEE BVIMR, ensuring every event delivers value and engagement to members.',
     linkedin: '#',
     email: '#',
@@ -193,6 +199,7 @@ const eventTeam: Member[] = [
     role: 'Event Lead',
     team: 'Event Team',
     initials: 'MS',
+    banner: '/members/manika-banner.png',
     about: 'Co-leading the event team with a focus on seamless coordination and high-impact technical and cultural events.',
     linkedin: '#',
     email: '#',
@@ -204,6 +211,7 @@ const eventTeam: Member[] = [
     role: 'Event Co-Lead',
     team: 'Event Team',
     initials: 'KA',
+    banner: '/members/kashvi-banner.png',
     about: 'Assisting in organising and managing events, coordinating teams to deliver memorable member experiences.',
     linkedin: '#',
     email: '#',
@@ -215,6 +223,7 @@ const eventTeam: Member[] = [
     role: 'Event Co-Lead',
     team: 'Event Team',
     initials: 'DM',
+    banner: '/members/daegna-banner.png',
     about: 'Supporting event management operations and ensuring smooth logistics for all branch activities.',
     linkedin: '#',
     email: '#',
@@ -243,6 +252,7 @@ const operationsTeam: Member[] = [
     role: 'Operations Lead',
     team: 'Operations Team',
     initials: 'AG',
+    banner: '/members/aarav-banner.png',
     about: 'Driving operational excellence and coordinating cross-team collaboration for seamless branch functioning.',
     linkedin: '#',
     email: '#',
@@ -254,6 +264,7 @@ const operationsTeam: Member[] = [
     role: 'Operations Co-Lead',
     team: 'Operations Team',
     initials: 'PS',
+    banner: '/members/prabhjot-banner.png',
     about: 'Supporting operational workflows and helping streamline processes to keep branch activities running smoothly.',
     linkedin: '#',
     email: '#',
@@ -265,6 +276,7 @@ const operationsTeam: Member[] = [
     role: 'Operations Co-Lead',
     team: 'Operations Team',
     initials: 'DJ',
+    banner: '/members/daksh-banner.png',
     about: 'Assisting in managing operational tasks and ensuring resources are available for every branch initiative.',
     linkedin: '#',
     email: '#',
@@ -293,6 +305,7 @@ const creativeTeam: Member[] = [
     role: 'Creative Lead',
     team: 'Creative Team',
     initials: 'TK',
+    banner: '/members/teena-banner.png',
     about: 'Shaping the visual and creative direction of branch communications, posters, and digital content.',
     linkedin: '#',
     email: '#',
@@ -304,6 +317,7 @@ const creativeTeam: Member[] = [
     role: 'Creative Co-Lead',
     team: 'Creative Team',
     initials: 'SM',
+    banner: '/members/sakshi-banner.png',
     about: 'Supporting creative production and collaborating with the design team to maintain a consistent visual identity.',
     linkedin: '#',
     email: '#',
@@ -318,6 +332,7 @@ const publicityTeam: Member[] = [
     role: 'Publicity Lead',
     team: 'Publicity Team',
     initials: 'RB',
+    banner: '/members/rishabh-banner.png',
     about: 'Driving awareness and visibility for IEEE BVIMR through strategic outreach, campaigns, and promotional efforts.',
     linkedin: '#',
     email: '#',
@@ -332,6 +347,7 @@ const mediaTeam: Member[] = [
     role: 'Media Team',
     team: 'Media Team',
     initials: 'HK',
+    banner: '/members/hemant-banner.png',
     about: 'Capturing and producing high-quality media content that tells the story of IEEE BVIMR events and milestones.',
     linkedin: '#',
     email: '#',
@@ -343,6 +359,7 @@ const mediaTeam: Member[] = [
     role: 'Media Team',
     team: 'Media Team',
     initials: 'ST',
+    banner: '/members/saurav-banner.png',
     about: 'Contributing to media production, photography, and visual storytelling for IEEE BVIMR events and activities.',
     linkedin: '#',
     email: '#',
@@ -354,6 +371,7 @@ const mediaTeam: Member[] = [
     role: 'Media Team',
     team: 'Media Team',
     initials: 'YG',
+    banner: '/members/yash-banner.png',
     about: 'Contributing to the media team through content creation, editing, and digital storytelling for branch activities.',
     linkedin: '#',
     email: '#',
@@ -368,6 +386,7 @@ const reportingTeam: Member[] = [
     role: 'Event Reporting Lead',
     team: 'Event Reporting Team',
     initials: 'IB',
+    banner: '/members/ishita-banner.png',
     about: 'Producing detailed event reports and write-ups that highlight key takeaways and outcomes from branch activities.',
     linkedin: '#',
     email: '#',
@@ -393,6 +412,7 @@ const reportingTeam: Member[] = [
     role: 'Event Reporting Lead',
     team: 'Event Reporting Team',
     initials: 'AG',
+    banner: '/members/anjali-banner.png',
     about: 'Documenting and reporting on branch events, ensuring accurate and timely records of all IEEE BVIMR activities.',
     linkedin: '#',
     email: '#',
@@ -407,6 +427,7 @@ const outreachTeam: Member[] = [
     role: 'Outreach Lead',
     team: 'Outreach Team',
     initials: 'AK',
+    banner: '/members/aniket-banner.png',
     about: 'Leading outreach efforts to connect IEEE BVIMR with students, industry professionals, and partner institutions.',
     linkedin: '#',
     email: '#',
@@ -418,6 +439,7 @@ const outreachTeam: Member[] = [
     role: 'Outreach Lead',
     team: 'Outreach Team',
     initials: 'HT',
+    banner: '/members/hitesh-banner.png',
     about: 'Expanding the branch network and building relationships that create opportunities for members.',
     linkedin: '#',
     email: '#',
@@ -429,6 +451,7 @@ const outreachTeam: Member[] = [
     role: 'Outreach Co-Lead',
     team: 'Outreach Team',
     initials: 'RA',
+    banner: '/members/raunaq-banner.png',
     about: 'Supporting outreach strategies and helping forge new partnerships and collaborations for the branch.',
     linkedin: '#',
     email: '#',
@@ -440,6 +463,7 @@ const outreachTeam: Member[] = [
     role: 'Outreach Co-Lead',
     team: 'Outreach Team',
     initials: 'SR',
+    banner: '/members/sahil-banner.png',
     about: 'Helping drive outreach and community engagement across the institution and beyond.',
     linkedin: '#',
     email: '#',
@@ -454,6 +478,7 @@ const membershipTeam: Member[] = [
     role: 'Membership Dev. Lead',
     team: 'Membership Dev. Team',
     initials: 'DT',
+    banner: '/members/dhaarana-banner.png',
     about: 'Leading membership development initiatives to grow the IEEE BVIMR community and enhance member experience.',
     linkedin: '#',
     email: '#',
@@ -465,6 +490,7 @@ const membershipTeam: Member[] = [
     role: 'Membership Dev. Team',
     team: 'Membership Dev. Team',
     initials: 'SV',
+    banner: '/members/sharvi-banner.png',
     about: 'Engaging prospective members and supporting onboarding processes to strengthen the IEEE community.',
     linkedin: '#',
     email: '#',
@@ -476,6 +502,7 @@ const membershipTeam: Member[] = [
     role: 'Membership Dev. Team',
     team: 'Membership Dev. Team',
     initials: 'DM',
+    banner: '/members/daegna-banner.png',
     about: 'Supporting membership growth activities and fostering an inclusive and welcoming branch environment.',
     linkedin: '#',
     email: '#',
@@ -487,6 +514,7 @@ const membershipTeam: Member[] = [
     role: 'Membership Dev. Team',
     team: 'Membership Dev. Team',
     initials: 'LV',
+    banner: '/members/lavanya-banner.png',
     about: 'Contributing to membership drives and helping new students discover the value of IEEE BVIMR.',
     linkedin: '#',
     email: '#',
@@ -498,6 +526,7 @@ const membershipTeam: Member[] = [
     role: 'Membership Dev. Team',
     team: 'Membership Dev. Team',
     initials: 'HT',
+    banner: '/members/hitesh-banner.png',
     about: 'Working to expand the branch membership base and connect students with engineering opportunities.',
     linkedin: '#',
     email: '#',
@@ -542,31 +571,31 @@ function RevealSection({ children, delay = 0 }: { children: React.ReactNode; del
 }
 
 function MemberCard({ member, onClick }: { member: Member; onClick: (m: Member) => void }) {
-  return (
-    <button
-      onClick={() => onClick(member)}
-      className="w-full text-left group focus:outline-none"
-      aria-label={`View profile of ${member.name}`}
-    >
-      <div className="bg-white border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center cursor-pointer h-full">
-        {/* Avatar */}
-        <div className="w-20 h-20 rounded-full mb-4 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex-shrink-0">
-          {member.image ? (
-            <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover" style={{ objectPosition: member.objectPosition ?? 'center 40%' }} />
-          ) : (
-            <div className={`w-full h-full bg-gradient-to-br ${member.avatarColor} flex items-center justify-center`}>
-              <span className="text-2xl font-black text-white tracking-wide">{member.initials}</span>
-            </div>
-          )}
-        </div>
-        {/* Info */}
-        <h3 className="font-bold text-base text-foreground mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
-        <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">{member.role}</span>
-        <p className="text-xs text-muted-foreground mt-3 line-clamp-2">{member.about}</p>
-        <span className="mt-4 text-xs text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity">View Profile →</span>
-      </div>
-    </button>
-  )
+  const socialLinks = [];
+  if (member.github && member.github !== '#') {
+    socialLinks.push({ id: 'github', icon: Github, label: 'GitHub', href: member.github });
+  }
+  if (member.linkedin && member.linkedin !== '#') {
+    socialLinks.push({ id: 'linkedin', icon: Linkedin, label: 'LinkedIn', href: member.linkedin });
+  }
+  if (member.email && member.email !== '#') {
+    socialLinks.push({ id: 'email', icon: Mail, label: 'Email', href: `mailto:${member.email}` });
+  }
+
+  const cardProps = {
+    avatarUrl: member.image || `https://placehold.co/128x128/00629B/white?text=${member.name.charAt(0)}`,
+    name: member.name,
+    title: member.role,
+    bio: member.about || 'Member of IEEE BVIMR Student Branch.',
+    socialLinks: socialLinks,
+    actionButton: {
+      text: 'View Profile',
+      href: '#',
+    },
+    onClick: () => onClick(member),
+  };
+
+  return <GlassmorphismProfileCard {...cardProps} />;
 }
 
 function TeamSection({ title, subtitle, members, onSelect, delay = 0 }: {
@@ -748,10 +777,10 @@ export default function Council() {
             role: selected.role,
             team: selected.team,
             about: selected.about,
-  image: selected.image,
-  banner: selected.banner,
-  objectPosition: selected.objectPosition,
-  email: selected.email,
+            image: selected.image,
+            banner: selected.banner,
+            objectPosition: selected.objectPosition,
+            email: selected.email,
             linkedin: selected.linkedin,
             github: selected.github,
             projects: selected.projects,
