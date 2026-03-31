@@ -106,7 +106,7 @@ const events: Event[] = [
     day: "28",
     year: "2026",
     title: "Orientation: Welcome to IEEE BVIMR",
-    description: "Introduction to our branch, societies, and the opportunities available for all members across disciplines.",
+    description: "Introduction to our branch, affinity groups, and the opportunities available for all members across disciplines.",
     location: "BVIMR Campus, Auditorium",
     category: "Orientation",
     status: "past",

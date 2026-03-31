@@ -207,7 +207,7 @@ export default function Contact() {
               <div className="card-ieee">
                 <h3 className="font-bold text-lg text-foreground mb-2">How often do you meet?</h3>
                 <p className="text-foreground">
-                  Our society meetings and events are scheduled throughout the academic year. Subscribe to our newsletter to stay updated on meeting schedules.
+                  Our affinity group meetings and events are scheduled throughout the academic year. Subscribe to our newsletter to stay updated on meeting schedules.
                 </p>
               </div>
             </div>

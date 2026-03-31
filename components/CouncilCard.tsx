@@ -4,11 +4,15 @@ interface CouncilCardProps {
   name: string
   role: string
   image?: string
+  onViewProfile?: () => void
 }
 
-export default function CouncilCard({ name, role, image }: CouncilCardProps) {
+export default function CouncilCard({ name, role, image, onViewProfile }: CouncilCardProps) {
   return (
-    <div className="card-ieee hover:shadow-lg transition-all duration-300 text-center">
+    <div 
+      onClick={onViewProfile}
+      className={`card-ieee hover:shadow-lg transition-all duration-300 text-center ${onViewProfile ? 'cursor-pointer' : ''}`}
+    >
       {/* Image Placeholder */}
       <div className="w-28 h-28 mx-auto mb-4 rounded-lg bg-muted flex items-center justify-center overflow-hidden">
         {image ? (

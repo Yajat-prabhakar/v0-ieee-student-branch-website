@@ -1,9 +1,12 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LeadershipCard from '@/components/LeadershipCard'
+import ProfileModal from '@/components/ProfileModal'
+import { OurJourney } from '@/components/OurJourney'
 
 function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -33,85 +36,82 @@ function RevealOnScroll({ children, delay = 0 }: { children: React.ReactNode; de
   )
 }
 
-function ProgressTrack() {
-  const barRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const el = barRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.width = '100%'
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.4 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const steps = ['Jan 2026', 'Feb 2026', 'Future']
-  return (
-    <div className="w-full">
-      {/* Bar */}
-      <div className="relative h-1.5 bg-white/15 rounded-full">
-        <div
-          ref={barRef}
-          className="absolute left-0 top-0 h-full bg-gradient-to-r from-[#00629B] to-[#00B5E2] rounded-full transition-[width] duration-[1800ms] ease-out"
-          style={{ width: '0%' }}
-        />
-        {/* Step markers */}
-        {steps.map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-3 h-3 rounded-full bg-[#00B5E2] border-2 border-[#002147] shadow-[0_0_6px_rgba(0,181,226,0.7)]"
-            style={{
-              left: `${(i / (steps.length - 1)) * 100}%`,
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-        ))}
-      </div>
-      {/* Labels */}
-      <div className="flex justify-between mt-2">
-        {steps.map((s) => (
-          <span key={s} className="text-[11px] font-bold text-[#00B5E2] uppercase tracking-wider">{s}</span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const milestones = [
-  {
-    date: 'January 2026',
-    title: 'Foundation',
-    description: 'IEEE BVIMR Student Branch was officially established at Bharati Vidyapeeth Institute of Management and Research, New Delhi, under IEEE Region 10 (Asia Pacific). The branch was inaugurated with a ceremony attended by faculty, IEEE Delhi Section members, and founding student council.',
-    icon: '01',
-  },
-  {
-    date: 'February 2026',
-    title: 'First Event',
-    description: 'The branch hosted its first event — DSSYWLC\'25 (Delhi Section Student, Young Professionals, WIE & Life Members Congress) — where our members represented BVIMR alongside students and professionals from across the Delhi Section, marking our debut on the IEEE stage.',
-    icon: '02',
-  },
-  {
-    date: 'Future Forward',
-    title: 'Building Tomorrow',
-    description: 'With a growing council, planned technical workshops, and upcoming society chapters in WIE, Computer Society, and more, IEEE BVIMR is charting an ambitious roadmap to become a leading student branch in the Delhi Section — empowering students to innovate, lead, and connect globally.',
-    icon: '03',
-  },
-]
-
 export default function About() {
-  const leadership = [
-    { name: "Kanav Gupta", role: "Chairperson", image: "/members/kanav-gupta.jpg", linkedin: "#" },
-    { name: "Herman Kaur", role: "Vice Chairperson", image: "/members/herman-kaur.jpg", linkedin: "#" },
-    { name: "Ginim Narang", role: "Secretary", image: "/members/ginim-narang.jpg", linkedin: "#" },
-    { name: "Ipshita Sethi", role: "Treasurer", image: "/members/ipshita-sethi.jpg", linkedin: "#" },
-    { name: "Yajat Prabhakar", role: "Webmaster", image: "/members/yajat-prabhakar.jpg", linkedin: "#" },
+  type LeaderMember = { name: string; role: string; image?: string; banner?: string; objectPosition?: string; linkedin?: string; email?: string; github?: string; about?: string; team?: string; projects?: { title: string; description: string; tech?: string; link?: string }[] }
+  const [selectedMember, setSelectedMember] = useState<LeaderMember | null>(null)
+  const leadership: LeaderMember[] = [
+    {
+      name: "Kanav Gupta",
+      role: "Chairperson",
+      image: "/members/kanav-gupta.jpg",
+      banner: '/members/kanav-banner.png',
+      objectPosition: 'center 30%',
+      linkedin: "#",
+      email: "kanav@ieeebvimr.org",
+      github: "#",
+      about: "Leading the IEEE BVIMR Student Branch with a vision to foster innovation and technical excellence across the campus community.",
+      team: "Core Team"
+    },
+    {
+      name: "Herman Kaur",
+      role: "Vice Chairperson",
+      image: "/members/herman-kaur.jpg",
+      banner: '/members/herman-banner.png',
+      objectPosition: 'center 35%',
+      linkedin: "#",
+      email: "herman@ieeebvimr.org",
+      github: "#",
+      about: "Supporting branch operations and driving member engagement through collaborative initiatives and impactful programs.",
+      team: "Core Team"
+    },
+    {
+      name: "Ginim Narang",
+      role: "Secretary",
+      image: "/members/ginim-narang.jpg",
+      banner: '/members/ginim.png',
+      objectPosition: 'center 5%',
+      linkedin: "#",
+      email: "ginim654@gmail.com",
+      github: "https://github.com/Ginim654",
+      about: "Technology enthusiast and aspiring developer passionate about software development, web technologies, and problem-solving. Skilled in HTML, CSS, Java, Python, C, C++, and modern development tools. Actively engaged in technical communities and leadership initiatives, fostering collaborative and innovative environments.",
+      team: "Core Team",
+      projects: [
+        { title: "SmartCity AI Platform", description: "An intelligent urban management platform leveraging AI to optimize city services and analyze real-time data across traffic, utilities, and public safety.", tech: "AI / Python", link: "https://github.com/Ginim654" },
+        { title: "Chat App", description: "A real-time messaging application with a clean, responsive interface enabling seamless one-on-one and group conversations across devices.", tech: "TypeScript", link: "https://github.com/Ginim654" },
+        { title: "Attendance Module", description: "A student attendance management system for tracking, recording, and generating reports — reducing administrative overhead and improving record accuracy.", tech: "TypeScript", link: "https://github.com/Ginim654" },
+        { title: "Portfolio", description: "A personal developer portfolio showcasing skills, projects, and experience in a clean and modern layout.", tech: "TypeScript", link: "https://github.com/Ginim654" },
+      ],
+    },
+    {
+      name: "Ipshita Sethi",
+      role: "Treasurer",
+      image: "/members/ipshita-sethi.jpg",
+      banner: '/members/ipshita-banner.png',
+      objectPosition: 'center 40%',
+      linkedin: "#",
+      email: "ipshita@ieeebvimr.org",
+      github: "#",
+      about: "Overseeing financial planning, budget management, and resource allocation for branch events and activities.",
+      team: "Core Team"
+    },
+    {
+      name: "Yajat Prabhakar",
+      role: "Webmaster",
+      image: "/members/yajat-prabhakar.jpg",
+      banner: '/members/yajat-banner.png',
+      objectPosition: 'center 25%',
+      linkedin: "https://www.linkedin.com/in/yajat-prabhakar-6a3aa6321/",
+      email: "yajat@ieeebvimr.org",
+      github: "https://github.com/Yajat-prabhakar",
+      about: "Second-year BCA student passionate about programming, problem-solving, and building real-world technology solutions. Serving as Webmaster of BVIMR IEEE Student Branch and Technical Head at QuantaLoop. Interested in AI, DevOps, and Site Reliability Engineering (SRE).",
+      team: "Core Team",
+      projects: [
+        { title: "Aetherion", description: "AI Space Guardian for Astronauts — intelligent monitoring and safety system.", tech: "Python", link: "https://github.com/Yajat-prabhakar/Aetherion" },
+        { title: "CertBot2", description: "Automated certificate generation and distribution tool.", tech: "JavaScript", link: "https://github.com/Yajat-prabhakar/CertBot2" },
+        { title: "CODE-RUNNER", description: "A TypeScript-based code execution environment for running and testing code snippets.", tech: "TypeScript", link: "https://github.com/Yajat-prabhakar/CODE-RUNNER" },
+        { title: "IEEE Student Branch Website", description: "Official website for the BVIMR IEEE Student Branch.", tech: "Next.js", link: "https://github.com/Yajat-prabhakar/Ieee-Student-branch" },
+      ],
+    },
   ]
 
   return (
@@ -178,80 +178,28 @@ export default function About() {
             {/* Row 1: first 3 members */}
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {leadership.slice(0, 3).map((member) => (
-                <LeadershipCard key={member.name} {...member} />
+                <LeadershipCard
+                  key={member.name}
+                  {...member}
+                  onViewProfile={() => setSelectedMember(member)}
+                />
               ))}
             </div>
             {/* Row 2: last 2 members centered */}
-            <div className="flex justify-center gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
               {leadership.slice(3).map((member) => (
-                <div key={member.name} className="w-full max-w-[calc(33.333%-1rem)]">
-                  <LeadershipCard {...member} />
-                </div>
+                <LeadershipCard
+                  key={member.name}
+                  {...member}
+                  onViewProfile={() => setSelectedMember(member)}
+                />
               ))}
             </div>
           </div>
         </section>
 
         {/* Our Journey */}
-        <section className="py-16 bg-[#002147] text-white overflow-hidden">
-          <div className="container-ieee">
-
-            <RevealOnScroll>
-              <h2 className="section-title text-white">Our Journey</h2>
-              <p className="section-subtitle text-white/70">Milestones that shaped our growth and community impact.</p>
-            </RevealOnScroll>
-
-            {/* Pillars — KIIT-style animated numbered cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 mb-12">
-              {[
-                { num: '01', label: 'Student Branch', sub: 'A student-led community focused on engineering excellence and professional growth.' },
-                { num: '02', label: 'Programs & Events', sub: 'Workshops and events that translate classroom learning into meaningful outcomes.' },
-                { num: '03', label: 'Student Growth', sub: 'Leadership programs and peer learning that build confidence and impact.' },
-              ].map((p, i) => (
-                <RevealOnScroll key={p.num} delay={i * 120}>
-                  <div className="border border-white/20 rounded-xl p-5 hover:border-[#00B5E2]/60 hover:bg-white/5 transition-all duration-300 group">
-                    <span className="text-4xl font-black text-white/15 group-hover:text-[#00B5E2]/40 transition-colors duration-300 leading-none block mb-3">{p.num}</span>
-                    <h4 className="font-bold text-white text-base mb-1">{p.label}</h4>
-                    <p className="text-white/55 text-sm leading-relaxed">{p.sub}</p>
-                  </div>
-                </RevealOnScroll>
-              ))}
-            </div>
-
-            {/* Animated progress bar */}
-            <RevealOnScroll delay={100}>
-              <ProgressTrack />
-            </RevealOnScroll>
-
-            {/* Left-aligned vertical timeline */}
-            <div className="relative mt-10">
-              {/* Single continuous spine — runs from centre of first node to centre of last */}
-              <div className="absolute left-4 top-4 bottom-4 w-px bg-white/20" style={{ transform: 'translateX(-50%)' }} />
-
-              <div className="space-y-6">
-                {milestones.map((m, i) => (
-                  <RevealOnScroll key={m.title} delay={i * 140}>
-                    <div className="flex gap-4 items-start">
-                      {/* Node */}
-                      <div className="w-8 h-8 rounded-full bg-[#00629B] border-2 border-[#00B5E2] flex items-center justify-center shadow-[0_0_8px_rgba(0,181,226,0.5)] z-10 flex-shrink-0">
-                        <span className="text-[9px] font-black text-white">{m.icon}</span>
-                      </div>
-                      {/* Card */}
-                      <div className="flex-1">
-                        <div className="bg-white/5 border border-white/15 rounded-xl p-5 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-                          <span className="text-xs font-bold uppercase tracking-widest text-[#00B5E2] block mb-1">{m.date}</span>
-                          <h3 className="text-lg font-black text-white mb-2">{m.title}</h3>
-                          <p className="text-white/65 text-sm leading-relaxed">{m.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </RevealOnScroll>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </section>
+        <OurJourney />
 
         {/* Key Achievements */}
         <section className="section-padding">
@@ -268,8 +216,8 @@ export default function About() {
                 <p className="text-muted-foreground">Diverse range of workshops, seminars, and networking events throughout the academic year.</p>
               </div>
               <div className="card-ieee">
-                <h3 className="font-bold text-lg text-primary mb-2">6 Upcoming Societies</h3>
-                <p className="text-muted-foreground">Specialized groups covering WIE, YP, PES, CS, ComSoc, and RAS — currently being established to serve diverse interests.</p>
+                <h3 className="font-bold text-lg text-primary mb-2">Affinity Groups</h3>
+                <p className="text-muted-foreground">WIE is our first officially recognized affinity group, with more communities being established to serve diverse interests.</p>
               </div>
               <div className="card-ieee">
                 <h3 className="font-bold text-lg text-primary mb-2">Industry Partnerships</h3>
@@ -293,8 +241,8 @@ export default function About() {
                 <p className="text-foreground font-semibold">Events</p>
               </div>
               <div>
-                <div className="text-5xl font-bold text-primary mb-2">6</div>
-                <p className="text-foreground font-semibold">Upcoming Societies</p>
+                <div className="text-5xl font-bold text-primary mb-2">1</div>
+                <p className="text-foreground font-semibold">Affinity Group</p>
               </div>
               <div>
                 <div className="text-5xl font-bold text-primary mb-2">2026</div>
@@ -306,6 +254,25 @@ export default function About() {
 
       </main>
       <Footer />
+
+      {/* Profile Modal */}
+      {selectedMember && (
+        <ProfileModal
+          isOpen={!!selectedMember}
+          onClose={() => setSelectedMember(null)}
+          profile={{
+            name: selectedMember.name,
+            role: selectedMember.role,
+            team: selectedMember.team,
+            about: selectedMember.about,
+            image: selectedMember.image,
+            email: selectedMember.email,
+            linkedin: selectedMember.linkedin,
+            github: selectedMember.github,
+            projects: selectedMember.projects,
+          }}
+        />
+      )}
     </>
   )
 }
