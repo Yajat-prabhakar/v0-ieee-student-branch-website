@@ -1,0 +1,150 @@
+{
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\next-env.d.ts": {
+    "mtime": 1777718208.80776,
+    "hash": "29f60a376e12bf72b67d4994fcc84214"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\layout.tsx": {
+    "mtime": 1777718208.7286386,
+    "hash": "9417a12c5cbbc42907892ddba297051a"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\page.tsx": {
+    "mtime": 1777718208.7342782,
+    "hash": "1003ba7264e6a7d7efa2cfa17ac6ca70"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\about\\page.tsx": {
+    "mtime": 1777718208.6682806,
+    "hash": "79fb5b6f4014bc1c5d74ad4c52f855b2"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\affinity-groups\\page.tsx": {
+    "mtime": 1777718208.6750605,
+    "hash": "f81548dc6669ea042cc06e13c6ebafe4"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\contact\\page.tsx": {
+    "mtime": 1777718208.6900456,
+    "hash": "34eac4696a7b724da0cb2becdf259343"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\council\\page.tsx": {
+    "mtime": 1777718208.7002969,
+    "hash": "7aa0399bdfb60be2003894cd91045601"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\events\\page.tsx": {
+    "mtime": 1777718208.7133937,
+    "hash": "2f98f50700d1249c25126b8cefffca8a"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\app\\journey\\page.tsx": {
+    "mtime": 1777718208.7249393,
+    "hash": "4936fe356dd0a459f578082d5d7111a0"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\AffinityGroupCard.tsx": {
+    "mtime": 1777718208.7410142,
+    "hash": "aea482dcd9f32e8620c69e4180f184f6"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\CouncilCard.tsx": {
+    "mtime": 1777718208.7472312,
+    "hash": "4f3321751214905f3e3b3fd3445c6e2a"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\Footer.tsx": {
+    "mtime": 1777718208.7528908,
+    "hash": "2b77f4253d6aa936106938c8f2a77766"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\Header.tsx": {
+    "mtime": 1777718208.7589798,
+    "hash": "d3bad927632476b16506e59c9a103e3a"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\LeadershipCard.tsx": {
+    "mtime": 1777718208.763454,
+    "hash": "811acb35f9d96442a75f12a569779c7f"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\OurJourney.tsx": {
+    "mtime": 1777718208.7720335,
+    "hash": "9ce5bd5615b3b1a0026ab6c873c1cbe9"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\ProfileModal.tsx": {
+    "mtime": 1777718208.7860308,
+    "hash": "1fb5c0f867178f563468bea3bc9cb237"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\components\\ui\\stagger-testimonials.tsx": {
+    "mtime": 1777718208.7948856,
+    "hash": "adba63b6531d3fdd9d2ac3cfb2c90a98"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\images\\image.png": {
+    "mtime": 1777718208.8578062,
+    "hash": "427a380b8331f45104c2e50c425e1adc"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\images\\inauguration\\inauguration-1.jpg": {
+    "mtime": 1777718208.8629727,
+    "hash": "350467868a825261f935dd3a985a7b7b"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\images\\inauguration\\inauguration-2.jpg": {
+    "mtime": 1777718208.8681996,
+    "hash": "6f2f9be599be272fdcf2d4e51d9324e5"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\images\\inauguration\\inauguration-3.jpg": {
+    "mtime": 1777718208.8731456,
+    "hash": "9ebe1906aedf927eccb178d440291e87"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\images\\inauguration\\inauguration-4.jpg": {
+    "mtime": 1777718208.8768566,
+    "hash": "98bd5ee2e80f216f26dc53d32c537114"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\images\\inauguration\\inauguration-5.jpg": {
+    "mtime": 1777718208.8813944,
+    "hash": "9e87ea09601eb21131372fcd59e2172b"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\images\\inauguration\\inauguration-6.png": {
+    "mtime": 1777718208.900094,
+    "hash": "427a380b8331f45104c2e50c425e1adc"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\gargi-banner.png": {
+    "mtime": 1777718208.907873,
+    "hash": "8e618f834dea76742cbe21d60737e150"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\gargi-sharma.jpg": {
+    "mtime": 1777718208.9119792,
+    "hash": "5a3fe44c83ca254e79f80617de7ea11d"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\ginim-banner.png": {
+    "mtime": 1777718208.9171572,
+    "hash": "453a091f14edc7a5c4f78fec5cf75050"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\ginim-narang.jpg": {
+    "mtime": 1777718208.925018,
+    "hash": "6a60a8f992338a534020047a05b89631"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\ginim.png": {
+    "mtime": 1777718208.9333854,
+    "hash": "0d40b634c76d15053629fde60d4f3c98"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\herman-kaur.jpg": {
+    "mtime": 1777718208.9369433,
+    "hash": "35dcb30dc84223fdf7b42de9f2eb2f37"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\ipshita-sethi.jpg": {
+    "mtime": 1777718208.9552975,
+    "hash": "7706ca9f961b3242a427cc15e6aca4ae"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\kanav-banner.png": {
+    "mtime": 1777718208.9635384,
+    "hash": "846cb78629c06044b89dd908998c49d2"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\mandeep-banner.png": {
+    "mtime": 1777718208.9701855,
+    "hash": "ea4807b5052a79ee488cf5b7f10aa56d"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\mandeep-singh.jpg": {
+    "mtime": 1777718208.9749134,
+    "hash": "c3e19c3d1dba34670efad2b5c9a3d71b"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\parth-banner.png": {
+    "mtime": 1777718208.983349,
+    "hash": "e03edb571cb3f225d7a5b4256683e266"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\parth-sethi.jpg": {
+    "mtime": 1777718208.9960144,
+    "hash": "7b198fb960b693a7c45b61c024c99387"
+  },
+  "C:\\Users\\Yajat\\OneDrive\\Desktop\\random\\BVIMR ieee\\v0-ieee-student-branch-website\\public\\members\\yajat-banner.png": {
+    "mtime": 1777718209.0017102,
+    "hash": "3bf7d64a5796076ed785303ae31ec768"
+  }
+}
