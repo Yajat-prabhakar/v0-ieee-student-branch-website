@@ -17,12 +17,12 @@ interface LeadershipCardProps {
 
 export default function LeadershipCard({ name, role, image, objectPosition, linkedin, github, email, about, onViewProfile }: LeadershipCardProps) {
   return (
-    <div 
+    <div
       onClick={onViewProfile}
       className={`card-ieee text-center flex flex-col items-center hover:shadow-xl transition-all duration-300 relative group/card ${onViewProfile ? 'cursor-pointer' : ''}`}
     >
       {/* Circular Image Placeholder */}
-      <div className="w-32 h-32 mb-6 rounded-full bg-muted flex items-center justify-center overflow-hidden border-4 border-white/20 shadow-lg group-hover/card:scale-105 transition-transform duration-500">
+      <div className="w-32 h-32 mb-6 rounded-full bg-muted flex items-center justify-center overflow-hidden border-4 border-white/20 group-hover/card:border-primary shadow-lg group-hover/card:scale-105 transition-all duration-500">
         {image ? (
           <Image
             src={image}
@@ -41,7 +41,7 @@ export default function LeadershipCard({ name, role, image, objectPosition, link
 
       {/* Basic Info */}
       <div className="mb-4">
-        <h3 className="font-bold text-xl text-foreground mb-1 group-hover/card:text-primary transition-colors">{name}</h3>
+        <h3 className="font-bold text-xl text-foreground mb-1 transition-colors">{name}</h3>
         <p className="text-sm font-semibold text-primary uppercase tracking-wider">{role}</p>
       </div>
 
@@ -59,23 +59,6 @@ export default function LeadershipCard({ name, role, image, objectPosition, link
       <div className="w-full flex flex-col items-center gap-6 mt-auto">
         {/* Social Links with Tooltips */}
         <div className="flex items-center justify-center gap-3">
-          {email && email !== '#' && (
-            <div className="relative group/tooltip">
-              <a
-                href={`mailto:${email}`}
-                className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#00629B]/10 text-[#00629B] hover:bg-[#00629B] hover:text-white transition-all duration-300"
-                aria-label={`Email ${name}`}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </a>
-              <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground text-background text-[10px] font-bold rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                Email
-              </span>
-            </div>
-          )}
           {linkedin && linkedin !== '#' && (
             <div className="relative group/tooltip">
               <Link
@@ -114,17 +97,34 @@ export default function LeadershipCard({ name, role, image, objectPosition, link
               </span>
             </div>
           )}
+          {email && email !== '#' && (
+            <div className="relative group/tooltip">
+              <a
+                href={`mailto:${email}`}
+                className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#00629B]/10 text-[#00629B] hover:bg-[#00629B] hover:text-white transition-all duration-300"
+                aria-label={`Email ${name}`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </a>
+              <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground text-background text-[10px] font-bold rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Email
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Action Button */}
-        <button 
+        <button
           onClick={(e) => {
             e.stopPropagation();
             onViewProfile?.();
           }}
           className="group/btn w-full py-3 bg-secondary hover:bg-primary hover:text-white rounded-lg font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2"
         >
-          View Profile
+          View Portfolio
           <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:rotate-[-45deg] group-hover/btn:translate-x-0.5" />
         </button>
       </div>

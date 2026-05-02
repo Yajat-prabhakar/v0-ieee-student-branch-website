@@ -6,16 +6,16 @@ import Lenis from '@studio-freight/lenis';
 
 const EVENTS = [
   {
-    id: '01', date: 'January 2026', title: 'Inauguration',
+    id: '01', date: 'January 2026', title: 'BVIMR Student Branch Inauguration',
     description: 'IEEE BVIMR Student Branch was officially established at Bharati Vidyapeeth Institute of Management and Research, New Delhi, under IEEE Region 10 (Asia Pacific) — inaugurated in a ceremony attended by faculty, Delhi Section members, and the founding student council.',
     images: [
-      'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1280&h=720&fit=crop&auto=format&q=75',
-      'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=800&fit=crop&auto=format&q=75',
-      'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&h=800&fit=crop&auto=format&q=75',
-      'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1280&h=720&fit=crop&auto=format&q=75',
-      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=800&fit=crop&auto=format&q=75',
-      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1280&h=720&fit=crop&auto=format&q=75',
-      'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=800&fit=crop&auto=format&q=75',
+      '/images/inauguration/inauguration-5.jpg',
+      '/images/inauguration/inauguration-1.jpg',
+      '/images/inauguration/inauguration-2.jpg',
+      '/images/inauguration/inauguration-6.png',
+      '/images/inauguration/inauguration-3.jpg',
+      '/images/inauguration/inauguration-4.jpg',
+      '/images/inauguration/inauguration-1.jpg',
     ],
   },
   {
@@ -97,8 +97,8 @@ function EventSection({ event }: { event: typeof EVENTS[0] }) {
 
   const chapterOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
   const overlayOpacity = useTransform(scrollYProgress, [0.35, 0.58], [0, 1]);
-  const textOpacity    = useTransform(scrollYProgress, [0.50, 0.70], [0, 1]);
-  const textY          = useTransform(scrollYProgress, [0.50, 0.70], [20, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0.50, 0.70], [0, 1]);
+  const textY = useTransform(scrollYProgress, [0.50, 0.70], [20, 0]);
 
   return (
     <div ref={container} className="relative h-[200vh]">
