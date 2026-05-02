@@ -6,7 +6,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProfileModal from '@/components/ProfileModal'
 import { Linkedin, Mail, Github, Users } from 'lucide-react'
-import { GlassmorphismProfileCard } from '@/components/ui/profile-card-1'
 
 interface Project {
   title: string
@@ -66,7 +65,7 @@ const coreTeam: Member[] = [
     team: 'Core Team',
     initials: 'GN',
     image: '/members/ginim-narang.jpg',
-    banner: '/members/ginim-banner.png',
+    banner: '/members/ginim.png',
     objectPosition: 'center 5%',
     about: 'Technology enthusiast and aspiring developer passionate about software development, web technologies, and problem-solving. Skilled in HTML, CSS, Java, Python, C, C++, and modern development tools. Actively engaged in technical communities and leadership initiatives, fostering collaborative and innovative environments.',
     linkedin: '#',
@@ -571,31 +570,31 @@ function RevealSection({ children, delay = 0 }: { children: React.ReactNode; del
 }
 
 function MemberCard({ member, onClick }: { member: Member; onClick: (m: Member) => void }) {
-  const socialLinks = [];
-  if (member.github && member.github !== '#') {
-    socialLinks.push({ id: 'github', icon: Github, label: 'GitHub', href: member.github });
-  }
-  if (member.linkedin && member.linkedin !== '#') {
-    socialLinks.push({ id: 'linkedin', icon: Linkedin, label: 'LinkedIn', href: member.linkedin });
-  }
-  if (member.email && member.email !== '#') {
-    socialLinks.push({ id: 'email', icon: Mail, label: 'Email', href: `mailto:${member.email}` });
-  }
-
-  const cardProps = {
-    avatarUrl: member.image || `https://placehold.co/128x128/00629B/white?text=${member.name.charAt(0)}`,
-    name: member.name,
-    title: member.role,
-    bio: member.about || 'Member of IEEE BVIMR Student Branch.',
-    socialLinks: socialLinks,
-    actionButton: {
-      text: 'View Profile',
-      href: '#',
-    },
-    onClick: () => onClick(member),
-  };
-
-  return <GlassmorphismProfileCard {...cardProps} />;
+  return (
+    <button
+      onClick={() => onClick(member)}
+      className="w-full text-left group focus:outline-none"
+      aria-label={`View profile of ${member.name}`}
+    >
+      <div className="bg-white border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center cursor-pointer h-full">
+        {/* Avatar */}
+        <div className="w-20 h-20 rounded-full mb-4 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden flex-shrink-0">
+          {member.image ? (
+            <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover" style={{ objectPosition: member.objectPosition ?? 'center 40%' }} />
+          ) : (
+            <div className={`w-full h-full bg-gradient-to-br ${member.avatarColor} flex items-center justify-center`}>
+              <span className="text-2xl font-black text-white tracking-wide">{member.initials}</span>
+            </div>
+          )}
+        </div>
+        {/* Info */}
+        <h3 className="font-bold text-base text-foreground mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
+        <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">{member.role}</span>
+        <p className="text-xs text-muted-foreground mt-3 line-clamp-2">{member.about}</p>
+        <span className="mt-4 text-xs text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity">View Profile →</span>
+      </div>
+    </button>
+  )
 }
 
 function TeamSection({ title, subtitle, members, onSelect, delay = 0 }: {
