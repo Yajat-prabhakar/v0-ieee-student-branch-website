@@ -66,23 +66,33 @@ export default function Alumni() {
     <>
       <Header />
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="bg-[#00629B] text-white py-20 md:py-24">
-          <div className="container-ieee">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Alumni</h1>
-            <p className="text-xl opacity-90 max-w-2xl">
-              Celebrating the achievements of our graduates across the globe.
-            </p>
+        <section className="relative pt-16 pb-12 overflow-hidden">
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="font-label-caps text-amber-700 mb-4 block">Legacy of Excellence</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Our Alumni. Our Pride.</h1>
+              <p className="text-lg text-slate-500 max-w-xl mb-6">
+                Celebrating the achievements of our graduates across the globe.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-primary text-white px-6 py-3 rounded-xl font-semibold shadow-lg">Join Alumni Network</button>
+                <button className="border border-slate-300 text-slate-700 px-6 py-3 rounded-xl font-semibold">Mentorship Portal</button>
+              </div>
+            </div>
+            <div className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl bg-slate-200 flex items-center justify-center text-slate-400">
+              Alumni Gathering
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+            </div>
           </div>
         </section>
 
-        {/* Alumni Grid */}
-        <section className="py-20">
-          <div className="container-ieee">
-            <h2 className="section-title">Notable Alumni</h2>
-            <p className="section-subtitle">Success stories from our branch</p>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <section className="py-16 bg-slate-100">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-3">Trailblazers in Tech</h2>
+              <p className="text-slate-500 max-w-2xl mx-auto">Success stories from our branch</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {alumni.map((person) => (
                 <AlumniCard key={person.name} {...person} />
               ))}
@@ -90,109 +100,59 @@ export default function Alumni() {
           </div>
         </section>
 
-        {/* Success Stories */}
-        <section className="py-20 bg-secondary">
-          <div className="container-ieee">
-            <h2 className="section-title">Alumni Success Stories</h2>
-            <p className="section-subtitle">Inspiring journeys of our graduates</p>
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="group bg-primary p-8 rounded-2xl text-white flex flex-col justify-between min-h-[320px]">
+                <div>
+                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">👥</div>
+                  <h3 className="text-2xl font-semibold mb-3">Join the Alumni Network</h3>
+                  <p className="text-white/80">Connect with fellow alumni, share experiences, and stay updated on branch activities.</p>
+                </div>
+                <button className="inline-flex items-center gap-2 font-bold mt-6">Learn More →</button>
+              </div>
+              <div className="group bg-amber-700 p-8 rounded-2xl text-white flex flex-col justify-between min-h-[320px]">
+                <div>
+                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">🤝</div>
+                  <h3 className="text-2xl font-semibold mb-3">Mentorship Program</h3>
+                  <p className="text-white/80">Mentor current students and give back to the community that shaped your career.</p>
+                </div>
+                <button className="inline-flex items-center gap-2 font-bold mt-6">Become a Mentor →</button>
+              </div>
+              <div className="group bg-white border border-slate-200 p-8 rounded-2xl text-slate-900 flex flex-col justify-between min-h-[320px]">
+                <div>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">💼</div>
+                  <h3 className="text-2xl font-semibold mb-3">Career Opportunities</h3>
+                  <p className="text-slate-500">Access exclusive job opportunities posted by alumni working at top companies.</p>
+                </div>
+                <button className="inline-flex items-center gap-2 font-bold text-primary mt-6">Explore Jobs →</button>
+              </div>
+            </div>
+          </div>
+        </section>
 
+        <section className="py-16 bg-slate-900 text-white">
+          <div className="max-w-5xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-3">From Student to Tech Leader</h3>
-                <p className="text-foreground mb-4">
-                  "My time in IEEE BVIMR shaped my career. The networking, workshops, and mentorship I received helped me secure my first role at Google. Today, I lead a team of engineers working on cutting-edge cloud technologies."
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>- Priya Verma, Software Engineer at Google</strong>
-                </p>
+              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl relative">
+                <span className="material-symbols-outlined text-amber-200 text-5xl absolute -top-4 -left-4 opacity-20">format_quote</span>
+                <p className="text-xl italic mb-6">"My time in IEEE BVIMR shaped my career. The networking, workshops, and mentorship I received helped me secure my first role at Google."</p>
+                <p className="text-sm text-white/70"><strong>- Priya Verma, Software Engineer at Google</strong></p>
               </div>
-
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-3">Building a Career in AI</h3>
-                <p className="text-foreground mb-4">
-                  "The technical depth I gained through IEEE's AI workshops and competitions prepared me well. I'm now pursuing cutting-edge research in machine learning and artificial intelligence."
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>- Rohit Sharma, AI/ML Engineer at OpenAI</strong>
-                </p>
-              </div>
-
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-3">Entrepreneurial Journey</h3>
-                <p className="text-foreground mb-4">
-                  "The leadership skills and industry connections I made through IEEE were crucial in starting my own venture. The branch taught me the importance of innovation and collaboration."
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>- Nikhil Khanna, Startup Founder</strong>
-                </p>
-              </div>
-
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-3">Global Career Path</h3>
-                <p className="text-foreground mb-4">
-                  "IEEE opened doors to international opportunities. The global network and technical excellence promoted by the organization helped me transition to working with multinational companies."
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>- Shreya Nair, Product Manager at Amazon</strong>
-                </p>
+              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl relative">
+                <span className="material-symbols-outlined text-blue-200 text-5xl absolute -top-4 -left-4 opacity-20">format_quote</span>
+                <p className="text-xl italic mb-6">"The technical depth I gained through IEEE's AI workshops and competitions prepared me well. I'm now pursuing cutting-edge research in machine learning."</p>
+                <p className="text-sm text-white/70"><strong>- Rohit Sharma, AI/ML Engineer at OpenAI</strong></p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Stay Connected */}
-        <section className="py-20">
-          <div className="container-ieee">
-            <h2 className="section-title text-center">Stay Connected</h2>
-            <p className="section-subtitle text-center mb-8">Alumni Network and Mentorship</p>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="card-ieee text-center">
-                <div className="text-4xl mb-4">👥</div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Join the Alumni Network</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Connect with fellow alumni, share experiences, and stay updated on branch activities.
-                </p>
-                <button className="text-primary font-semibold hover:text-primary-foreground transition-colors">
-                  Learn More
-                </button>
-              </div>
-
-              <div className="card-ieee text-center">
-                <div className="text-4xl mb-4">🤝</div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Mentorship Program</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Mentor current students and give back to the community that shaped your career.
-                </p>
-                <button className="text-primary font-semibold hover:text-primary-foreground transition-colors">
-                  Become a Mentor
-                </button>
-              </div>
-
-              <div className="card-ieee text-center">
-                <div className="text-4xl mb-4">💼</div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Career Opportunities</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Access exclusive job opportunities posted by alumni working at top companies.
-                </p>
-                <button className="text-primary font-semibold hover:text-primary-foreground transition-colors">
-                  Explore Jobs
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-[#00629B] text-white py-20">
-          <div className="container-ieee text-center">
-            <h2 className="text-4xl font-bold mb-4">Inspire Future Generations</h2>
-            <p className="text-xl opacity-90 mb-8">
-              Share your story and mentor the next generation of engineers
-            </p>
-            <button className="btn-ieee-primary bg-white text-primary hover:bg-gray-100">
-              Share Your Story
-            </button>
+        <section className="py-16 bg-primary text-white">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Inspire Future Generations</h2>
+            <p className="text-lg text-white/80 mb-8">Share your story and mentor the next generation of engineers</p>
+            <button className="bg-white text-primary px-8 py-3 rounded-full font-bold">Share Your Story</button>
           </div>
         </section>
       </main>

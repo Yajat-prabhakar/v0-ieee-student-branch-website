@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Linkedin, Instagram, Facebook, Twitter, Github } from 'lucide-react'
+import { Linkedin, Instagram, Facebook, Twitter, Github, Mail, Globe } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -33,36 +33,37 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-secondary text-secondary-foreground border-t border-border">
-      <div className="container-ieee py-12 md:py-16">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand Section */}
-          <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
+    <footer className="bg-slate-50 border-t border-slate-200">
+      <div className="container-ieee py-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
               <Image
                 src="/ieee-bvimr-logo.png"
                 alt="IEEE BVIMR Student Branch"
-                width={200}
-                height={50}
-                className="h-12 w-auto object-contain"
+                width={180}
+                height={42}
+                className="h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Advancing Technology for Humanity. Part of IEEE Region 10 (Asia Pacific).
+            <p className="text-sm text-slate-500 leading-relaxed mb-4">
+              The student branch of IEEE at BVIMR, New Delhi, committed to technical excellence and fostering innovation among students.
             </p>
+            <div className="flex items-center gap-3 text-slate-400">
+              <Globe size={18} />
+              <Mail size={18} />
+            </div>
           </div>
 
-          {/* Links Sections */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold text-foreground mb-4">{category}</h4>
+              <h4 className="text-sm font-bold text-slate-900 mb-4">{category}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                      className="text-sm text-slate-500 hover:text-sky-700 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -73,31 +74,19 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-border py-8"></div>
-
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Copyright & Badge */}
-          <div className="text-center md:text-left">
-            <p className="text-sm text-muted-foreground mb-2">
-              © {currentYear} IEEE BVIMR Student Branch. All Rights Reserved.
-            </p>
-            <div className="inline-block bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
-              Part of IEEE Region 10
-            </div>
-          </div>
-
-          {/* Social Links */}
+        <div className="border-t border-slate-200 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-xs text-slate-500">
+            © {currentYear} IEEE Student Branch BVIMR. Part of IEEE Region 10. All Rights Reserved.
+          </p>
           <div className="flex items-center gap-4">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <Link
                 key={label}
                 href={href}
                 aria-label={label}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                className="text-slate-400 hover:text-sky-700 transition-colors"
               >
-                <Icon size={20} />
+                <Icon size={18} />
               </Link>
             ))}
           </div>

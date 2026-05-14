@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Inter } from 'next/font/google'
+import { Geist, Geist_Mono, Inter, Manrope } from 'next/font/google'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-const _inter = Inter({ subsets: ["latin"] });
+const _geist = Geist({ subsets: ["latin"] })
+const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const _inter = Inter({ subsets: ["latin"], variable: '--font-inter' })
+const _manrope = Manrope({ subsets: ["latin"], variable: '--font-manrope' })
 
 export const metadata: Metadata = {
   title: 'IEEE BVIMR Student Branch',
@@ -43,7 +44,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased min-h-screen bg-background text-foreground" suppressHydrationWarning>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body
+        className={`${_inter.variable} ${_manrope.variable} font-body antialiased min-h-screen bg-background text-foreground`}
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>

@@ -33,104 +33,82 @@ export default function Contact() {
     <>
       <Header />
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="bg-[#00629B] text-white py-20 md:py-24">
-          <div className="container-ieee">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-xl opacity-90 max-w-2xl">
-              Get in touch with the IEEE BVIMR Student Branch leadership and team.
-            </p>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="py-20">
-          <div className="container-ieee">
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* Contact Info Cards */}
-              <div className="card-ieee text-center">
-                <div className="text-4xl text-primary mb-4">
-                  <Mail className="mx-auto" size={32} />
+        <section className="max-w-6xl mx-auto px-6 pt-16 pb-12 grid lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6">
+            <div>
+              <span className="font-label-caps text-amber-700">Connect with us</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2">Contact Us</h1>
+              <p className="text-lg text-slate-500 mt-4 max-w-lg">
+                Get in touch with the IEEE BVIMR Student Branch leadership and team.
+              </p>
+            </div>
+            <div className="grid gap-4">
+              <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 hover:shadow-lg transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-2 rounded-lg text-primary">
+                    <Mail size={18} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">Email</h3>
+                    <p className="text-slate-500">ieeesb@university.edu</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Email</h3>
-                <p className="text-foreground">ieeesb@university.edu</p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Send us your queries and feedback
-                </p>
               </div>
-
-              <div className="card-ieee text-center">
-                <div className="text-4xl text-primary mb-4">
-                  <MapPin className="mx-auto" size={32} />
+              <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 hover:shadow-lg transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-2 rounded-lg text-primary">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">Location</h3>
+                    <p className="text-slate-500">BVIMR Campus, New Delhi, India</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Location</h3>
-                <p className="text-foreground">BVIMR Campus</p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  New Delhi, India
-                </p>
               </div>
-
-              <div className="card-ieee text-center">
-                <div className="text-4xl text-primary mb-4">
-                  <Phone className="mx-auto" size={32} />
+              <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 hover:shadow-lg transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-2 rounded-lg text-primary">
+                    <Phone size={18} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">Chapter Number</h3>
+                    <p className="text-slate-500">IEEE Region 10 — Asia Pacific</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg text-foreground mb-2">Chapter Number</h3>
-                <p className="text-foreground">IEEE Region 10</p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Asia Pacific Region
-                </p>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Contact Form Section */}
-        <section className="py-20 bg-secondary">
-          <div className="container-ieee max-w-2xl">
-            <h2 className="section-title text-center">Send us a Message</h2>
-            <p className="section-subtitle text-center mb-12">
-              We'd love to hear from you. Fill out the form below and we'll get back to you soon.
-            </p>
-
-            <form onSubmit={handleSubmit} className="card-ieee space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="your@email.com"
-                  />
-                </div>
+          <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-amber-600"></div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label htmlFor="name" className="font-label-caps text-slate-400">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-primary"
+                  placeholder="Your name"
+                />
               </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-foreground mb-2">
-                  Subject
-                </label>
+              <div className="space-y-2">
+                <label htmlFor="email" className="font-label-caps text-slate-400">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-primary"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="subject" className="font-label-caps text-slate-400">Subject</label>
                 <input
                   type="text"
                   id="subject"
@@ -138,31 +116,24 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full bg-transparent border-b border-slate-200 py-2 focus:outline-none focus:border-primary"
                   placeholder="What is this about?"
                 />
               </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
-                  Message
-                </label>
+              <div className="space-y-2">
+                <label htmlFor="message" className="font-label-caps text-slate-400">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  rows={4}
+                  className="w-full bg-transparent border-b border-slate-200 py-2 resize-none focus:outline-none focus:border-primary"
                   placeholder="Your message here..."
                 ></textarea>
               </div>
-
-              <button
-                type="submit"
-                className="btn-ieee-primary w-full inline-flex items-center justify-center gap-2"
-              >
+              <button type="submit" className="w-full bg-primary text-white py-3 rounded-lg font-semibold inline-flex items-center justify-center gap-2">
                 <Send size={18} />
                 Send Message
               </button>
@@ -170,67 +141,58 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-20">
-          <div className="container-ieee max-w-2xl">
-            <h2 className="section-title text-center">Frequently Asked Questions</h2>
+        <section className="max-w-6xl mx-auto px-6 pb-12">
+          <div className="w-full h-[320px] rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 border border-slate-200 bg-slate-100 flex items-center justify-center text-slate-400">
+            BVIMR Campus Map
+          </div>
+        </section>
 
-            <div className="space-y-4">
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-2">How do I join IEEE BVIMR?</h3>
-                <p className="text-foreground">
-                  You can join by becoming an IEEE member first, then registering with our student branch. Contact us at ieeesb@university.edu for more details.
-                </p>
-              </div>
-
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-2">What events do you organize?</h3>
-                <p className="text-foreground">
-                  We organize technical workshops, seminars, networking events, competitions, and career development sessions. Check our Events page for upcoming activities.
-                </p>
-              </div>
-
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-2">Can non-members attend events?</h3>
-                <p className="text-foreground">
-                  Most of our events are open to all students and professionals. Some exclusive member-only events may require membership. Contact us for specific event details.
-                </p>
-              </div>
-
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-2">How can I become a volunteer?</h3>
-                <p className="text-foreground">
-                  We welcome volunteers! Send us an email expressing your interest, and we'll get back to you with opportunities to contribute.
-                </p>
-              </div>
-
-              <div className="card-ieee">
-                <h3 className="font-bold text-lg text-foreground mb-2">How often do you meet?</h3>
-                <p className="text-foreground">
-                  Our affinity group meetings and events are scheduled throughout the academic year. Subscribe to our newsletter to stay updated on meeting schedules.
-                </p>
-              </div>
+        <section className="max-w-6xl mx-auto px-6 pb-16">
+          <div className="bg-slate-50 rounded-3xl p-8">
+            <div className="text-center mb-8">
+              <span className="font-label-caps text-amber-700">Knowledge Base</span>
+              <h2 className="text-3xl font-semibold text-slate-900 mt-2">Frequently Asked Questions</h2>
+            </div>
+            <div className="max-w-3xl mx-auto space-y-4">
+              {[
+                {
+                  q: 'How do I join IEEE BVIMR?',
+                  a: 'You can join by becoming an IEEE member first, then registering with our student branch. Contact us at ieeesb@university.edu for more details.',
+                },
+                {
+                  q: 'What events do you organize?',
+                  a: 'We organize technical workshops, seminars, networking events, competitions, and career development sessions. Check our Events page for upcoming activities.',
+                },
+                {
+                  q: 'Can non-members attend events?',
+                  a: 'Most of our events are open to all students and professionals. Some exclusive member-only events may require membership. Contact us for specific event details.',
+                },
+                {
+                  q: 'How can I become a volunteer?',
+                  a: 'We welcome volunteers! Send us an email expressing your interest, and we\'ll get back to you with opportunities to contribute.',
+                },
+                {
+                  q: 'How often do you meet?',
+                  a: 'Our affinity group meetings and events are scheduled throughout the academic year. Subscribe to our newsletter to stay updated on meeting schedules.',
+                },
+              ].map((item) => (
+                <div key={item.q} className="bg-white border border-slate-200 rounded-xl p-6">
+                  <h3 className="font-semibold text-slate-900 mb-2">{item.q}</h3>
+                  <p className="text-slate-500">{item.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-[#00629B] text-white py-20">
-          <div className="container-ieee text-center">
-            <h2 className="text-4xl font-bold mb-4">Connect With Us</h2>
-            <p className="text-xl opacity-90 mb-8">
-              Follow us on social media for the latest updates and announcements
-            </p>
+        <section className="py-16 bg-primary text-white">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Connect With Us</h2>
+            <p className="text-lg text-white/80 mb-8">Follow us on social media for the latest updates and announcements</p>
             <div className="flex justify-center gap-4">
-              <button className="px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors">
-                LinkedIn
-              </button>
-              <button className="px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors">
-                Instagram
-              </button>
-              <button className="px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors">
-                Facebook
-              </button>
+              <button className="px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors">LinkedIn</button>
+              <button className="px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors">Instagram</button>
+              <button className="px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors">Facebook</button>
             </div>
           </div>
         </section>

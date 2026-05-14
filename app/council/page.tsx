@@ -635,130 +635,129 @@ export default function Council() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-background">
-        {/* Hero */}
-        <section className="bg-gradient-to-r from-[#002147] via-[#00629B] to-[#00629B] text-white py-24 md:py-32">
-          <div className="container-ieee">
-            <RevealSection>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest text-white mb-6">
-                <Users size={14} />
-                IEEE BVIMR — Our People
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
-                Meet the Council
-              </h1>
-              <p className="text-lg text-white/80 max-w-2xl">
-                The passionate individuals driving innovation, technical excellence, and community at IEEE BVIMR Student Branch.
-              </p>
-            </RevealSection>
-          </div>
+      <main className="min-h-screen bg-white">
+        <section className="mb-16 text-center max-w-6xl mx-auto px-6 pt-16">
+          <span className="font-label-caps text-amber-700 mb-3 inline-block">Leadership 2024-25</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">Our Student Council</h1>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            Dedicated professionals bridging the gap between student innovation and technical excellence. Meet the visionaries driving IEEE Student Branch BVIMR forward.
+          </p>
         </section>
 
-        {/* Stats bar */}
-        <div className="bg-[#002147] text-white">
-          <div className="container-ieee py-6">
-            <RevealSection>
-              <div className="flex flex-wrap gap-8 justify-center md:justify-start">
-                {[
-                  { value: '40+', label: 'Council Members' },
-                  { value: '10', label: 'Teams Active' },
-                  { value: '2026', label: 'Founded' },
-                ].map(stat => (
-                  <div key={stat.label} className="text-center md:text-left">
-                    <div className="text-3xl font-black text-white">{stat.value}</div>
-                    <div className="text-xs text-white/60 uppercase tracking-widest font-semibold">{stat.label}</div>
+        <nav className="flex flex-wrap justify-center gap-2 mb-12 px-6">
+          {[
+            'All Teams',
+            'Core',
+            'Tech',
+            'Event',
+            'Operations',
+            'Creative',
+            'Media',
+            'Publicity',
+            'Outreach',
+            'Reporting',
+            'Membership Dev',
+          ].map((label, index) => (
+            <button
+              key={label}
+              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-widest transition-all ${
+                index === 0
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-500 hover:bg-blue-50 hover:text-primary'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+
+        <section className="max-w-6xl mx-auto px-6 pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...coreTeam, ...techTeam, ...eventTeam, ...operationsTeam, ...creativeTeam].slice(0, 6).map((member) => (
+              <div key={member.name} className="perspective group card-hover h-[420px]">
+                <div className="card-inner relative w-full h-full">
+                  <div className="card-front absolute inset-0 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                    <div className="w-full h-2/3 bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+                      Member Portrait
+                    </div>
+                    <div className="p-4 text-center">
+                      <h3 className="text-lg font-semibold text-primary mb-1">{member.name}</h3>
+                      <p className="font-label-caps text-amber-700">{member.role}</p>
+                    </div>
                   </div>
-                ))}
+                  <div className="card-back absolute inset-0 bg-primary text-white p-6 rounded-xl flex flex-col justify-center items-center text-center shadow-xl">
+                    <span className="material-symbols-outlined text-4xl mb-4">stars</span>
+                    <h4 className="text-xl font-semibold mb-2">Leadership</h4>
+                    <p className="text-sm text-blue-100 mb-4">{member.about}</p>
+                    <div className="flex gap-3">
+                      <button type="button" className="text-white/80 hover:text-white" aria-label="LinkedIn">
+                        <Linkedin size={18} />
+                      </button>
+                      <button type="button" className="text-white/80 hover:text-white" aria-label="Email">
+                        <Mail size={18} />
+                      </button>
+                      <button type="button" className="text-white/80 hover:text-white" aria-label="GitHub">
+                        <Github size={18} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </RevealSection>
-          </div>
-        </div>
-
-        {/* Teams */}
-        <section className="py-20">
-          <div className="container-ieee">
-            <TeamSection
-              title="Core Team"
-              subtitle="The executive leadership driving the branch vision and operations."
-              members={coreTeam}
-              onSelect={setSelected}
-              delay={0}
-            />
-            <TeamSection
-              title="Tech Team"
-              subtitle="Technical advisors mentoring members and leading engineering initiatives."
-              members={techTeam}
-              onSelect={setSelected}
-              delay={100}
-            />
-            <TeamSection
-              title="Event Team"
-              subtitle="Planning and executing impactful technical and cultural events for the branch."
-              members={eventTeam}
-              onSelect={setSelected}
-              delay={200}
-            />
-            <TeamSection
-              title="Operations Team"
-              subtitle="Ensuring smooth day-to-day functioning and logistics across all branch activities."
-              members={operationsTeam}
-              onSelect={setSelected}
-              delay={300}
-            />
-            <TeamSection
-              title="Creative Team"
-              subtitle="Crafting the visual identity and creative content that represents IEEE BVIMR."
-              members={creativeTeam}
-              onSelect={setSelected}
-              delay={400}
-            />
-            <TeamSection
-              title="Publicity Team"
-              subtitle="Driving awareness and promoting the branch through strategic outreach campaigns."
-              members={publicityTeam}
-              onSelect={setSelected}
-              delay={500}
-            />
-            <TeamSection
-              title="Media Team"
-              subtitle="Documenting events through photography, videography, and digital storytelling."
-              members={mediaTeam}
-              onSelect={setSelected}
-              delay={600}
-            />
-            <TeamSection
-              title="Event Reporting Team"
-              subtitle="Producing accurate records and detailed write-ups of all branch events."
-              members={reportingTeam}
-              onSelect={setSelected}
-              delay={700}
-            />
-            <TeamSection
-              title="Outreach Team"
-              subtitle="Connecting the branch with students, industry professionals, and partner institutions."
-              members={outreachTeam}
-              onSelect={setSelected}
-              delay={800}
-            />
-            <TeamSection
-              title="Membership Development Team"
-              subtitle="Growing the IEEE BVIMR community and enhancing the member experience."
-              members={membershipTeam}
-              onSelect={setSelected}
-              delay={900}
-            />
+            ))}
+            <button
+              type="button"
+              className="border-2 border-dashed border-slate-200 rounded-xl h-[420px] flex flex-col items-center justify-center text-slate-400 hover:border-sky-300 hover:text-sky-300 transition-colors"
+            >
+              <span className="material-symbols-outlined text-5xl mb-3">add_circle</span>
+              <span className="font-label-caps">Load More Members</span>
+            </button>
           </div>
         </section>
 
-        {/* Join CTA */}
-        <section className="py-20 bg-gradient-to-r from-[#002147] via-[#00629B] to-[#00629B] text-white">
-          <div className="container-ieee text-center">
+        <section className="max-w-6xl mx-auto px-6 pb-20">
+          <h2 className="text-3xl font-semibold text-slate-900 mb-8">Functional Teams</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 md:h-[560px]">
+            <div className="md:col-span-2 md:row-span-2 bg-slate-50 rounded-xl p-8 border border-slate-200 relative overflow-hidden">
+              <span className="material-symbols-outlined text-primary text-5xl mb-4">rocket_launch</span>
+              <h3 className="text-2xl font-semibold text-primary mb-3">Technical & R&D</h3>
+              <p className="text-slate-500">
+                Our core engine driving workshops, hackathons, and technical projects. Focused on IEEE standards and emerging tech research.
+              </p>
+              <div className="mt-6 flex -space-x-2">
+                {[0, 1, 2].map((item) => (
+                  <div key={item} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200"></div>
+                ))}
+                <div className="w-10 h-10 rounded-full border-2 border-white bg-primary text-white flex items-center justify-center text-xs">+12</div>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+              <span className="material-symbols-outlined text-amber-700 text-3xl mb-2">event_available</span>
+              <h4 className="text-lg font-semibold text-primary">Event Ops</h4>
+              <p className="text-sm text-slate-500 mt-2">Precision logistics for every branch gathering.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+              <span className="material-symbols-outlined text-amber-700 text-3xl mb-2">palette</span>
+              <h4 className="text-lg font-semibold text-primary">Creative</h4>
+              <p className="text-sm text-slate-500 mt-2">Visual identity and brand storytelling.</p>
+            </div>
+            <div className="md:col-span-2 bg-blue-50 rounded-xl p-6 border border-slate-200 flex items-center justify-between">
+              <div>
+                <h4 className="text-xl font-semibold text-primary">Outreach & Media</h4>
+                <p className="text-blue-700/80">Expanding our footprint across the global IEEE network.</p>
+              </div>
+              <span className="material-symbols-outlined text-primary text-6xl opacity-20">public</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-gradient-to-r from-[#002147] via-[#00629B] to-[#00629B] text-white">
+          <div className="max-w-4xl mx-auto px-6 text-center">
             <RevealSection>
-              <h2 className="text-3xl md:text-4xl font-black mb-4">Want to Join Our Team?</h2>
-              <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Want to Join Our Team?</h2>
+              <p className="text-white/80 text-lg mb-8">
                 We are always looking for passionate individuals to contribute to IEEE BVIMR.
               </p>
-              <a href="/contact" className="btn-ieee-primary">
+              <a href="/contact" className="bg-white text-primary px-8 py-3 rounded-full font-semibold">
                 Get in Touch
               </a>
             </RevealSection>

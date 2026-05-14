@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { Calendar, MapPin, ArrowRight, Clock, Users, Tag } from 'lucide-react'
+import { MapPin, ArrowRight, Clock, Users } from 'lucide-react'
 
 type FilterType = 'all' | 'upcoming' | 'past'
 
@@ -209,17 +209,7 @@ function RevealCard({ children, delay = 0 }: { children: React.ReactNode; delay?
   )
 }
 
-const categoryColors: Record<string, string> = {
-  Workshop:    'bg-blue-100 text-blue-700',
-  Seminar:     'bg-purple-100 text-purple-700',
-  Competition: 'bg-orange-100 text-orange-700',
-  Networking:  'bg-pink-100 text-pink-700',
-  Summit:      'bg-emerald-100 text-emerald-700',
-  Orientation: 'bg-cyan-100 text-cyan-700',
-  Official:    'bg-gray-100 text-gray-700',
-  Expo:        'bg-amber-100 text-amber-700',
-  Talk:        'bg-indigo-100 text-indigo-700',
-}
+
 
 export default function Events() {
   const [filter, setFilter] = useState<FilterType>('all')
@@ -242,184 +232,138 @@ export default function Events() {
       <Header />
       <main className="min-h-screen">
 
-        {/* Hero */}
-        <section className="bg-gradient-to-r from-[#002147] via-[#00629B] to-[#00629B] text-white py-24 md:py-32 overflow-hidden relative">
-          <div className="container-ieee relative z-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-white/60 mb-4">Events & Initiatives</p>
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-pretty">All Events</h1>
-            <p className="text-xl text-white/80 max-w-2xl font-light">
-              Technical workshops, seminars, and competitions crafted to elevate your engineering journey.
-            </p>
+        <section className="max-w-6xl mx-auto px-6 pt-16 pb-10">
+          <span className="font-label-caps text-amber-700 mb-3 block">EXPLORE OUR CALENDAR</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Shape the future through <span className="text-amber-700">Technical Excellence</span>
+          </h1>
+          <p className="text-lg text-slate-500 max-w-2xl">
+            Join a community of innovators. From global jams to local workshops, our events are designed to bridge the gap between academic theory and industry reality.
+          </p>
+        </section>
 
-            {/* Quick stats */}
-            <div className="flex gap-8 mt-12 pt-8 border-t border-white/20">
-              <div>
-                <div className="text-3xl font-black">{upcoming}</div>
-                <div className="text-xs uppercase tracking-widest text-white/60 mt-1">Upcoming</div>
-              </div>
-              <div>
-                <div className="text-3xl font-black">{past}</div>
-                <div className="text-xs uppercase tracking-widest text-white/60 mt-1">Past Events</div>
-              </div>
-              <div>
-                <div className="text-3xl font-black">10+</div>
-                <div className="text-xs uppercase tracking-widest text-white/60 mt-1">Total Held</div>
-              </div>
-            </div>
+        <section className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-6 mb-10">
+          <div className="flex bg-slate-100 p-1 rounded-full inline-flex">
+            {tabs.map(tab => (
+              <button
+                key={tab.key}
+                onClick={() => setFilter(tab.key)}
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
+                  filter === tab.key ? 'bg-primary text-white shadow-sm' : 'text-slate-500 hover:text-primary'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {['All Events', 'Seminars', 'Workshops', 'Competitions', 'Networking', 'Summits'].map((pill) => (
+              <span
+                key={pill}
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border ${
+                  pill === 'All Events'
+                    ? 'border-primary bg-blue-50 text-primary'
+                    : 'border-slate-200 text-slate-500'
+                }`}
+              >
+                {pill}
+              </span>
+            ))}
           </div>
         </section>
 
-        {/* Filter Tabs + Grid */}
-        <section className="py-20">
-          <div className="container-ieee">
-
-            {/* Tab bar */}
-            <div className="flex flex-wrap gap-2 mb-12">
-              {tabs.map(tab => (
-                <button
-                  key={tab.key}
-                  onClick={() => setFilter(tab.key)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
-                    filter === tab.key
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-secondary text-muted-foreground hover:bg-muted hover:text-foreground'
-                  }`}
-                >
-                  {tab.label}
-                  <span className={`ml-2 text-xs px-2 py-0.5 rounded-full ${
-                    filter === tab.key ? 'bg-white/20 text-white' : 'bg-border text-muted-foreground'
-                  }`}>
-                    {tab.count}
-                  </span>
-                </button>
-              ))}
-            </div>
-
-            {/* Cards grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filtered.map((event, idx) => (
-                <RevealCard key={event.id} delay={idx * 60}>
-                  <div className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-
-                    {/* Colour header strip with date */}
-                    <div className="bg-gradient-to-r from-[#002147] to-[#00629B] px-6 pt-6 pb-4 flex items-start justify-between">
-                      <div className="text-center bg-white rounded-lg px-4 py-2 shadow-sm">
-                        <div className="text-xs font-bold text-primary uppercase tracking-widest">{event.month}</div>
-                        <div className="text-3xl font-black text-foreground leading-none">{event.day}</div>
-                        <div className="text-xs text-muted-foreground">{event.year}</div>
-                      </div>
-
-                      <div className="flex flex-col items-end gap-2">
-                        {/* Status badge */}
-                        <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
-                          event.status === 'upcoming'
-                            ? 'bg-emerald-400/20 text-emerald-300 border border-emerald-400/30'
-                            : 'bg-white/10 text-white/60 border border-white/20'
-                        }`}>
-                          {event.status === 'upcoming' ? 'Upcoming' : 'Completed'}
-                        </span>
-                        {/* Category */}
-                        <span className="text-xs text-white/60">{event.category}</span>
-                      </div>
+        <section className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+          {filtered.map((event, idx) => (
+            <RevealCard key={event.id} delay={idx * 60}>
+              <div className="bg-white border border-slate-200 rounded-xl overflow-hidden card-hover-effect transition-all duration-500 flex flex-col relative group">
+                <div className="aspect-video overflow-hidden bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+                  Event Highlight
+                </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-label-caps text-amber-700">{event.category}</span>
+                    <div className="flex items-center text-slate-400 text-xs">
+                      <span className="material-symbols-outlined text-sm mr-1">calendar_today</span>
+                      {event.date}
                     </div>
-
-                    {/* Body */}
-                    <div className="p-6 flex flex-col flex-1">
-                      {/* Tag */}
-                      <span className={`inline-block text-xs font-semibold px-2 py-1 rounded-md mb-3 w-fit ${categoryColors[event.category] ?? 'bg-gray-100 text-gray-700'}`}>
-                        {event.tag}
-                      </span>
-
-                      <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-200">
-                        {event.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                        {event.description}
-                      </p>
-
-                      {/* Meta */}
-                      <div className="space-y-2 mb-5">
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <MapPin size={13} className="text-primary shrink-0" />
-                          <span>{event.location}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <Users size={13} className="text-primary shrink-0" />
-                          <span>{event.attendees} attendees</span>
-                        </div>
-                      </div>
-
-                      {/* CTA */}
-                      <button className={`w-full py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 ${
-                        event.status === 'upcoming'
-                          ? 'bg-primary text-white hover:bg-[#004B75]'
-                          : 'bg-secondary text-foreground hover:bg-muted border border-border'
-                      }`}>
-                        {event.cta}
-                        <ArrowRight size={14} />
-                      </button>
-                    </div>
-
                   </div>
-                </RevealCard>
-              ))}
-            </div>
-
-            {filtered.length === 0 && (
-              <div className="text-center py-20 text-muted-foreground">
-                <Clock size={48} className="mx-auto mb-4 opacity-30" />
-                <p className="text-lg font-semibold">No events in this category yet.</p>
+                  <h3 className="text-lg font-semibold text-primary mb-2">{event.title}</h3>
+                  <p className="text-sm text-slate-500 mb-4 line-clamp-2">{event.description}</p>
+                  <div className="mt-auto pt-4 flex items-center justify-between">
+                    <div className="flex items-center text-sm font-semibold text-primary">
+                      <MapPin size={14} className="mr-2" />
+                      {event.location}
+                    </div>
+                    <button className="text-primary font-bold text-sm flex items-center group-hover:translate-x-1 transition-transform">
+                      {event.cta}
+                      <ArrowRight size={14} className="ml-1" />
+                    </button>
+                  </div>
+                  <div className="mt-3 flex items-center gap-2 text-xs text-slate-400">
+                    <Users size={12} /> {event.attendees} attendees
+                  </div>
+                </div>
               </div>
-            )}
-          </div>
-        </section>
-
-        {/* Event types strip */}
-        <section className="py-20 bg-secondary border-t border-border">
-          <div className="container-ieee">
-            <RevealCard>
-              <h2 className="section-title">Types of Events We Organise</h2>
-              <p className="section-subtitle">Diverse opportunities for learning and networking</p>
             </RevealCard>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-              {[
-                { icon: <Tag size={28} />, title: 'Technical Workshops', desc: 'Hands-on sessions on emerging technologies and practical skills.' },
-                { icon: <Users size={28} />, title: 'Networking Events', desc: 'Meet industry professionals, alumni, and fellow members.' },
-                { icon: <Calendar size={28} />, title: 'Seminars & Talks', desc: 'Insights from experts on career development and tech trends.' },
-                { icon: <Clock size={28} />, title: 'Competitions', desc: 'Hackathons, coding contests, and innovation challenges.' },
-              ].map((item, idx) => (
-                <RevealCard key={idx} delay={idx * 80}>
-                  <div className="card-ieee text-center group hover:border-primary">
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                      {item.icon}
-                    </div>
-                    <h3 className="font-bold text-base text-foreground mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-                </RevealCard>
-              ))}
-            </div>
+          ))}
+          <div className="bg-primary text-white rounded-xl p-6 flex flex-col justify-center relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-28 h-28 bg-white/10 rounded-full -mr-14 -mt-14 group-hover:scale-125 transition-transform"></div>
+            <span className="font-label-caps text-blue-100 mb-2 relative z-10">BEYOND THE BRANCH</span>
+            <h3 className="text-xl font-semibold mb-3 relative z-10">Don&apos;t see what you&apos;re looking for?</h3>
+            <p className="text-sm text-blue-100 mb-5 relative z-10">
+              Suggest a workshop or seminar topic you&apos;d like to see in the upcoming semester. We&apos;re always listening to our members.
+            </p>
+            <button className="bg-white text-primary px-5 py-2 rounded-full font-bold text-sm w-fit relative z-10">
+              Submit Proposal
+            </button>
           </div>
         </section>
 
-        {/* Newsletter */}
-        <section className="py-20">
-          <RevealCard>
-            <div className="container-ieee max-w-2xl mx-auto text-center">
-              <h2 className="section-title">Stay Updated</h2>
-              <p className="section-subtitle">Get notified about upcoming events and announcements</p>
-              <form className="flex flex-col sm:flex-row gap-3 mt-8" onSubmit={e => e.preventDefault()}>
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 border border-border rounded-lg bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary text-sm"
-                />
-                <button type="submit" className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-[#004B75] transition-colors text-sm whitespace-nowrap">
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </RevealCard>
+        <section className="max-w-6xl mx-auto px-6 pb-20 opacity-80">
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="text-2xl font-semibold text-slate-500">Archived Success</h2>
+            <div className="h-px bg-slate-200 flex-grow"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {events.filter(e => e.status === 'past').slice(0, 2).map((event) => (
+              <div key={event.id} className="flex gap-4 p-4 border border-slate-200 rounded-xl items-center hover:bg-slate-50 transition-colors">
+                <div className="w-24 h-24 rounded-lg bg-slate-100 flex-shrink-0 flex flex-col items-center justify-center text-primary">
+                  <span className="text-xl font-bold">{event.month}</span>
+                  <span className="text-sm">{event.year}</span>
+                </div>
+                <div>
+                  <span className="font-label-caps text-amber-700 mb-1 block">{event.category}</span>
+                  <h4 className="text-lg font-semibold text-primary mb-1">{event.title}</h4>
+                  <p className="text-sm text-slate-500">{event.description}</p>
+                </div>
+                <span className="material-symbols-outlined text-slate-300 ml-auto">arrow_outward</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {filtered.length === 0 && (
+          <div className="text-center pb-16 text-slate-400">
+            <Clock size={48} className="mx-auto mb-4 opacity-30" />
+            <p className="text-lg font-semibold">No events in this category yet.</p>
+          </div>
+        )}
+
+        <section className="py-16 bg-slate-50">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-semibold text-slate-900">Stay Updated</h2>
+            <p className="text-slate-500 mt-2">Get notified about upcoming events and announcements</p>
+            <form className="flex flex-col sm:flex-row gap-3 mt-8" onSubmit={e => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 px-4 py-3 border border-slate-200 rounded-lg bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+              />
+              <button type="submit" className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-[#004B75] transition-colors text-sm whitespace-nowrap">
+                Subscribe
+              </button>
+            </form>
+          </div>
         </section>
 
       </main>
